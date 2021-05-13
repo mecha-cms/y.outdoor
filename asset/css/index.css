@@ -101,10 +101,32 @@ code, .code {
 }
 
 details summary {
-  font-size: 90%;
-  font-weight: bold;
-  text-transform: uppercase;
+  display: block;
+  position: relative;
+  padding-left: 15px;
   cursor: pointer;
+}
+
+details summary::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-right: 0 solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 7px solid #ccc;
+  margin-top: -4px;
+}
+
+details summary:hover::before {
+  border-left-color: #aaa;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
 }
 
 fieldset {
@@ -603,7 +625,8 @@ legend + .p {
   flex-wrap: wrap;
 }
 
-.nav a {
+.nav a,
+.nav span {
   display: block;
   padding: 0 15px;
   color: inherit;
@@ -612,7 +635,8 @@ legend + .p {
   text-decoration: none;
 }
 
-.nav li:first-child a {
+.nav li:first-child a,
+.nav li:first-child span {
   border-left: 0;
 }
 
@@ -720,6 +744,17 @@ legend + .p {
 .widget ul li a:hover {
   color: #1773bc;
   text-decoration: none;
+}
+
+.widget .archive ul,
+.widget .archive li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.widget .archive li {
+  margin: 10px 0 0 5px;
 }
 
 .width {

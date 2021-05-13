@@ -15,7 +15,7 @@
     $time = '<time datetime="' . $page->time->format('c') . '">' . $page->time('%I:%M %p') . '</time>';
 
     ?>
-    <?= i('Posted by %s on %s', [$author, $time]); ?>
+    <?= i('Posted by %s at %s', [$author, $time]); ?>
     <?php
 
     if (isset($state->x->tag)) {

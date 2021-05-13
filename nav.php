@@ -1,9 +1,29 @@
 <h2><?= i('Navigation'); ?></h2>
 <nav class="nav">
   <ul>
-    <li><a href="">Beranda</a></li>
-    <li><a href="">Jurnal</a></li>
-    <li><a href="">Arsip</a></li>
-    <li><a href="">Tentang</a></li>
+    <li>
+      <?php if ($site->is('home')): ?>
+        <span>
+          <?= i('Home'); ?>
+        </span>
+      <?php else: ?>
+        <a href="<?= $url; ?>">
+          <?= i('Home'); ?>
+        </a>
+      <?php endif; ?>
+    </li>
+    <?php foreach ($links as $link): ?>
+      <li>
+        <?php if ($link->active): ?>
+          <span>
+            <?= $link->title; ?>
+          </span>
+        <?php else: ?>
+          <a href="<?= $link->link ?: $link->url; ?>">
+            <?= $link->title; ?>
+          </a>
+        <?php endif; ?>
+      </li>
+    <?php endforeach; ?>
   </ul>
 </nav>

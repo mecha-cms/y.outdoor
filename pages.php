@@ -22,13 +22,10 @@
       <?php endif; ?>
     </header>
     <div>
-      <?php if ($excerpt = $page->excerpt): ?>
-        <?= $excerpt; ?>
-      <?php else: ?>
-        <p>
-          <?= To::excerpt($page->content); ?>
-        </p>
+      <?php if (!$excerpt = $page->excerpt): ?>
+        <?php $excerpt = '<p>' . To::excerpt($page->content) . '</p>'; ?>
       <?php endif; ?>
+      <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
     </div>
     <?= self::get('--page.footer', ['page' => $page]); ?>
   </article>
