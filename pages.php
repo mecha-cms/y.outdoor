@@ -34,29 +34,5 @@
     </div>
   </article>
 <?php endforeach; ?>
-<nav class="pager">
-  <ul>
-    <li>
-      <?php if ($prev = $pager->prev): ?>
-        <a href="<?= $prev->link; ?>" rel="prev">
-          <?= i('Newer'); ?>
-        </a>
-      <?php endif; ?>
-    </li>
-    <li>
-      <?php if ($parent = $pager->parent): ?>
-        <a href="<?= $parent->link; ?>">
-          <?= i('Parent'); ?>
-        </a>
-      <?php endif; ?>
-    </li>
-    <li>
-      <?php if ($next = $pager->next): ?>
-        <a href="<?= $next->link; ?>" rel="next">
-          <?= i('Older'); ?>
-        </a>
-      <?php endif; ?>
-    </li>
-  </ul>
-</nav>
+<?= self::pager(); ?>
 <?= self::after(); ?>
