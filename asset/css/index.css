@@ -69,12 +69,18 @@ em, i, var {
   font-style: italic;
 }
 
+img {
+  background: #fafafa;
+  border: 1px solid #dcdcdc;
+  padding: 5px;
+}
+
 ins, u {
   text-decoration: underline;
 }
 
 blockquote {
-  font-size: 115%;
+  font-size: 130%;
   margin-right: 10px;
   margin-left: 10px;
   padding: 5px 10px 5px 45px;
@@ -247,11 +253,9 @@ pre {
 
 pre code {
   display: block;
-  padding: 1rem 1.25rem;
-  margin: .5rem 0;
-  background: #000;
-  color: #fff;
-  border-radius: 3px;
+  padding: 10px;
+  background: #fafae7;
+  border: 1px solid #f4f3ec;
 }
 
 * + blockquote,
@@ -486,12 +490,15 @@ legend + .p {
   padding-left: 10px;
 }
 
-.footer .widget ul li a {
+.footer .widget ul li a,
+.footer .widget .archive summary a {
   color: #666;
 }
 
 .footer .widget ul li a:focus,
-.footer .widget ul li a:hover {
+.footer .widget ul li a:hover,,
+.footer .widget .archive summary a:focus,
+.footer .widget .archive summary a:hover {
   color: #000;
 }
 
@@ -542,6 +549,14 @@ legend + .p {
   background: #f2f0f1;
   padding: 5px 0;
   margin: 0;
+}
+
+.image img {
+  display: block;
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .image + h2 {
@@ -670,7 +685,7 @@ legend + .p {
 }
 
 .page > header h3 {
-  font-size: 225%;
+  font-size: 220%;
 }
 
 .page > header p {
@@ -746,15 +761,25 @@ legend + .p {
   text-decoration: none;
 }
 
+.widget .archive {
+  padding: 5px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.widget .archive + .archive {
+  margin-top: 0;
+}
+
 .widget .archive ul,
 .widget .archive li {
-  margin: 0;
-  padding: 0;
   border: 0;
 }
 
+.widget .archive ul {
+  margin-top: 5px;
+}
 .widget .archive li {
-  margin: 10px 0 0 5px;
+  margin-left: 5px;
 }
 
 .width {
@@ -795,4 +820,15 @@ legend + .p {
 
 .table tr:nth-child(odd) td {
   background: #f3f3f3;
+}
+
+.is\:pages .page figure {
+  margin: 0 20px 0 0;
+  float: left;
+}
+
+.is\:pages .page::after {
+  content: "";
+  display: table;
+  clear: both;
 }

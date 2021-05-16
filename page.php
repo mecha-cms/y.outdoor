@@ -15,6 +15,6 @@
   <div>
     <?= $page->content; ?>
   </div>
-  <?= self::get('--page.footer', ['page' => $page]); ?>
+  <?= self::get('footer.page', ['page' => $page]); ?>
 </article>
 <?= self::after(); ?>
