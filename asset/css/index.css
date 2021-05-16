@@ -96,8 +96,14 @@ blockquote blockquote {
   margin-left: 1rem;
 }
 
-caption, figcaption, small, sub, sup {
+small, sub, sup {
   font-size: 90%;
+}
+
+caption, figcaption {
+  color: #99997d;
+  margin: 5px 0 0;
+  text-align: center;
 }
 
 code, .code {
@@ -123,12 +129,12 @@ details summary::before {
   border-top: 4px solid transparent;
   border-right: 0 solid transparent;
   border-bottom: 4px solid transparent;
-  border-left: 7px solid #ccc;
+  border-left: 7px solid #666;
   margin-top: -4px;
 }
 
 details summary:hover::before {
-  border-left-color: #aaa;
+  border-left-color: #222;
 }
 
 details[open] summary::before {
@@ -136,16 +142,12 @@ details[open] summary::before {
 }
 
 fieldset {
-  border: 1px solid #e5e5e5;
-  padding: 10px;
+  border: 1px solid #f4f3ec;
+  padding: 15px;
 }
 
 figure {
   text-align: center;
-}
-
-figure figcaption {
-  margin: 5px 0 0;
 }
 
 figure img {
@@ -190,7 +192,7 @@ hr {
   background: none;
   color: inherit;
   border: 0;
-  border-top: 1px dashed #e5e5e5;
+  border-top: 1px dashed #f4f3ec;
 }
 
 img {
@@ -200,10 +202,7 @@ img {
 
 legend {
   padding: 0 5px;
-  font-size: 80%;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 
 mark {
@@ -315,11 +314,15 @@ legend + .p {
   background: #fff;
   color: #777;
   border: 1px solid #e5e5e5;
+  border-top-color: #d5d5d5;
   padding: 3px 5px;
   position: relative;
 }
 
-.button {
+.button,
+.button:focus,
+.button:hover,
+.button:active {
   width: auto;
   max-width: unset;
   padding-right: 8px;
@@ -327,9 +330,10 @@ legend + .p {
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
   color: #fff;
   border: 0;
-  font-size: 12px;
+  font-size: 110%;
   font-weight: bold;
   font-family: 'trebuchet ms', 'lucida grande', 'lucida sans unicode', 'lucida sans', 'nimbus sans l', tahoma, sans-serif;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -351,60 +355,9 @@ legend + .p {
 }
 
 .input[type=color] {
-  width: 2.5rem;
+  width: 2.25rem;
   max-width: unset;
-  height: 2.5rem;
-}
-
-.input[type=checkbox],
-.input[type=radio] {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1.1em;
-  height: 1.1em;
-  max-width: 1.1em;
-  max-height: 1.1em;
-  min-width: 1.1em;
-  min-height: 1.1em;
-  margin: .25em 0 0;
-  background: #000;
-  border-radius: 3px;
-}
-
-.input[type=checkbox]:checked {
-  background: #00f;
-}
-
-.input[type=checkbox]:checked::before {
-  content: "";
-  width: .5em;
-  height: .3em;
-  position: absolute;
-  top: .26em;
-  left: .25em;
-  transform: rotate(-45deg);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-}
-
-.input[type=radio] {
-  border-radius: 100%;
-}
-
-.input[type=radio]:checked {
-  background: #fff;
-  border: .45em solid #00f;
-}
-
-.input::-webkit-outer-spin-button,
-.input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.input[type=number] {
-  -moz-appearance: textfield;
-  appearance: textfield;
+  height: 2.25rem;
 }
 
 .button[disabled],
@@ -416,10 +369,7 @@ legend + .p {
   cursor: not-allowed;
 }
 
-.select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+label, .select {
   cursor: pointer;
 }
 
@@ -449,28 +399,33 @@ legend + .p {
   box-shadow: inset 0 1px 0 #fff;
 }
 
-.footer .asides {
+.footer > div {
   display: flex;
   flex-wrap: wrap;
 }
 
-.footer .asides .aside {
+.footer > div .aside {
   flex: 1;
 }
 
-.footer .rights {
+.footer > div + div {
   padding: 15px;
-  text-align: center;
+  justify-content: center;
 }
 
-.footer .rights a {
+.footer > div + div p {
+  display: flex;
+  gap: 20px;
+}
+
+.footer > div + div a {
   color: #895f30;
 }
 
-.footer .rights a:focus,
-.footer .rights a:hover {
+.footer div + div a:focus,
+.footer div + div a:hover {
   text-decoration: none;
-  color: #000;
+  color: #222;
 }
 
 .footer .widget h4 {
@@ -496,10 +451,11 @@ legend + .p {
 }
 
 .footer .widget ul li a:focus,
-.footer .widget ul li a:hover,,
+.footer .widget ul li a:hover,
 .footer .widget .archive summary a:focus,
 .footer .widget .archive summary a:hover {
-  color: #000;
+  color: #222;
+  text-decoration: none;
 }
 
 .form.search p {
@@ -669,7 +625,8 @@ legend + .p {
 }
 
 .page > header h2,
-.page > header h3 {
+.page > header h3,
+.page .comments h3 {
   color: #895f30;
   letter-spacing: -1px;
   margin: 0;
@@ -684,7 +641,8 @@ legend + .p {
   font-size: 250%;
 }
 
-.page > header h3 {
+.page > header h3,
+.page .comments h3 {
   font-size: 220%;
 }
 
@@ -701,13 +659,26 @@ legend + .p {
   color: #899b0d;
 }
 
+.page .comments .comment-author {
+  font-weight: bold;
+}
+
+.page .comments .comment-footer,
+.page .comments .comment-header {
+  color: #99997d;
+}
+
+.page .t-o-c,
 .page > footer {
   background: #fafae7;
   color: #99997d;
   border: 1px solid #eae7db;
   font-size: 95%;
-  margin: 15px 0 0;
   padding: 5px 10px;
+}
+
+.page > footer {
+  margin: 15px 0 0;
 }
 
 .page + .page {
@@ -778,8 +749,21 @@ legend + .p {
 .widget .archive ul {
   margin-top: 5px;
 }
+
 .widget .archive li {
   margin-left: 5px;
+}
+
+.widget .count {
+  color: #999;
+}
+
+.widget .count::before {
+  content: '(';
+}
+
+.widget .count::after {
+  content: ')';
 }
 
 .width {
@@ -795,8 +779,6 @@ legend + .p {
 
 .table caption {
   caption-side: bottom;
-  margin: 5px 0 0;
-  text-align: left;
 }
 
 .table td,
@@ -814,12 +796,50 @@ legend + .p {
 .table th {
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
   color: #fff;
-  font-size: 12px;
+  font-size: 110%;
   font-family: 'trebuchet ms', 'lucida grande', 'lucida sans unicode', 'lucida sans', 'nimbus sans l', tahoma, sans-serif;
 }
 
 .table tr:nth-child(odd) td {
   background: #f3f3f3;
+}
+
+.align-right {
+  float: right;
+  margin: 0 0 0 15px;
+  text-align: right;
+}
+
+.align-left {
+  float: left;
+  margin: 0 15px 0 0;
+  text-align: left;
+}
+
+.align-center {
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.alert p {
+  background: #ffffd8;
+  border: 1px solid rgba(0, 0, 0, .125);
+  font-size: 95%;
+  padding: 5px 10px;
+}
+
+.alert .error {
+  background: #ffd8d8;
+}
+
+.alert .info {
+  background: #d8d8ff;
+}
+
+.alert .success {
+  background: #d8ebd8;
 }
 
 .is\:pages .page figure {
@@ -831,4 +851,21 @@ legend + .p {
   content: "";
   display: table;
   clear: both;
+}
+
+.page .t-o-c {
+  border-style: dashed;
+}
+
+.page .t-o-c summary::before {
+  display: none;
+}
+
+.page .t-o-c li::before,
+.page .t-o-c li::after {
+  border-color: #eae7db;
+}
+
+.page .t-o-c li:last-child::after {
+  background: #fafae7;
 }

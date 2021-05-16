@@ -1,15 +1,30 @@
 <aside class="aside">
-  <?= self::widget('search', [
-      'title' => i('Search')
-  ]); ?>
-  <?= self::widget('links', [
-      'title' => i('Links'),
-      'lot' => [
-          'http://example.com/1' => 'Link 1',
-          'http://example.com/2' => 'Link 2',
-          'http://example.com/3' => 'Link 3',
-          'http://example.com/4' => 'Link 4'
-      ]
+  <?php if (isset($state->x->search)): ?>
+    <?= self::widget('search', [
+        'title' => i('Search')
+    ]); ?>
+  <?php else: ?>
+    <?= self::widget([
+        'title' => i('Search'),
+        'content' => '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/search" target="_blank">search</a>']) . '</p>'
+    ]); ?>
+  <?php endif; ?>
+  <?php if ($site->is('home')): ?>
+    <?= self::widget('page', [
+        'title' => i('Random Posts'),
+        'chunk' => 5,
+        'shake' => true,
+        'sort' => [-1, 'time']
+    ]); ?>
+  <?php else: ?>
+    <?= self::widget('page', [
+        'title' => i('Recent Posts'),
+        'chunk' => 5,
+        'sort' => [-1, 'time']
+    ]); ?>
+  <?php endif; ?>
+  <?= self::widget([
+      'title' => i('About Me'),
+      'content' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>'
   ]); ?>
 </aside>
-

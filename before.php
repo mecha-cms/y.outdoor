@@ -18,12 +18,12 @@
     <link href="<?= $url->clean; ?>" rel="canonical">
   </head>
   <body>
-    <?= $alert; ?>
     <div class="body">
       <?= self::header(); ?>
       <?= self::image(); ?>
       <?= self::nav(); ?>
       <?= self::links(); ?>
+      <?= $alert; ?>
       <div class="content">
         <main class="main">
           <header>

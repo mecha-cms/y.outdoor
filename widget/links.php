@@ -1,17 +1,24 @@
 <?php
 
 $content = "";
-$clean = $url->clean;
+
+if (!isset($current)) {
+    $current = $url->clean;
+}
+
+if (!isset($target)) {
+    $target = "";
+}
 
 if (!empty($lot['lot'])) {
     $content .= '<ul>';
     foreach ((array) $lot['lot'] as $k => $v) {
-        if (0 === strpos($clean . '/', $k . '/')) {
+        if (0 === strpos($current . '/', $k . '/')) {
             $content .= '<li class="current">';
         } else {
             $content .= '<li>';
         }
-        $content .= '<a href="' . $k . '">';
+        $content .= '<a href="' . $k . '"' . ($target ? ' target="' . $target . '"' : "") . '>';
         $content .= $v;
         $content .= '</a>';
         $content .= '</li>';

@@ -5,6 +5,9 @@ return [
     'path-blog' => '/article',
     // Override extension state(s)
     'x' => [
+        'comment' => [
+            'page' => ['type' => 'Markdown']
+        ],
         'page' => [
             'page' => ['type' => 'Markdown']
         ]
