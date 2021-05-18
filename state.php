@@ -10,6 +10,9 @@ return [
         ],
         'page' => [
             'page' => ['type' => 'Markdown']
+        ],
+        't-o-c' => [
+            'type' => 2
         ]
     ]
 ];

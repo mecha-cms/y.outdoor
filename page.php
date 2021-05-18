@@ -1,7 +1,7 @@
 <?= self::before(); ?>
 <article class="page" id="page:<?= $page->id; ?>">
   <header>
-    <?php if ($site->has('parent')): ?>
+    <?php if ($site->has('page') && $site->has('parent')): ?>
       <p>
         <time datetime="<?= $page->time->format('c'); ?>">
           <?= $page->time->{r('-', '_', $site->language)}; ?>
@@ -17,7 +17,7 @@
   <div>
     <?= $page->content; ?>
   </div>
-  <?php if ($site->has('parent')): ?>
+  <?php if ($site->has('page') && $site->has('parent')): ?>
     <?= self::get('footer.page', ['page' => $page]); ?>
     <?php if (isset($state->x->comment)): ?>
       <?= self::comments(); ?>
