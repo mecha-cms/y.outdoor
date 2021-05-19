@@ -14,7 +14,7 @@ foreach ($pages_data->chunk($chunk ?? 5, 0) as $page) {
     $pages[$page->url] = $page->title . ($count || 0 === $count ? ' <span class="count">' . $count . '</span>' : "");
 }
 
-echo self::widget('links', [
+echo self::widget('list', [
     'title' => $title ?? "",
     'lot' => $pages
 ]);

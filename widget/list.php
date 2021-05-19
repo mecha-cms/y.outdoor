@@ -18,9 +18,13 @@ if (!empty($lot['lot'])) {
         } else {
             $content .= '<li>';
         }
-        $content .= '<a href="' . $k . '"' . ($target ? ' target="' . $target . '"' : "") . '>';
-        $content .= $v;
-        $content .= '</a>';
+        if (false !== strpos($k, '://')) {
+            $content .= '<a href="' . $k . '"' . ($target ? ' target="' . $target . '"' : "") . '>';
+            $content .= $v;
+            $content .= '</a>';
+        } else {
+            $content .= $v;
+        }
         $content .= '</li>';
     }
     $content .= '</ul>';

@@ -4,13 +4,9 @@ $tags = [];
 $tags_found = [];
 
 foreach (g(LOT . DS . 'page' . DS . ($state->pathBlog ?? '/article'), 'page') as $k => $v) {
-    if (is_file($f = Path::F($k) . DS . 'kind.data')) {
-        $tags_found = array_merge($tags_found, (array) e(content($f)));
-    } else {
-        $f = From::page(content($k), true);
-        $v = (array) ($f['kind'] ?? []);
-        $v && ($tags_found = array_merge($tags_found, $v));
-    }
+    $page = new Page($k);
+    $v = (array) ($page['kind'] ?? []);
+    $v && ($tags_found = array_merge($tags_found, $v));
 }
 
 foreach (array_count_values($tags_found) as $k => $v) {
@@ -22,7 +18,9 @@ foreach (array_count_values($tags_found) as $k => $v) {
     }
 }
 
-echo self::widget('links', [
+asort($tags);
+
+echo self::widget('list', [
     'title' => $title ?? "",
     'lot' => $tags
 ]);

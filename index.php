@@ -2,9 +2,9 @@
 
 Asset::set(__DIR__ . DS . 'asset' . DS . 'css' . DS . 'index.css', 20);
 
-$GLOBALS['links'] = new Anemon((function($out, $state, $url) {
+$GLOBALS['links'] = new Anemon((function($links, $state, $url) {
     $index = LOT . DS . 'page' . strtr($state->path, '/', DS) . '.page';
-    $path = $url->path;
+    $path = $url->path . '/';
     foreach (g(LOT . DS . 'page', 'page') as $k => $v) {
         // Exclude home page
         if ($k === $index) {
@@ -12,9 +12,9 @@ $GLOBALS['links'] = new Anemon((function($out, $state, $url) {
         }
         $v = new Page($k);
         // Add current state
-        $v->set('current', 0 === strpos($path . '/', '/' . $v->name . '/'));
-        $out[$k] = $v;
+        $v->current = 0 === strpos($path, '/' . $v->name . '/');
+        $links[$k] = $v;
     }
-    ksort($out);
-    return $out;
+    ksort($links);
+    return $links;
 })([], $state, $url));

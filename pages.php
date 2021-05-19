@@ -1,4 +1,5 @@
 <?= self::before(); ?>
+<?php $x_image = isset($state->x->image); ?>
 <?php foreach ($pages as $page): ?>
   <article class="page" id="page:<?= $page->id; ?>">
     <header>
@@ -11,7 +12,7 @@
         <h3>
           <?php if ($link = $page->link): ?>
             <a href="<?= $link; ?>" target="_blank">
-              <?= $title; ?>
+              &#x2BB3; <?= $title; ?>
             </a>
           <?php else: ?>
             <a href="<?= $page->url; ?>">
@@ -21,9 +22,9 @@
         </h3>
       <?php endif; ?>
     </header>
-    <?php if ($image = $page->image(100, 100)): ?>
+    <?php if ($x_image && $image = $page->image(120, 120, 100)): ?>
       <figure>
-        <img alt="" height="100" src="<?= $image; ?>" width="100">
+        <img alt="" height="120" src="<?= $image; ?>" width="120">
       </figure>
     <?php endif; ?>
     <div>
@@ -31,6 +32,11 @@
         <?php $excerpt = '<p>' . To::excerpt($page->content) . '</p>'; ?>
       <?php endif; ?>
       <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
+      <p>
+          <a class="button" href="<?= $page->url; ?>#next:<?= $page->id; ?>">
+          <?= i('Read More'); ?>
+        </a>
+      </p>
     </div>
   </article>
 <?php endforeach; ?>

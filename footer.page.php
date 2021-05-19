@@ -22,9 +22,10 @@
 
         echo '<br>';
 
-        $tags = $page->tags ? $page->tags->map(function($tag) {
+        $tags = $page->tags ? $page->tags->map(function($v) {
+            $tag = new Tag($v);
             return '<a href="' . $tag->url . '" rel="tag">' . $tag->title . '</a>';
-        }) : [];
+        })->get() : [];
 
         echo i('Tag' . (1 === ($count = count($tags)) ? "" : 's')) . ': ' . ($count ? implode(', ', $tags) : '<em>' . i('Untagged') . '</em>');
 

@@ -11,14 +11,14 @@ if (isset($state->x->sitemap)) {
 }
 
 if (isset($state->x->user)) {
-    $user_path = $state->x->user->path ?? '/user';
+    $x_user_path = $state->x->user->path ?? '/user';
     if (Is::user()) {
-        $links[$url . $user_path . '/' . $user->name . $url->query('&', [
+        $links[$url . $x_user_path . '/' . $user->name . $url->query('&', [
             'exit' => $user->token,
             'kick' => $url->path
         ])] = 'Exit';
     } else {
-        $links[$url . $user_path . $url->query('&', [
+        $links[$url . $x_user_path . $url->query('&', [
             'kick' => $url->path
         ])] = 'Enter';
     }

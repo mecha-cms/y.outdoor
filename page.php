@@ -16,6 +16,13 @@
   </header>
   <div>
     <?= $page->content; ?>
+    <?php if ($link = $page->link): ?>
+      <p>
+        <a class="button" href="<?= $link; ?>" rel="nofollow" target="_blank">
+          <?= i('Direct Link'); ?>
+        </a>
+      </p>
+    <?php endif; ?>
   </div>
   <?php if ($site->has('page') && $site->has('parent')): ?>
     <?= self::get('footer.page', ['page' => $page]); ?>
