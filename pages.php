@@ -33,7 +33,7 @@
       <?php endif; ?>
       <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
       <p>
-          <a class="button" href="<?= $page->url; ?>#next:<?= $page->id; ?>">
+        <a class="button" href="<?= $page->url; ?>#next:<?= $page->id; ?>">
           <?= i('Read More'); ?>
         </a>
       </p>

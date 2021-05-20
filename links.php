@@ -36,5 +36,5 @@ if ($links) {
     }
     echo '</ul>';
 } else {
-    echo '<p>' . i('No links yet.') . '</p>';
+    echo '<p>' . i('No %s yet.', ['links']) . '</p>';
 }

@@ -1,4 +1,6 @@
-<h2><?= i('Navigation'); ?></h2>
+<h2>
+  <?= i('Navigation'); ?>
+</h2>
 <nav class="nav">
   <ul>
     <li>
