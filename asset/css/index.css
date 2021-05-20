@@ -114,7 +114,6 @@ caption, figcaption {
 
 code, .code {
   font-family: var(--font-4);
-  font-size: 90%;
   word-wrap: break-word;
 }
 
@@ -204,6 +203,12 @@ hr {
 img {
   max-width: 100%;
   height: auto;
+}
+
+kbd {
+  padding: 2px 3px;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
 }
 
 legend {
@@ -596,6 +601,10 @@ label, .select {
   border-right: 1px solid rgba(0, 0, 0, .125);
   border-left: 1px solid rgba(255, 255, 255, .175);
   text-decoration: none;
+}
+
+.nav span {
+  cursor: default;
 }
 
 .nav li:first-child a,

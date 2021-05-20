@@ -23,8 +23,4 @@
         'sort' => [-1, 'time']
     ]); ?>
   <?php endif; ?>
-  <?= self::widget([
-      'title' => i('About Me'),
-      'content' => '<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>'
-  ]); ?>
 </aside>
