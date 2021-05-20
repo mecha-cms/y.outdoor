@@ -23,6 +23,7 @@
   --font-1: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   --font-2: 'Century Gothic', 'Apple Gothic', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   --font-3: Georgia, Times, serif;
+  --font-4: Consolas, 'Nimbus Mono L', monospace;
   background: #f7f0e3 url('../jpg/back.jpg') repeat-x 50% 0;
   font: 11px/1.6 var(--font-0);
   color: #666;
@@ -84,14 +85,15 @@ ins, u {
 }
 
 blockquote {
-  font-size: 130%;
   margin-right: 10px;
   margin-left: 10px;
   padding: 5px 10px 5px 45px;
   border: 1px solid #f4f3ec;
   background: #fafae7 url('../jpg/quote.jpg') no-repeat 5px 5px;
   color: #976957;
+  font-size: 130%;
   font-weight: bold;
+  line-height: 1.2;
   font-family: var(--font-1);
 }
 
@@ -111,7 +113,7 @@ caption, figcaption {
 }
 
 code, .code {
-  font-family: monospace;
+  font-family: var(--font-4);
   font-size: 90%;
   word-wrap: break-word;
 }
@@ -161,8 +163,8 @@ figure img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-1);
   line-height: 1.2;
+  font-family: var(--font-1);
   color: #899b0d;
 }
 
@@ -441,7 +443,7 @@ label, .select {
 .footer div + div a:focus,
 .footer div + div a:hover {
   text-decoration: none;
-  color: #222;
+  color: #333;
 }
 
 .footer .widget h4 {
@@ -463,15 +465,20 @@ label, .select {
 
 .footer .widget ul li a,
 .footer .widget .archive summary a {
-  color: #666;
+  color: inherit;
 }
 
 .footer .widget ul li a:focus,
 .footer .widget ul li a:hover,
 .footer .widget .archive summary a:focus,
 .footer .widget .archive summary a:hover {
-  color: #222;
+  color: #333;
   text-decoration: none;
+}
+
+.footer .widget ul .current a,
+.footer .widget .archive.current summary a {
+  color: #333;
 }
 
 .form.search p {
@@ -551,6 +558,10 @@ label, .select {
 
 .main > header {
   display: none;
+}
+
+.main > .alert {
+  margin-bottom: 15px;
 }
 
 .nav {
@@ -689,7 +700,10 @@ label, .select {
 }
 
 .page .comments .comment-footer,
-.page .comments .comment-header {
+.page .comments .comment-header,
+.page .comments .input + br + small,
+.page .comments .select + br + small,
+.page .comments .textarea + br + small {
   color: #99997d;
 }
 
@@ -755,6 +769,10 @@ label, .select {
 .widget ul li a:hover {
   color: #1773bc;
   text-decoration: none;
+}
+
+.widget ul .current a {
+  color: inherit;
 }
 
 .widget .archive {

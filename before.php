@@ -2,7 +2,7 @@
 <html class dir="<?= $site->direction; ?>" lang="<?= $site->language; ?>">
   <head>
     <meta charset="<?= $site->charset; ?>">
-    <meta content="width=device-width" name="viewport">
+    <meta content="width=1024" name="viewport">
     <?php if ($w = w($page->description ?? $site->description ?? "")): ?>
       <meta content="<?= $w; ?>" name="description">
     <?php endif; ?>
@@ -23,10 +23,18 @@
       <?= self::image(); ?>
       <?= self::nav(); ?>
       <?= self::links(); ?>
-      <?= $alert; ?>
       <div class="content">
         <main class="main">
+          <?= $alert; ?>
           <header>
-            <h2>Arsip 2020</h2>
-            <p>Lorem ipsum dolor sit amet.</p>
+            <?php if ($title = $page->title): ?>
+              <h2>
+                <?= $title; ?>
+              </h2>
+            <?php endif; ?>
+            <?php if ($description = $page->description): ?>
+              <p>
+                <?= $description; ?>
+              </p>
+            <?php endif; ?>
           </header>

@@ -3,9 +3,9 @@
 $tags = [];
 $tags_found = [];
 
-foreach (g(LOT . DS . 'page' . DS . ($state->pathBlog ?? '/article'), 'page') as $k => $v) {
+foreach (g($folder = LOT . DS . 'page' . ($lot['path'] ?? $state->pathBlog), 'page') as $k => $v) {
     $page = new Page($k);
-    $v = (array) ($page['kind'] ?? []);
+    $v = (array) ($page->kind ?? []);
     $v && ($tags_found = array_merge($tags_found, $v));
 }
 
@@ -13,14 +13,23 @@ foreach (array_count_values($tags_found) as $k => $v) {
     if ($n = To::tag($k)) {
         if (is_file($f = LOT . DS . 'tag' . DS . $n . '.page')) {
             $tag = new Tag($f);
-            $tags[$tag->url] = $tag->title . ' <span class="count">' . $v . '</span>';
+            if ($page = File::exist([
+                $folder . '.archive',
+                $folder . '.page'
+            ])) {
+                $tag->page = new Page($page);
+            }
+            $tags[$tag->link] = $tag->title . ' <span class="count">' . $v . '</span>';
         }
     }
 }
 
 asort($tags);
 
-echo self::widget('list', [
+echo $tags ? self::widget('list', [
     'title' => $title ?? "",
     'lot' => $tags
+]) : self::widget([
+    'title' => $title ?? "",
+    'content' => '<p>' . i('No %s yet.', ['tags']) . '</p>'
 ]);

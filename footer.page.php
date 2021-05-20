@@ -22,10 +22,15 @@
 
         echo '<br>';
 
-        $tags = $page->tags ? $page->tags->map(function($v) {
-            $tag = new Tag($v);
-            return '<a href="' . $tag->url . '" rel="tag">' . $tag->title . '</a>';
-        })->get() : [];
+        $tags = [];
+
+        if ($tags_data = $page->tags) {
+            foreach ($tags_data as $tag) {
+                $tags[$title = $tag->title] = '<a href="' . $tag->link . '" rel="tag">' . $title . '</a>';
+            }
+        }
+
+        ksort($tags);
 
         echo i('Tag' . (1 === ($count = count($tags)) ? "" : 's')) . ': ' . ($count ? implode(', ', $tags) : '<em>' . i('Untagged') . '</em>');
 

@@ -12,6 +12,10 @@
         <a href="<?= $parent->link ?? $parent->url; ?>">
           <?= i('Parent'); ?>
         </a>
+      <?php elseif (!$site->is('home')): ?>
+        <a href="<?= $url; ?>">
+          <?= i('Home'); ?>
+        </a>
       <?php endif; ?>
     </li>
     <li>

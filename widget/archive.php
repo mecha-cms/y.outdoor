@@ -6,7 +6,7 @@ $x_page_path = $state->pathBlog ?? '/article';
 
 foreach (g(LOT . DS . 'page' . $x_page_path, 'page') as $k => $v) {
     $page = new Page($k);
-    $v = $page['time'];
+    $v = $page->time;
     if ($v) {
         $v = explode('-', $v);
         $archives[$v[0]][$v[1]][] = 1;
@@ -33,15 +33,15 @@ $dates = [
 $x_archive_path = $state->x->archive->path ?? '/archive';
 
 if ($site->is('archives')) {
-    $a = explode('/', $url->path);
-    $current = array_pop($a);
+    $current = $archive->format('Y-m-d-H-i-s');
 }
 
 foreach ($archives as $k => $v) {
+    $k = (string) $k;
     if (!isset($current)) {
-        $current = (string) $k;
+        $current = $k;
     }
-    $content .= '<details class="archive"' . ("" . $k === explode('-', $current)[0] ? ' open' : "") . '>';
+    $content .= '<details class="archive' . (($open = $k === explode('-', $current)[0]) ? ' current' : "") . '"' . ($open ? ' open' : "") . '>';
     $content .= '<summary>';
     $content .= '<a href="' . $url . $x_page_path . $x_archive_path . '/' . $k . '/1">';
     $content .= $k . ' <span class="count">' . count($v) . '</span>';
@@ -63,5 +63,5 @@ foreach ($archives as $k => $v) {
 
 echo self::widget([
     'title' => $title ?? "",
-    'content' => $content
+    'content' => $content ?: '<p>' . i('No %s yet.', ['posts']) . '</p>'
 ]);

@@ -1,6 +1,7 @@
 <?php
 
-Asset::set(__DIR__ . DS . 'asset' . DS . 'css' . DS . 'index.css', 20);
+$z = defined('DEBUG') && DEBUG ? '.' : '.min.';
+Asset::set(__DIR__ . DS . 'asset' . DS . 'css' . DS . 'index' . $z . 'css', 20);
 
 $GLOBALS['links'] = new Anemon((function($links, $state, $url) {
     $index = LOT . DS . 'page' . strtr($state->path, '/', DS) . '.page';
@@ -18,3 +19,9 @@ $GLOBALS['links'] = new Anemon((function($links, $state, $url) {
     ksort($links);
     return $links;
 })([], $state, $url));
+
+$defaults = ['path-blog' => '/article'];
+
+foreach ($defaults as $k => $v) {
+    !State::get($k) && State::set($k, $v);
+}
