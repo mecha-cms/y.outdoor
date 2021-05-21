@@ -2,10 +2,7 @@
   <?php if (isset($state->x->view)): ?>
     <?= self::widget('page', [
         'title' => i('Popular Posts'),
-        'chunk' => 5,
-        'counter' => function($page) {
-            return $page['view'] ?? 0;
-        },
+        'take' => 5,
         'sort' => [1, 'view']
     ]); ?>
   <?php else: ?>

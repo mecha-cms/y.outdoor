@@ -25,3 +25,22 @@ $defaults = ['path-blog' => '/article'];
 foreach ($defaults as $k => $v) {
     !State::get($k) && State::set($k, $v);
 }
+
+// Info message(s)
+Hook::set('layout', function() {
+    extract($GLOBALS);
+    if (!$site->is('error')) {
+        if ($site->is('archives')) {
+            $chops = explode('/', $url->path);
+            $v = explode('-', array_pop($chops));
+            $v = $archive->i((1 === count($v) ? "" : '%B ') . '%Y');
+            Alert::info('Showing posts published in %s.', [S . $v . S]);
+        }
+        if ($site->is('search') && $v = Get::get($state->x->search->key ?? 'q')) {
+            Alert::info('Showing posts matched in %s.', [S . $v . S]);
+        }
+        if ($site->is('tags')) {
+            Alert::info('Showing posts tagged in %s.', [S . $tag->title . S]);
+        }
+    }
+});

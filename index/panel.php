@@ -1,11 +1,20 @@
 <?php
 
+$lot = [];
+
+foreach (Pages::from(LOT . DS . 'page', 'archive,page')->sort([1, 'title']) as $v) {
+    $lot[strtr($v->url, [
+        $url . '/' => '/'
+    ])] = $v->title;
+}
+
 if ('.state' === $_['path']) {
-    $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['file']['lot']['fields']['lot']['blog'] = [
-        'type' => 'text',
+    $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['file']['lot']['fields']['lot']['path-blog'] = [
+        'title' => 'Blog',
+        'type' => 'combo',
         'name' => 'state[path-blog]',
         'description' => 'Determine the default blog path.',
-        'hint' => '/article',
+        'lot' => $lot,
         'value' => $state->pathBlog,
         'stack' => 100
     ];

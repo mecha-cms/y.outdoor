@@ -33,7 +33,7 @@ $dates = [
 $x_archive_path = $state->x->archive->path ?? '/archive';
 
 if ($site->is('archives')) {
-    $current = $archive->format('Y-m-d-H-i-s');
+    $current = $archive->format('Y-m');
 }
 
 foreach ($archives as $k => $v) {
