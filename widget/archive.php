@@ -35,6 +35,8 @@ if ($site->is('archives')) {
     $current = $archive->format('Y-m');
 }
 
+krsort($archives);
+
 foreach ($archives as $k => $v) {
     $k = (string) $k;
     if (!isset($current)) {
@@ -47,6 +49,7 @@ foreach ($archives as $k => $v) {
     $content .= '</a>';
     $content .= '</summary>';
     if (is_array($v)) {
+        krsort($v);
         $content .= '<ul>';
         foreach ($v as $kk => $vv) {
             $content .= '<li' . ($k . '-' . $kk === $current ? ' class="current"' : "") . '>';

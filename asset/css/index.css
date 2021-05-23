@@ -14,10 +14,6 @@
   opacity: .5;
 }
 
-:focus::placeholder {
-  opacity: .25;
-}
-
 :root {
   --font-0: Verdana, 'Bitstream Vera Sans', 'DejaVu Sans', Tahoma, Helvetica, Arial, Geneva, sans-serif;
   --font-1: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
@@ -322,10 +318,10 @@ legend + .p {
   vertical-align: middle;
   width: 12rem;
   max-width: 12rem;
-  background: #fafafa;
+  background: #f7f0e3;
   color: #777;
-  border: 1px solid #e5e5e5;
-  border-top-color: #d5d5d5;
+  border: 1px solid #d8d2c7;
+  border-top-color: #d2ccc1;
   padding: 3px 5px;
   position: relative;
 }
@@ -356,8 +352,7 @@ legend + .p {
 .input:focus,
 .select:focus,
 .textarea:focus {
-  border-color: #d5d5d5;
-  border-top-color: #c5c5c5;
+  border-color: #b9b4aa #cbc5bb #cbc5bb;
 }
 
 .input[type=checkbox],
@@ -493,9 +488,14 @@ label, .select {
 
 .form.search .input {
   background: #fff;
+  border-color: #d5d5d5 #e5e5e5 #e5e5e5;
   min-width: 0;
   max-width: 100%;
   flex: 1;
+}
+
+.form.search .input:focus {
+  border-color: #c5c5c5 #d5d5d5 #d5d5d5;
 }
 
 .form.search .button {
@@ -895,6 +895,15 @@ label, .select {
   background: #d8ebd8;
 }
 
+.form-pass,
+.form-user {
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  margin-right: -30px;
+  margin-left: -30px;
+  padding: 15px;
+}
+
 .is\:pages .page figure {
   margin: 0 20px 0 0;
   float: left;
@@ -904,14 +913,6 @@ label, .select {
   content: "";
   display: table;
   clear: both;
-}
-
-.is\:user {
-  background-position: 50% -370px;
-}
-
-.is\:user .form-user {
-  padding-top: 50px;
 }
 
 .page .t-o-c {
