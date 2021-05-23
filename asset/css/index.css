@@ -147,7 +147,7 @@ details[open] summary::before {
 }
 
 fieldset {
-  border: 1px solid #f4f3ec;
+  border: 1px solid #e5e5e5;
   padding: 15px;
 }
 
@@ -197,7 +197,7 @@ hr {
   background: none;
   color: inherit;
   border: 0;
-  border-top: 1px dashed #f4f3ec;
+  border-top: 1px dashed #e5e5e5;
 }
 
 img {
@@ -438,7 +438,7 @@ label, .select {
 
 .footer > div + div p {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .footer > div + div a {
@@ -713,6 +713,7 @@ label, .select {
 .page .comments .input + br + small,
 .page .comments .select + br + small,
 .page .comments .textarea + br + small {
+  font-size: 100%;
   color: #99997d;
 }
 
@@ -909,7 +910,7 @@ label, .select {
   background-position: 50% -370px;
 }
 
-.is\:user form {
+.is\:user .form-user {
   padding-top: 50px;
 }
 

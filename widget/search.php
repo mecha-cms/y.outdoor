@@ -2,7 +2,7 @@
 
 $content = "";
 
-$to = $url . ($lot['path'] ?? $state->pathBlog);
+$to = $url . ($path ?? $state->pathBlog);
 $value = Get::get($key = $state->x->search->key ?? 'q');
 
 $content .= '<form action="' . $to . '" class="form search" method="get">';

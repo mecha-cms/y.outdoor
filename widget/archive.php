@@ -2,7 +2,8 @@
 
 $archives = [];
 
-$x_page_path = $state->pathBlog ?? '/article';
+$x_archive_path = $state->x->archive->path ?? '/archive';
+$x_page_path = $path ?? $state->pathBlog;
 
 foreach (g(LOT . DS . 'page' . $x_page_path, 'page') as $k => $v) {
     $page = new Page($k);
@@ -29,8 +30,6 @@ $dates = [
     'November',
     'December'
 ];
-
-$x_archive_path = $state->x->archive->path ?? '/archive';
 
 if ($site->is('archives')) {
     $current = $archive->format('Y-m');

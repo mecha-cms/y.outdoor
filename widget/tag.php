@@ -3,7 +3,7 @@
 $tags = [];
 $tags_found = [];
 
-foreach (g($folder = LOT . DS . 'page' . ($lot['path'] ?? $state->pathBlog), 'page') as $k => $v) {
+foreach (g($folder = LOT . DS . 'page' . ($path ?? $state->pathBlog), 'page') as $k => $v) {
     $page = new Page($k);
     $v = (array) ($page->kind ?? []);
     $v && ($tags_found = array_merge($tags_found, $v));
@@ -17,7 +17,7 @@ foreach (array_count_values($tags_found) as $k => $v) {
                 $folder . '.archive',
                 $folder . '.page'
             ])) {
-                $tag->page = new Page($page);
+                $tag->parent = new Page($page);
             }
             $tags[$tag->link] = $tag->title . ' <span class="count">' . $v . '</span>';
         }
