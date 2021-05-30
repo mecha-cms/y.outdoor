@@ -1,27 +1,9 @@
 <aside class="aside">
-  <?php if (isset($state->x->search)): ?>
-    <?= self::widget('search', [
-        'title' => i('Search')
-    ]); ?>
-  <?php else: ?>
-    <?= self::widget([
-        'title' => i('Search'),
-        'content' => '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/search" target="_blank">search</a>']) . '</p>'
-    ]); ?>
-  <?php endif; ?>
+  <?= self::widget('form/search'); ?>
   <?php if ($site->is('home')): ?>
-    <?= self::widget('page', [
-        'title' => i('Random Posts'),
-        'take' => 5,
-        'sort' => [-1, 'time'],
-        'shake' => true
-    ]); ?>
+    <?= self::widget('page/random'); ?>
   <?php else: ?>
-    <?= self::widget('page', [
-        'title' => i('Recent Posts'),
-        'take' => 5,
-        'sort' => [-1, 'time']
-    ]); ?>
+    <?= self::widget('page/recent'); ?>
   <?php endif; ?>
   <?= self::widget('list', [
       'title' => i('Social Links'),

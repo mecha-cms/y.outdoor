@@ -453,7 +453,8 @@ label, .select {
   margin-left: 10px;
 }
 
-.footer .widget ul {
+.footer .widget ul,
+.footer .widget .archive {
   border-top-color: #e5e5e5;
 }
 
@@ -461,6 +462,10 @@ label, .select {
   border-bottom-color: #e5e5e5;
   padding-right: 10px;
   padding-left: 10px;
+}
+
+.footer .widget .archive:last-child {
+  border-bottom-color: #e5e5e5;
 }
 
 .footer .widget ul li a,
@@ -706,6 +711,7 @@ label, .select {
 
 .page .comments .comment-author {
   font-weight: bold;
+  color: inherit;
 }
 
 .page .comments .comment-footer,
@@ -787,7 +793,11 @@ label, .select {
 
 .widget .archive {
   padding: 5px;
-  border-top: 1px solid #e5e5e5;
+  border-top: 1px solid #ebebeb;
+}
+
+.widget .archive:last-child {
+  border-bottom: 1px solid #ebebeb;
 }
 
 .widget .archive + .archive {

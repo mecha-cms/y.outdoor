@@ -27,9 +27,9 @@ foreach (array_count_values($tags_found) as $k => $v) {
 asort($tags);
 
 echo $tags ? self::widget('list', [
-    'title' => $title ?? "",
+    'title' => $title ?? i('Tags'),
     'lot' => $tags
 ]) : self::widget([
-    'title' => $title ?? "",
+    'title' => $title ?? i('Tags'),
     'content' => '<p>' . i('No %s yet.', ['tags']) . '</p>'
 ]);

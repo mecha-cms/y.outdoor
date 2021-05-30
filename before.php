@@ -10,7 +10,7 @@
       <!-- Prevent search engines from indexing pages with `archive` state -->
       <meta content="noindex" name="robots">
     <?php endif; ?>
-    <meta content="<?= $page->author; ?>" name="author">
+    <meta content="<?= w($page->author); ?>" name="author">
     <title>
       <?= w($t->reverse); ?>
     </title>
@@ -22,7 +22,7 @@
       <?= self::header(); ?>
       <?= self::image(); ?>
       <?= self::nav(); ?>
-      <?= self::links(); ?>
+      <?= self::meta(); ?>
       <div class="content">
         <main class="main">
           <?= $alert; ?>
