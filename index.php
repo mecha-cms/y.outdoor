@@ -34,13 +34,13 @@ Hook::set('layout', function() {
             $chops = explode('/', $url->path);
             $v = explode('-', array_pop($chops));
             $v = $archive->i((1 === count($v) ? "" : '%B ') . '%Y');
-            Alert::info('Showing posts published in %s.', ['<em>' . $v . '</em>']);
+            Alert::info('Showing %s published in %s.', ['posts', '<em>' . $v . '</em>']);
         }
         if ($site->is('search') && $v = Get::get($state->x->search->key ?? 'q')) {
-            Alert::info('Showing posts matched in %s.', ['<em>' . $v . '</em>']);
+            Alert::info('Showing %s matched with query %s.', ['posts', '<em>' . $v . '</em>']);
         }
         if ($site->is('tags')) {
-            Alert::info('Showing posts tagged in %s.', ['<em>' . $tag->title . '</em>']);
+            Alert::info('Showing %s tagged in %s.', ['posts', '<em>' . $tag->title . '</em>']);
         }
     }
 });
