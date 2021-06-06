@@ -3,7 +3,7 @@
 $content = "";
 
 if (!isset($current)) {
-    $current = $url->clean;
+    $current = $url->current;
 }
 
 if (!isset($target)) {
@@ -13,7 +13,7 @@ if (!isset($target)) {
 if (!empty($lot['lot'])) {
     $content .= '<ul>';
     foreach ((array) $lot['lot'] as $k => $v) {
-        if (0 === strpos($k . '/', $current . '/')) {
+        if ($k === $current) {
             $content .= '<li class="current">';
         } else {
             $content .= '<li>';
