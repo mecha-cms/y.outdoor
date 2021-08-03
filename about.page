@@ -7,14 +7,14 @@ type: Markdown
 version: 1.0.0
 
 use:
-  '.\lot\x\archive': 0
+  '.\lot\x\archive': 1
   '.\lot\x\comment': 0
   '.\lot\x\feed': 0
-  '.\lot\x\search': 0
+  '.\lot\x\search': 1
   '.\lot\x\sitemap': 0
-  '.\lot\x\tag': 0
+  '.\lot\x\tag': 1
   '.\lot\x\user': 0
-  '.\lot\x\view': 0
+  '.\lot\x\view': 1
 ...
 
 ![Outdoor](https://user-images.githubusercontent.com/1669261/119247947-03f9a100-bbb8-11eb-86b4-ea59f64ed721.png)

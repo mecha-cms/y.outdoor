@@ -905,6 +905,12 @@ label, .select {
   background: #d8ebd8;
 }
 
+.form-comment p > label,
+.form-comment .p > label {
+  padding-top: 3px;
+  border-top: 1px solid transparent;
+}
+
 .form-pass,
 .form-user {
   background: #fff;
