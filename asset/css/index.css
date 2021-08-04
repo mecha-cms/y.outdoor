@@ -23,6 +23,7 @@
   background: #f7f0e3 url('../jpg/back.jpg') repeat-x 50% 0;
   font: 11px/1.6 var(--font-0);
   color: #666;
+  text-align: left;
 }
 
 a {
@@ -207,6 +208,11 @@ kbd {
   border: 1px solid #e5e5e5;
 }
 
+label {
+  user-select: none;
+  cursor: pointer;
+}
+
 legend {
   padding: 0 5px;
   font-weight: bold;
@@ -306,7 +312,6 @@ legend + .p {
   margin: 50px auto;
   box-shadow: 0 0 4px rgba(0, 0, 0, .5);
   padding: 15px;
-  text-align: left;
   position: relative;
 }
 
@@ -341,6 +346,7 @@ legend + .p {
   font-weight: bold;
   font-family: var(--font-1);
   text-decoration: none;
+  user-select: none;
   cursor: pointer;
 }
 
@@ -378,6 +384,53 @@ legend + .p {
   height: 2.25rem;
 }
 
+.input[type=checkbox],
+.input[type=radio] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.1em;
+  height: 1.1em;
+  max-width: 1.1em;
+  max-height: 1.1em;
+  min-width: 1.1em;
+  min-height: 1.1em;
+  margin: -.25em 0 0;
+  background: #88ac0b;
+  border-radius: 3px;
+}
+
+.input[type=checkbox]:checked::before {
+  content: "";
+  width: .5em;
+  height: .3em;
+  position: absolute;
+  top: .26em;
+  left: .25em;
+  transform: rotate(-45deg);
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+
+.input[type=radio] {
+  border-radius: 100%;
+}
+
+.input[type=radio]:checked {
+  background: none;
+  border: .5em solid #88ac0b;
+}
+
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
 .button[disabled],
 .input[disabled],
 .select[disabled],
@@ -387,7 +440,7 @@ legend + .p {
   cursor: not-allowed;
 }
 
-label, .select {
+.select {
   cursor: pointer;
 }
 
@@ -484,27 +537,6 @@ label, .select {
 .footer .widget ul .current a,
 .footer .widget .archive.current summary a {
   color: #333;
-}
-
-.form.search p {
-  margin: 0;
-  display: flex;
-}
-
-.form.search .input {
-  background: #fff;
-  border-color: #d5d5d5 #e5e5e5 #e5e5e5;
-  min-width: 0;
-  max-width: 100%;
-  flex: 1;
-}
-
-.form.search .input:focus {
-  border-color: #c5c5c5 #d5d5d5 #d5d5d5;
-}
-
-.form.search .button {
-  margin-left: 3px;
 }
 
 .header {
@@ -918,6 +950,27 @@ label, .select {
   margin-right: -30px;
   margin-left: -30px;
   padding: 15px;
+}
+
+.form-search p {
+  margin: 0;
+  display: flex;
+}
+
+.form-search .input {
+  background: #fff;
+  border-color: #d5d5d5 #e5e5e5 #e5e5e5;
+  min-width: 0;
+  max-width: 100%;
+  flex: 1;
+}
+
+.form-search .input:focus {
+  border-color: #c5c5c5 #d5d5d5 #d5d5d5;
+}
+
+.form-search .button {
+  margin-left: 3px;
 }
 
 .is\:pages .page figure {

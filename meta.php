@@ -26,8 +26,8 @@ if (isset($state->x->user)) {
 
 asort($metas);
 
-echo '<h2>' . i('Links') . '</h2>';
 if ($metas) {
+    echo '<h2>' . i('Links') . '</h2>';
     echo '<ul>';
     foreach ($metas as $k => $v) {
         echo '<li>';
@@ -35,6 +35,4 @@ if ($metas) {
         echo '</li>';
     }
     echo '</ul>';
-} else {
-    echo '<p>' . i('No %s yet.', ['links']) . '</p>';
 }
