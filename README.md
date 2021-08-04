@@ -8,6 +8,6 @@ Outdoor Layout for [Mecha](https://github.com/mecha-cms/mecha)
 Release Notes
 -------------
 
-### main
+### 1.0.0
 
- - [ ] Initial release.
+ - Initial release.
