@@ -755,6 +755,10 @@ legend + .p {
   color: #99997d;
 }
 
+.page .notes {
+  color: #99997d;
+}
+
 .page .t-o-c,
 .page > footer {
   background: #fafae7;
