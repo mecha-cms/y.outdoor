@@ -1,8 +1,8 @@
 * {
+  box-sizing: border-box;
+  font: inherit;
   margin: 0;
   padding: 0;
-  font: inherit;
-  box-sizing: border-box;
   word-wrap: break-word;
 }
 
@@ -21,15 +21,15 @@
   --font-3: Georgia, Times, serif;
   --font-4: Consolas, 'Nimbus Mono L', monospace;
   background: #f7f0e3 url('../jpg/back.jpg') repeat-x 50% 0;
-  font: 11px/1.6 var(--font-0);
   color: #666;
+  font: normal normal 11px/1.6 var(--font-0);
   text-align: left;
 }
 
 a {
   color: #5a93c9;
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 a:focus,
@@ -57,10 +57,10 @@ b, dt, strong, th {
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-  margin: 0;
-  padding: 0;
   border: 0;
+  margin: 0;
   outline: 0;
+  padding: 0;
 }
 
 del, s {
@@ -82,16 +82,16 @@ ins, u {
 }
 
 blockquote {
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 5px 10px 5px 45px;
-  border: 1px solid #f4f3ec;
   background: #fafae7 url('../jpg/quote.jpg') no-repeat 5px 5px;
+  border: 1px solid #f4f3ec;
   color: #976957;
+  font-family: var(--font-1);
   font-size: 130%;
   font-weight: bold;
   line-height: 1.2;
-  font-family: var(--font-1);
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 5px 10px 5px 45px;
 }
 
 blockquote blockquote {
@@ -115,24 +115,24 @@ code, .code {
 }
 
 details summary {
-  display: block;
-  position: relative;
-  padding-left: 15px;
   cursor: pointer;
+  display: block;
+  padding-left: 15px;
+  position: relative;
 }
 
 details summary::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-top: 4px solid transparent;
-  border-right: 0 solid transparent;
   border-bottom: 4px solid transparent;
   border-left: 7px solid #666;
+  border-right: 0 solid transparent;
+  border-top: 4px solid transparent;
+  content: "";
+  height: 0;
+  left: 0;
   margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 0;
 }
 
 details summary:hover::before {
@@ -154,14 +154,14 @@ figure {
 
 figure img {
   display: block;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  line-height: 1.2;
-  font-family: var(--font-1);
   color: #899b0d;
+  font-family: var(--font-1);
+  line-height: 1.2;
 }
 
 h1 {
@@ -192,30 +192,30 @@ h6 {
 
 hr {
   background: none;
-  color: inherit;
   border: 0;
   border-top: 1px dashed #e5e5e5;
+  color: inherit;
 }
 
 img {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 kbd {
-  padding: 2px 3px;
   background: #fafafa;
   border: 1px solid #e5e5e5;
+  padding: 2px 3px;
 }
 
 label {
-  user-select: none;
   cursor: pointer;
+  user-select: none;
 }
 
 legend {
-  padding: 0 5px;
   font-weight: bold;
+  padding: 0 5px;
 }
 
 mark {
@@ -233,8 +233,8 @@ li p:last-child {
 
 sub, sup {
   position: relative;
-  vertical-align: middle;
   top: .25rem;
+  vertical-align: middle;
 }
 
 sup {
@@ -258,16 +258,16 @@ ul > ul {
 }
 
 pre {
-  white-space: pre-wrap;
   overflow: auto;
+  white-space: pre-wrap;
   word-wrap: break-word;
 }
 
 pre code {
-  display: block;
-  padding: 10px;
   background: #fafae7;
   border: 1px solid #f4f3ec;
+  display: block;
+  padding: 10px;
 }
 
 * + blockquote,
@@ -292,9 +292,7 @@ pre code {
   margin-top: 15px;
 }
 
-legend + fieldset,
-legend + p,
-legend + .p {
+legend + * {
   margin-top: -5px;
 }
 
@@ -308,51 +306,52 @@ legend + .p {
 
 .body {
   background: #fff;
-  width: 900px;
-  margin: 50px auto;
   box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+  margin: 50px auto;
   padding: 15px;
   position: relative;
+  width: 900px;
 }
 
 .button,
 .input,
 .select,
 .textarea {
-  display: inline-block;
-  vertical-align: middle;
-  width: 12rem;
-  max-width: 12rem;
+  accent-color: #88ac0b;
   background: #f7f0e3;
-  color: #777;
-  border: 1px solid #d8d2c7;
   border-top-color: #d2ccc1;
+  border: 1px solid #d8d2c7;
+  color: #777;
+  display: inline-block;
+  max-width: 12rem;
   padding: 3px 5px;
   position: relative;
+  vertical-align: middle;
+  width: 12rem;
 }
 
 .button,
 .button:focus,
 .button:hover,
 .button:active {
-  width: auto;
-  max-width: unset;
-  padding-right: 8px;
-  padding-left: 8px;
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
-  color: #fff;
   border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-1);
   font-size: 110%;
   font-weight: bold;
-  font-family: var(--font-1);
+  max-width: unset;
+  padding-left: 8px;
+  padding-right: 8px;
   text-decoration: none;
   user-select: none;
-  cursor: pointer;
+  width: auto;
 }
 
 .button:focus {
-  outline: 1px dotted rgba(255, 255, 255, .5);
   outline-offset: -2px;
+  outline: 1px dotted rgba(255, 255, 255, .5);
 }
 
 .input:focus,
@@ -367,48 +366,48 @@ legend + .p {
 .input[type=image],
 .input[type=radio],
 .input[type=range] {
-  width: auto;
-  max-width: unset;
-  height: auto;
-  line-height: inherit;
   background: none;
   border: 0;
-  padding: 0;
   box-shadow: none;
   cursor: pointer;
+  height: auto;
+  line-height: inherit;
+  max-width: unset;
+  padding: 0;
+  width: auto;
 }
 
 .input[type=color] {
-  width: 2.25rem;
-  max-width: unset;
   height: 2.25rem;
+  max-width: unset;
+  width: 2.25rem;
 }
 
 .input[type=checkbox],
 .input[type=radio] {
   -webkit-appearance: none;
   appearance: none;
-  width: 1.1em;
-  height: 1.1em;
-  max-width: 1.1em;
-  max-height: 1.1em;
-  min-width: 1.1em;
-  min-height: 1.1em;
-  margin: -.25em 0 0;
   background: #88ac0b;
   border-radius: 3px;
+  height: 1.1em;
+  margin: -.25em 0 0;
+  max-height: 1.1em;
+  max-width: 1.1em;
+  min-height: 1.1em;
+  min-width: 1.1em;
+  width: 1.1em;
 }
 
 .input[type=checkbox]:checked::before {
+  border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
   content: "";
-  width: .5em;
   height: .3em;
+  left: .25em;
   position: absolute;
   top: .26em;
-  left: .25em;
   transform: rotate(-45deg);
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
+  width: .5em;
 }
 
 .input[type=radio] {
@@ -431,16 +430,9 @@ legend + .p {
   appearance: textfield;
 }
 
-.button[disabled],
-.input[disabled],
-.select[disabled],
-.textarea[disabled] {
-  opacity: .6;
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
 .select {
+  -moz-padding-start: 1px;
+  appearance: none;
   cursor: pointer;
 }
 
@@ -454,20 +446,38 @@ legend + .p {
   height: 18rem;
 }
 
+::-moz-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: .6;
+}
+
 .content {
-  display: flex;
   background: #fff linear-gradient(#f2f2f2, #fff) repeat-x 0 0;
   background-size: 100% 350px;
   border-top: 1px solid #e5e5e5;
   box-shadow: inset 0 1px 0 #fff;
+  display: flex;
   margin: 5px 0;
 }
 
 .footer {
-  padding: 5px;
   background: #f2f0f1;
   border-top: 1px solid #e5e5e5;
   box-shadow: inset 0 1px 0 #fff;
+  padding: 5px;
 }
 
 .footer > div {
@@ -480,8 +490,8 @@ legend + .p {
 }
 
 .footer > div + div {
-  padding: 15px;
   justify-content: center;
+  padding: 15px;
 }
 
 .footer > div + div p {
@@ -495,15 +505,15 @@ legend + .p {
 
 .footer div + div a:focus,
 .footer div + div a:hover {
-  text-decoration: none;
   color: #333;
+  text-decoration: none;
 }
 
 .footer .widget h4 {
-  font-weight: bold;
-  text-transform: uppercase;
   color: #976834;
+  font-weight: bold;
   margin-left: 10px;
+  text-transform: uppercase;
 }
 
 .footer .widget ul,
@@ -513,8 +523,8 @@ legend + .p {
 
 .footer .widget ul li {
   border-bottom-color: #e5e5e5;
-  padding-right: 10px;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .footer .widget .archive:last-child {
@@ -542,17 +552,17 @@ legend + .p {
 .header {
   background: #f6efbb;
   box-shadow: inset 0 3px 0 #eae0ad;
-  font-family: var(--font-3);
   color: #5b4a29;
+  font-family: var(--font-3);
   height: 85px;
 }
 
 .header h1 {
+  color: #111;
   font: inherit;
-  line-height: 1;
   font-size: 40px;
   letter-spacing: -1.5px;
-  color: #111;
+  line-height: 1;
   padding: 10px 15px 0;
 }
 
@@ -567,20 +577,20 @@ legend + .p {
 
 .header p {
   font-size: 15px;
-  padding: 0 18px; /* Magic :( */
   margin: 0;
+  padding: 0 18px; /* Magic :( */
 }
 
 .image {
   background: #f2f0f1;
-  padding: 5px 0;
   margin: 0;
+  padding: 5px 0;
 }
 
 .image img {
-  display: block;
   background: none;
   border: 0;
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -598,31 +608,27 @@ legend + .p {
   flex: 1;
 }
 
-.main > header {
-  display: none;
-}
-
 .main > .alert {
   margin-bottom: 15px;
 }
 
 .nav {
-  height: 45px;
-  line-height: 45px;
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
-  font-weight: bold;
+  color: #fff;
   font-family: var(--font-2);
   font-size: 14px;
+  font-weight: bold;
+  height: 45px;
   letter-spacing: 1px;
+  line-height: 45px;
   text-transform: uppercase;
-  color: #fff;
 }
 
 .nav ul,
 .nav li {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .nav ul {
@@ -632,12 +638,13 @@ legend + .p {
 
 .nav a,
 .nav span {
+  border-left: 1px solid rgba(255, 255, 255, .175);
+  border-right: 1px solid rgba(0, 0, 0, .125);
+  color: inherit;
   display: block;
   padding: 0 15px;
-  color: inherit;
-  border-right: 1px solid rgba(0, 0, 0, .125);
-  border-left: 1px solid rgba(255, 255, 255, .175);
   text-decoration: none;
+  user-select: none;
 }
 
 .nav span {
@@ -663,28 +670,28 @@ legend + .p {
 }
 
 .nav + h2 + ul {
-  position: absolute;
-  top: 25px;
-  right: 25px;
+  color: #5b4a29;
   display: flex;
   flex-wrap: wrap;
   font-family: var(--font-3);
   font-weight: bold;
-  text-transform: uppercase;
   line-height: 1;
-  color: #5b4a29;
+  position: absolute;
+  right: 25px;
+  text-transform: uppercase;
+  top: 25px;
 }
 
 .nav + h2 + ul,
 .nav + h2 + ul li {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .nav + h2 + ul a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 }
 
 .nav + h2 + ul a:focus,
@@ -733,17 +740,21 @@ legend + .p {
 }
 
 .page > header time {
+  color: #899b0d;
   display: block;
-  font-size: 180%;
   font-family: var(--font-1);
+  font-size: 180%;
   line-height: 1.2;
   margin: 0 0 5px;
-  color: #899b0d;
+}
+
+.is\:pages .main > .page > header {
+  display: none;
 }
 
 .page .comments .comment-author {
-  font-weight: bold;
   color: inherit;
+  font-weight: bold;
 }
 
 .page .comments .comment-footer,
@@ -751,8 +762,8 @@ legend + .p {
 .page .comments .input + br + small,
 .page .comments .select + br + small,
 .page .comments .textarea + br + small {
-  font-size: 100%;
   color: #99997d;
+  font-size: 100%;
 }
 
 .page .notes {
@@ -762,8 +773,8 @@ legend + .p {
 .page .t-o-c,
 .page > footer {
   background: #fafae7;
-  color: #99997d;
   border: 1px solid #eae7db;
+  color: #99997d;
   font-size: 95%;
   padding: 5px 10px;
 }
@@ -782,9 +793,9 @@ legend + .p {
 
 .pager ul,
 .pager li {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .pager ul {
@@ -802,15 +813,15 @@ legend + .p {
 }
 
 .widget ul {
-  list-style: none;
-  margin-right: 0;
-  margin-left: 0;
   border-top: 1px solid #ebebeb;
+  list-style: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .widget ul li {
-  padding: 5px;
   border-bottom: 1px solid #ebebeb;
+  padding: 5px;
 }
 
 .widget ul li a {
@@ -828,8 +839,8 @@ legend + .p {
 }
 
 .widget .archive {
-  padding: 5px;
   border-top: 1px solid #ebebeb;
+  padding: 5px;
 }
 
 .widget .archive:last-child {
@@ -867,13 +878,13 @@ legend + .p {
 
 .width {
   display: block;
-  width: 100%;
   max-width: 100%;
+  width: 100%;
 }
 
 .table {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
 }
 
 .table caption {
@@ -895,8 +906,8 @@ legend + .p {
 .table th {
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
   color: #fff;
-  font-size: 110%;
   font-family: var(--font-1);
+  font-size: 110%;
 }
 
 .table tr:nth-child(odd) td {
@@ -917,8 +928,8 @@ legend + .p {
 
 .align-center {
   float: none;
-  margin-right: auto;
   margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
@@ -943,30 +954,30 @@ legend + .p {
 
 .form-comment p > label,
 .form-comment .p > label {
-  padding-top: 3px;
   border-top: 1px solid transparent;
+  padding-top: 3px;
 }
 
 .form-pass,
 .form-user {
   background: #fff;
   box-shadow: 0 0 4px rgba(0, 0, 0, .5);
-  margin-right: -30px;
   margin-left: -30px;
+  margin-right: -30px;
   padding: 15px;
 }
 
 .form-search p {
-  margin: 0;
   display: flex;
+  margin: 0;
 }
 
 .form-search .input {
   background: #fff;
   border-color: #d5d5d5 #e5e5e5 #e5e5e5;
-  min-width: 0;
-  max-width: 100%;
   flex: 1;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .form-search .input:focus {
@@ -978,14 +989,14 @@ legend + .p {
 }
 
 .is\:pages .page figure {
-  margin: 0 20px 0 0;
   float: left;
+  margin: 0 20px 0 0;
 }
 
 .is\:pages .page::after {
+  clear: both;
   content: "";
   display: table;
-  clear: both;
 }
 
 .page .t-o-c {
