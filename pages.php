@@ -29,7 +29,7 @@
     <?php endif; ?>
     <div>
       <?php if (!$excerpt = $page->excerpt): ?>
-        <?php $excerpt = '<p>' . To::excerpt($page->content, true, 250) . '</p>'; ?>
+        <?php $excerpt = '<p>' . To::description($page->content, 250) . '</p>'; ?>
       <?php endif; ?>
       <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
       <p>

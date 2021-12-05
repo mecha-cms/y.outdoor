@@ -25,7 +25,7 @@
       <?= self::meta(); ?>
       <div class="content">
         <main class="main">
-          <?= $alert; ?>
+          <?= self::alert(); ?>
           <header>
             <?php if ($title = $page->title): ?>
               <h2>

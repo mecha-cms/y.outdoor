@@ -4,9 +4,9 @@ $content = "";
 
 if (isset($state->x->archive)) {
     $archives = [];
-    $x_archive_path = $state->x->archive->path ?? '/archive';
-    $x_page_path = $path ?? $state->pathBlog;
-    foreach (g(LOT . DS . 'page' . $x_page_path, 'page') as $k => $v) {
+    $x_archive_path = $state->x->archive->route ?? '/archive';
+    $x_page_path = $path ?? $state->routeBlog;
+    foreach (g(LOT . D . 'page' . $x_page_path, 'page') as $k => $v) {
         $page = new Page($k);
         $v = $page->time;
         if ($v) {

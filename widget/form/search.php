@@ -3,8 +3,8 @@
 $content = "";
 
 if (isset($state->x->search)) {
-    $to = $url . ($path ?? $state->pathBlog);
-    $value = Get::get($key = $state->x->search->key ?? 'q');
+    $to = $url . ($path ?? $state->routeBlog);
+    $value = \get($_GET, $key = $state->x->search->key ?? 'q');
     $content .= '<form action="' . $to . '" class="form-search" method="get">';
     $content .= '<p>';
     $content .= '<input name="' . $key . '" class="input" type="text"' . ($value ? ' value="' . From::HTML($value) . '"' : "") . '>';
