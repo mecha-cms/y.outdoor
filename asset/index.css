@@ -20,7 +20,7 @@
   --font-2: 'Century Gothic', 'Apple Gothic', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
   --font-3: Georgia, Times, serif;
   --font-4: Consolas, 'Nimbus Mono L', monospace;
-  background: #f7f0e3 url('../jpg/back.jpg') repeat-x 50% 0;
+  background: #f7f0e3 url('back.jpg') repeat-x 50% 0;
   color: #666;
   font: normal normal 11px/1.6 var(--font-0);
   text-align: left;
@@ -82,7 +82,7 @@ ins, u {
 }
 
 blockquote {
-  background: #fafae7 url('../jpg/quote.jpg') no-repeat 5px 5px;
+  background: #fafae7 url('quote.jpg') no-repeat 5px 5px;
   border: 1px solid #f4f3ec;
   color: #976957;
   font-family: var(--font-1);
