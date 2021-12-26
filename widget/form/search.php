@@ -5,11 +5,11 @@ $content = "";
 if (isset($state->x->search)) {
     $to = $url . ($path ?? $state->routeBlog);
     $value = \get($_GET, $key = $state->x->search->key ?? 'q');
-    $content .= '<form action="' . $to . '" class="form-search" method="get">';
+    $content .= '<form action="' . $to . '" class="form-search" method="get" role="search">';
     $content .= '<p>';
-    $content .= '<input name="' . $key . '" class="input" type="text"' . ($value ? ' value="' . From::HTML($value) . '"' : "") . '>';
+    $content .= '<input name="' . $key . '" type="text"' . ($value ? ' value="' . From::HTML($value) . '"' : "") . '>';
     $content .= ' ';
-    $content .= '<button class="button" type="submit">' . i('Search') . '</button>';
+    $content .= '<button type="submit">' . i('Search') . '</button>';
     $content .= '</p>';
     $content .= '</form>';
 } else {

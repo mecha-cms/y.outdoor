@@ -18,7 +18,7 @@
     <?= $page->content; ?>
     <?php if ($link = $page->link): ?>
       <p>
-        <a class="button" href="<?= $link; ?>" rel="nofollow" target="_blank">
+        <a href="<?= $link; ?>" rel="nofollow" role="button" target="_blank">
           <?= i('Direct Link'); ?>
         </a>
       </p>
