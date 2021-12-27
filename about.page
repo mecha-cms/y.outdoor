@@ -1,6 +1,7 @@
 ---
 title: Outdoor
 description: A classic fixed-width layout with an open nature theme.
+image: /lot/layout/asset/index.png
 author: Taufik Nurrohman
 link: https://www.styleshout.com/legacy-templates
 type: Markdown
@@ -16,7 +17,5 @@ use:
   '.\lot\x\user': 0
   '.\lot\x\view': 1
 ...
-
-![Outdoor](https://user-images.githubusercontent.com/1669261/119247947-03f9a100-bbb8-11eb-86b4-ea59f64ed721.png)
 
 A classic template designed by [StyleShout](https://www.styleshout.com/legacy-templates). The first time I found it on the [BTemplates](https://btemplates.com/2008/blogger-template-outdoor) website around 2009 when I was in high school. I immediately fell in love with it and used it on my personal blog. This template means something to me. I want to preserve my childhood memories through this project.

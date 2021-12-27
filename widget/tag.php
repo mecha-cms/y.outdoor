@@ -18,7 +18,7 @@ if (isset($state->x->tag)) {
                 ], 1)) {
                     $tag->parent = new Page($page);
                 }
-                $tags[$tag->link] = $tag->title . ' <span class="count">' . $v . '</span>';
+                $tags[$tag->link] = $tag->title . ' <span aria-label="' . i('%d post' . (1 === $v ? "" : 's'), [$v]) . '" role="status">' . $v . '</span>';
             }
         }
     }

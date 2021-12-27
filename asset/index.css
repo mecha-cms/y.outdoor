@@ -329,6 +329,9 @@ legend + * {
 }
 
 [role='button'],
+[role='button']:active,
+[role='button']:focus,
+[role='button']:hover,
 [role='combobox'],
 [role='listbox'],
 [role='searchbox'],
@@ -341,18 +344,22 @@ select,
 textarea {
   accent-color: #88ac0b;
   background: #f7f0e3;
-  border-top-color: #d2ccc1;
   border: 1px solid #d8d2c7;
+  border-top-color: #d2ccc1;
   color: #777;
   display: inline-block;
   max-width: 12rem;
   padding: 3px 5px;
   position: relative;
+  text-decoration: none;
   vertical-align: middle;
   width: 12rem;
 }
 
 [role='button'],
+[role='button']:active,
+[role='button']:focus,
+[role='button']:hover,
 button,
 input[type='button'],
 input[type='reset'],
@@ -577,7 +584,7 @@ textarea {
 
 .footer div + div a:focus,
 .footer div + div a:hover {
-  color: #333;
+  color: #444;
   text-decoration: none;
 }
 
@@ -589,7 +596,7 @@ textarea {
 }
 
 .footer .widget ul,
-.footer .widget .archive {
+.footer .widget [role='tree'] {
   border-top-color: #e5e5e5;
 }
 
@@ -599,26 +606,26 @@ textarea {
   padding-right: 10px;
 }
 
-.footer .widget .archive:last-child {
+.footer .widget [role='tree']:last-child {
   border-bottom-color: #e5e5e5;
 }
 
 .footer .widget ul li a,
-.footer .widget .archive summary a {
+.footer .widget [role='tree'] summary a {
   color: inherit;
 }
 
 .footer .widget ul li a:focus,
 .footer .widget ul li a:hover,
-.footer .widget .archive summary a:focus,
-.footer .widget .archive summary a:hover {
-  color: #333;
+.footer .widget [role='tree'] summary a:focus,
+.footer .widget [role='tree'] summary a:hover {
+  color: #444;
   text-decoration: none;
 }
 
 .footer .widget ul [aria-current='page'],
-.footer .widget .archive[open] summary a {
-  color: #333;
+.footer .widget [role='tree'][open] summary a {
+  color: #444;
 }
 
 .header {
@@ -912,41 +919,41 @@ textarea {
   color: inherit;
 }
 
-.widget .archive {
+.widget [role='tree'] {
   border-top: 1px solid #ebebeb;
   padding: 5px;
 }
 
-.widget .archive:last-child {
+.widget [role='tree']:last-child {
   border-bottom: 1px solid #ebebeb;
 }
 
-.widget .archive + .archive {
+.widget [role='tree'] + [role='tree'] {
   margin-top: 0;
 }
 
-.widget .archive ul,
-.widget .archive li {
+.widget [role='tree'] ul,
+.widget [role='tree'] li {
   border: 0;
 }
 
-.widget .archive ul {
+.widget [role='tree'] ul {
   margin-top: 5px;
 }
 
-.widget .archive li {
+.widget [role='tree'] li {
   margin-left: 5px;
 }
 
-.widget .count {
+.widget [role='status'] {
   color: #999;
 }
 
-.widget .count::before {
+.widget [role='status']::before {
   content: '(';
 }
 
-.widget .count::after {
+.widget [role='status']::after {
   content: ')';
 }
 
@@ -969,14 +976,13 @@ textarea {
   background: #d8ebd8;
 }
 
-.form-comment p > label,
-.form-comment .p > label {
+form p:not([role='alert']) > label {
   border-top: 1px solid transparent;
   padding-top: 3px;
 }
 
-.form-pass,
-.form-user {
+form[name='pass'],
+form[name='user'] {
   background: #fff;
   box-shadow: 0 0 4px rgba(0, 0, 0, .5);
   margin-left: -30px;
@@ -984,12 +990,12 @@ textarea {
   padding: 15px;
 }
 
-.form-search p {
+form[name='search'] p {
   display: flex;
   margin: 0;
 }
 
-.form-search input {
+form[name='search'] input {
   background: #fff;
   border-color: #d5d5d5 #e5e5e5 #e5e5e5;
   flex: 1;
@@ -997,11 +1003,11 @@ textarea {
   min-width: 0;
 }
 
-.form-search input:focus {
+form[name='search'] input:focus {
   border-color: #c5c5c5 #d5d5d5 #d5d5d5;
 }
 
-.form-search button {
+form[name='search'] button {
   margin-left: 3px;
 }
 
