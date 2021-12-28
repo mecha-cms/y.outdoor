@@ -26,28 +26,18 @@ foreach ($defaults as $k => $v) {
     !State::get($k) && State::set($k, $v);
 }
 
-// Info message(s)
-if ($site->is('tags')) {
-    Alert::info('Showing %s tagged in %s.', ['posts', '<em>' . $tag->title . '</em>']);
-}
+Hook::set('route.archive', function($query) {
+    $archive = new Time(substr_replace('1970-01-01-00-00-00', $query, 0, strlen($query)));
+    Alert::info('Showing %s published in %s.', ['posts', '<em>' . $archive->i((false === strpos($query, '-') ? "" : '%B ') . '%Y') . '</em>']);
+});
 
-// Hook::set('route', function() {
-//     extract($GLOBALS);
-//     if (false !== strpos($url->path, '/::')) {
-//         return; // Maybe in Panel?
-//     }
-//     if ($site->is('error')) {
-//         return;
-//     }
-//     if ($site->is('archives')) {
-//         $chops = explode('/', $url->path);
-//         $v = explode('-', array_pop($chops));
-//         $v = $archive->i((1 === count($v) ? "" : '%B ') . '%Y');
-//         Alert::info('Showing %s published in %s.', ['posts', '<em>' . $v . '</em>']);
-//     }
-//     if ($site->is('search') && $v = Get::get($state->x->search->key ?? 'q')) {
-//         Alert::info('Showing %s matched with query %s.', ['posts', '<em>' . $v . '</em>']);
-//     }
-//     if ($site->is('tags')) {
-//     }
-// });
+Hook::set('route.search', function($query) {
+    Alert::info('Showing %s matched with query %s.', ['posts', '<em>' . $query . '</em>']);
+});
+
+Hook::set('route.tag', function($query) {
+    if (is_file($file = LOT . D . 'tag' . D . $query . '.page')) {
+        $tag = new Tag($file);
+        Alert::info('Showing %s tagged in %s.', ['posts', '<em>' . $tag->title . '</em>']);
+    }
+});
