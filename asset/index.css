@@ -149,7 +149,7 @@ details summary::before {
 }
 
 details summary:hover::before {
-  border-left-color: #222;
+  border-left-color: #444;
 }
 
 details[open] summary::before {
