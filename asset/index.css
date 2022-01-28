@@ -615,6 +615,11 @@ textarea {
   color: inherit;
 }
 
+.footer .widget [role='tree'] {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .footer .widget ul li a:focus,
 .footer .widget ul li a:hover,
 .footer .widget [role='tree'] summary a:focus,
@@ -921,7 +926,7 @@ textarea {
 
 .widget [role='tree'] {
   border-top: 1px solid #ebebeb;
-  padding: 5px 10px;
+  padding: 5px;
 }
 
 .widget [role='tree']:last-child {
