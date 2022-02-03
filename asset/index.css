@@ -595,6 +595,11 @@ textarea {
   text-transform: uppercase;
 }
 
+.footer .widget p {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .footer .widget ul,
 .footer .widget [role='tree'] {
   border-top-color: #e5e5e5;
@@ -896,6 +901,10 @@ textarea {
 
 .widget h4 + * {
   margin-top: 10px;
+}
+
+.widget p {
+  padding: 0 5px;
 }
 
 .widget ul {

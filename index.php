@@ -26,17 +26,17 @@ foreach ($defaults as $k => $v) {
     !State::get($k) && State::set($k, $v);
 }
 
-Hook::set('route.archive', function($query) {
-    $archive = new Time(substr_replace('1970-01-01-00-00-00', $query, 0, strlen($query)));
-    Alert::info('Showing %s published in %s.', ['posts', '<em>' . $archive->i((false === strpos($query, '-') ? "" : '%B ') . '%Y') . '</em>']);
+Hook::set('route.archive', function($data) {
+    $archive = new Time(substr_replace('1970-01-01-00-00-00', $name = $data['name'], 0, strlen($name)));
+    Alert::info('Showing %s published in %s.', ['posts', '<em>' . $archive->i((false === strpos($name, '-') ? "" : '%B ') . '%Y') . '</em>']);
 });
 
-Hook::set('route.search', function($query) {
-    Alert::info('Showing %s matched with query %s.', ['posts', '<em>' . $query . '</em>']);
+Hook::set('route.search', function($data) {
+    Alert::info('Showing %s matched with query %s.', ['posts', '<em>' . $data['query'] . '</em>']);
 });
 
-Hook::set('route.tag', function($query) {
-    if (is_file($file = LOT . D . 'tag' . D . $query . '.page')) {
+Hook::set('route.tag', function($data) {
+    if (is_file($file = LOT . D . 'tag' . D . $data['name'] . '.page')) {
         $tag = new Tag($file);
         Alert::info('Showing %s tagged in %s.', ['posts', '<em>' . $tag->title . '</em>']);
     }
