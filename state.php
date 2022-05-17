@@ -1,15 +1,9 @@
 <?php
 
 return [
-    'layout' => [
-        'image' => 'beach'
-    ],
-    'x' => [
-        'comment' => [
-            'page' => ['type' => 'Markdown']
-        ],
-        'page' => [
-            'page' => ['type' => 'Markdown']
-        ]
+    'banner' => 'beach',
+    'page' => [
+        'date-time-format' => '%A, %B %d, %Y',
+        'header' => true // Enable parent’s page description and title on pages view?
     ]
 ];

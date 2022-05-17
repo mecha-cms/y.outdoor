@@ -1,7 +1,9 @@
 Outdoor Layout for [Mecha](https://github.com/mecha-cms/mecha)
 ==============================================================
 
-![Outdoor](/asset/index.png)
+![Code Size](https://img.shields.io/github/languages/code-size/mecha-cms/y.outdoor?color=%23444&style=for-the-badge)
+
+![Outdoor](/index.png)
 
 Outdoor template is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) which allows me to use the template for any purpose as long as I give appropriate credit, as stated on the [template license page](https://www.styleshout.com/template-license).
 
