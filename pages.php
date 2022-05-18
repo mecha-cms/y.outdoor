@@ -13,7 +13,7 @@
         </p>
       <?php endif; ?>
     </header>
-    <?php $date_time_format = $state->y->outdoor->page->{'date-time-format'} ?? '%c'; ?>
+    <?php $date_time_format = $state->y->outdoor->page->timeFormat ?? '%F %T'; ?>
     <?php $x_image = isset($state->x->image); ?>
     <?php if ($pages->count): ?>
       <?php foreach ($pages as $page): ?>

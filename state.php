@@ -3,7 +3,7 @@
 return [
     'banner' => 'beach',
     'page' => [
-        'date-time-format' => '%A, %B %d, %Y',
-        'header' => true // Enable parent’s page description and title on pages view?
+        'header' => true, // Enable parent’s page description and title on pages view?
+        'timeFormat' => '%A, %B %d, %Y'
     ]
 ];

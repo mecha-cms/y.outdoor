@@ -5,7 +5,7 @@
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>
           <time datetime="<?= $page->time->format('c'); ?>">
-            <?= $page->time($state->y->outdoor->page->{'date-time-format'} ?? '%c'); ?>
+            <?= $page->time($state->y->outdoor->page->timeFormat ?? '%F %T'); ?>
           </time>
         </p>
       <?php endif; ?>
