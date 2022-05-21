@@ -51,26 +51,26 @@ Hook::set('_', function($_) use($state, $url) {
             'type' => 'item',
             'value' => $state->y->outdoor->page->timeFormat ?? '%F %T'
         ];
-        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['route-blog'] = [
-            'description' => 'Choose default page for the blog route.',
-            'lot' => $lot,
-            'name' => 'state[route-blog]',
-            'stack' => 120,
-            'title' => 'Route',
-            'type' => 'option',
-            'value' => $state->routeBlog
-        ];
-        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['states'] = [
+        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['options'] = [
             'lot' => [
                 'header' => 'Show page header on pages layout.'
             ],
             'name' => 'state[y][outdoor][page]',
-            'stack' => 130,
-            'title' => 'States',
+            'stack' => 120,
+            'title' => 'Options',
             'type' => 'items',
             'values' => [
                 'header' => !empty($state->y->outdoor->page->header) ? true : null
             ]
+        ];
+        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['route-blog'] = [
+            'description' => 'Choose default page for the blog route.',
+            'lot' => $lot,
+            'name' => 'state[route-blog]',
+            'stack' => 130,
+            'title' => 'Route',
+            'type' => 'option',
+            'value' => $state->routeBlog
         ];
     }
     return $_;
