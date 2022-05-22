@@ -18,9 +18,9 @@
     <div>
       <?= $page->content; ?>
       <?php if ($link = $page->link): ?>
-        <p>
+        <p role="group">
           <a href="<?= $link; ?>" rel="nofollow" role="button" target="_blank">
-            <?= i('Direct Link'); ?>
+            <?= i('Visit Link'); ?>
           </a>
         </p>
       <?php endif; ?>

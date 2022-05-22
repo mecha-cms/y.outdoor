@@ -48,10 +48,15 @@
               <?php $excerpt = '<p>' . To::description($page->content, 250) . '</p>'; ?>
             <?php endif; ?>
             <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
-            <p>
+            <p role="group">
               <a href="<?= $page->url; ?>#next:<?= $page->id; ?>" role="button">
                 <?= i('Read More'); ?>
               </a>
+              <?php if ($link = $page->link): ?>
+                <a href="<?= $link; ?>" rel="nofollow" role="button" target="_blank">
+                  <?= i('Visit Link'); ?>
+                </a>
+              <?php endif; ?>
             </p>
           </div>
         </article>
