@@ -855,13 +855,15 @@ textarea {
 .page .comments .comment-header,
 .page .comments input + br + small,
 .page .comments select + br + small,
-.page .comments textarea + br + small {
+.page .comments textarea + br + small,
+[role='status'] {
   color: #99997d;
   font-size: 100%;
 }
 
 .page [role='doc-endnotes'] {
   color: #99997d;
+  margin-top: 15px;
 }
 
 .page [role='doc-toc'],
