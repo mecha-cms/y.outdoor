@@ -12,9 +12,9 @@ foreach ($pages_data->chunk($take ?? 5, 0) as $page) {
 }
 
 echo $pages ? self::widget('list', [
-    'title' => $title ?? "",
-    'lot' => $pages
+    'lot' => $pages,
+    'title' => $title ?? ""
 ]) : self::widget([
-    'title' => $title ?? "",
-    'content' => '<p>' . i('No %s yet.', ['posts']) . '</p>'
+    'content' => '<p role="status">' . i('No %s yet.', ['posts']) . '</p>',
+    'title' => $title ?? ""
 ]);

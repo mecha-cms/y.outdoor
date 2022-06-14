@@ -58,10 +58,10 @@ if (isset($state->x->archive)) {
         $content .= '</details>';
     }
 } else {
-    $content .= '<p>' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/archive" target="_blank">archive</a>']) . '</p>';
+    $content .= '<p role="status">' . i('Missing %s extension.', ['<a href="https://mecha-cms.com/store/extension/archive" target="_blank">archive</a>']) . '</p>';
 }
 
 echo self::widget([
-    'title' => $title ?? i('Archives'),
-    'content' => $content ?: '<p>' . i('No %s yet.', ['posts']) . '</p>'
+    'content' => $content ?: '<p role="status">' . i('No %s yet.', ['posts']) . '</p>',
+    'title' => $title ?? i('Archives')
 ]);

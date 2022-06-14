@@ -27,6 +27,6 @@ if (!empty($lot['lot'])) {
 }
 
 echo self::widget([
-    'title' => $title ?? "",
-    'content' => $content
+    'content' => $content,
+    'title' => $title ?? ""
 ]);

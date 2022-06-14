@@ -964,15 +964,15 @@ textarea {
   margin-left: 5px;
 }
 
-.widget [role='status'] {
+.widget a [role='status'] {
   color: #999;
 }
 
-.widget [role='status']::before {
+.widget a [role='status']::before {
   content: '(';
 }
 
-.widget [role='status']::after {
+.widget a [role='status']::after {
   content: ')';
 }
 
