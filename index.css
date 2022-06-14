@@ -697,6 +697,7 @@ textarea {
 
 .main {
   flex: 1;
+  min-width: 0;
 }
 
 .main > [role='alert'] {
@@ -887,8 +888,8 @@ textarea {
   margin: 15px 0 0;
 }
 
-.pager ul,
-.pager li {
+.pager li,
+.pager ul {
   list-style: none;
   margin: 0;
   padding: 0;

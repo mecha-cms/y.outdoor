@@ -4,7 +4,7 @@ $content = "";
 
 if (isset($state->x->search)) {
     $to = $url . ($path ?? $state->routeBlog);
-    $value = \get($_GET, $key = $state->x->search->key ?? 'q');
+    $value = \get($_GET, $key = $state->x->search->key ?? 'query');
     $content .= '<form action="' . $to . '" method="get" name="search" role="search">';
     $content .= '<p>';
     $content .= '<input name="' . $key . '" type="text"' . ($value ? ' value="' . From::HTML($value) . '"' : "") . '>';
@@ -17,6 +17,6 @@ if (isset($state->x->search)) {
 }
 
 echo self::widget([
-    'title' => $title ?? i('Search'),
-    'content' => $content
+    'content' => $content,
+    'title' => $title ?? i('Search')
 ]);

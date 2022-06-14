@@ -11,6 +11,7 @@ use:
   '.\lot\x\archive': 1
   '.\lot\x\comment': 0
   '.\lot\x\feed': 0
+  '.\lot\x\image': 0
   '.\lot\x\search': 1
   '.\lot\x\sitemap': 0
   '.\lot\x\tag': 1
