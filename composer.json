@@ -6,7 +6,7 @@
     "mecha-cms/x.archive": "^2.0.0",
     "mecha-cms/x.search": "^2.0.0",
     "mecha-cms/x.tag": "^2.0.0",
-    "mecha-cms/x.view": "^2.0.0"
+    "mecha-cms/x.view": "^3.0.0"
   },
   "suggest": {
     "mecha-cms/x.comment": "Install this extension if you want to have comment feature in your blog.",
