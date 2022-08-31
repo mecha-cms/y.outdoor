@@ -50,10 +50,9 @@ if (isset($state->x->alert)) {
     });
     Hook::set('y.alert', function($alert) {
         foreach ($alert[1] as &$v) {
-            $v[0] = 'p';
             $v[2]['aria-live'] = ['error' => 'assertive', 'info' => 'off', 'success' => 'polite'][$v[2]['type'] ?? $v['type']] ?? null;
-            $v[2]['role'] = 'alert';
         }
+        unset($v);
         return $alert;
     });
 }
