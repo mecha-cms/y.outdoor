@@ -48,6 +48,14 @@ if (isset($state->x->alert)) {
             Alert::info('Showing %s tagged in %s.', ['posts', '<em>' . $tag->title . '</em>']);
         }
     });
+    Hook::set('y.alert', function($alert) {
+        foreach ($alert[1] as &$v) {
+            $v[0] = 'p';
+            $v[2]['aria-live'] = ['error' => 'assertive', 'info' => 'off', 'success' => 'polite'][$v[2]['type'] ?? $v['type']] ?? null;
+            $v[2]['role'] = 'alert';
+        }
+        return $alert;
+    });
 }
 
 if (isset($state->x->excerpt) && $state->is('page')) {
