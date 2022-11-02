@@ -2,25 +2,28 @@
   <ul>
     <li>
       <?php if ($prev = $pager->prev): ?>
-        <a href="<?= From::HTML(($prev->link ?? $prev->url ?? "") . $url->query . $url->hash); ?>" rel="prev">
+        <a href="<?= $prev->link ?? $prev->url; ?>" rel="prev">
           <?= i('Newer'); ?>
         </a>
       <?php endif; ?>
     </li>
     <li>
-      <?php if ($parent = $pager->parent): ?>
-        <a href="<?= From::HTML(($parent->link ?? $parent->url ?? "") . $url->query . $url->hash); ?>">
+      <?php if ($parent = $page->parent): ?>
+        <a href="<?= $parent->url; ?>">
           <?= i('Parent'); ?>
         </a>
-      <?php elseif (!$site->is('home')): ?>
-        <a href="<?= $url; ?>">
-          <?= i('Home'); ?>
-        </a>
+      <?php else: ?>
+        <?php if ($site->is('home')): ?>
+        <?php else: ?>
+          <a href="<?= $url; ?>">
+            <?= i('Home'); ?>
+          </a>
+        <?php endif; ?>
       <?php endif; ?>
     </li>
     <li>
       <?php if ($next = $pager->next): ?>
-        <a href="<?= From::HTML(($next->link ?? $next->url ?? "") . $url->query . $url->hash); ?>" rel="next">
+        <a href="<?= $next->link ?? $next->url; ?>" rel="next">
           <?= i('Older'); ?>
         </a>
       <?php endif; ?>
