@@ -847,6 +847,10 @@ textarea {
   display: block;
 }
 
+.is\:pages.with\:page-header .main > .page > header p {
+  font-size: 120%;
+}
+
 .page .comments .comment-author {
   color: inherit;
   font-weight: bold;

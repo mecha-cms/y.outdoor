@@ -32,7 +32,6 @@
       <?php endif; ?>
     <?php endif; ?>
   </article>
-  <?= self::pager(); ?>
 <?php else: ?>
   <article class="page">
     <header>
