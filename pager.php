@@ -9,12 +9,11 @@
     </li>
     <li>
       <?php if ($parent = $page->parent): ?>
-        <a href="<?= $parent->url; ?>">
-          <?= i('Parent'); ?>
+        <a href="<?= $parent->url; ?>" title="<?= $parent->description; ?>">
+          <?= $parent->title ?? i('Parent'); ?>
         </a>
       <?php else: ?>
-        <?php if ($site->is('home')): ?>
-        <?php else: ?>
+        <?php if (!$site->is('home')): ?>
           <a href="<?= $url; ?>">
             <?= i('Home'); ?>
           </a>
