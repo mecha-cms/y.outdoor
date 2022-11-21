@@ -7,7 +7,7 @@
   <div>
     <p>
       <span>
-        &#x00A9; <?= $date->year; ?> <a href="<?= $url; ?>">
+        &#x00a9; <?= $date->year; ?> <a href="<?= $url; ?>">
           <?= $site->title; ?>
         </a>
       </span>

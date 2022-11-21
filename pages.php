@@ -28,7 +28,7 @@
               <h3>
                 <?php if ($link = $page->link): ?>
                   <a href="<?= $link; ?>" target="_blank">
-                    &#x2BB3; <?= $title; ?>
+                    &#x2bb3; <?= $title; ?>
                   </a>
                 <?php else: ?>
                   <a href="<?= $page->url; ?>">
