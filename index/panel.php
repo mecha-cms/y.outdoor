@@ -34,13 +34,18 @@ Hook::set('_', function ($_) use ($state, $url) {
             'lot' => [],
             'type' => 'fields'
         ];
+        $banner = $state->y->outdoor->banner ?? 0;
+        $banner_file = __DIR__ . D . '..' . D . 'banner' . D . $banner . '.jpg';
+        $banner_link = is_file($banner_file) ? To::URL($banner_file) : null;
         $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['banner'] = [
+            'description' => $banner_link ? 'If the image below looks broken, the image file may no longer exist.' : null,
+            'field-exit' => $banner_link ? '<p><img alt="' . i('Banner') . '" src="' . $banner_link . '?v=' . filemtime($banner_file) . '" style="display: block;"></p>' : null,
             'lot' => $banners,
             'name' => 'state[y][outdoor][banner]',
             'stack' => 100,
             'title' => 'Banner',
             'type' => 'item',
-            'value' => $state->y->outdoor->banner ?? 0
+            'value' => $banner
         ];
         $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['time-format'] = [
             'block' => true,
