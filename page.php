@@ -4,7 +4,7 @@
     <header>
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>
-          <time datetime="<?= $page->time->format('c'); ?>">
+          <time datetime="<?= eat($page->time->format('c')); ?>">
             <?= $page->time($state->y->outdoor->page->timeFormat ?? '%F %T'); ?>
           </time>
         </p>
@@ -19,7 +19,7 @@
       <?= $page->content; ?>
       <?php if ($link = $page->link): ?>
         <p role="group">
-          <a href="<?= $link; ?>" rel="nofollow" role="button" target="_blank">
+          <a href="<?= eat($link); ?>" rel="nofollow" role="button" target="_blank">
             <?= i('Visit Link'); ?>
           </a>
         </p>

@@ -5,14 +5,14 @@
     $author = $page->author;
 
     if (isset($state->x->user) && $author instanceof User) {
-        $author = '<a href="' . ($author->link ?? $author->url) . '" rel="author" target="_blank">' . $author . '</a>';
+        $author = '<a href="' . eat($author->link ?? $author->url) . '" rel="author" target="_blank">' . $author . '</a>';
     }
 
     if (!$author) {
         $author = '<em>' . i('Anonymous') . '</em>';
     }
 
-    $time = '<time datetime="' . $page->time->format('c') . '">' . $page->time('%I:%M %p') . '</time>';
+    $time = '<time datetime="' . eat($page->time->format('c')) . '">' . $page->time('%I:%M %p') . '</time>';
 
     ?>
     <?= i('Posted by %s at %s', [$author, $time]); ?>
@@ -26,7 +26,7 @@
 
         if ($tags_data = $page->tags) {
             foreach ($tags_data as $tag) {
-                $tags[$title = $tag->title] = '<a href="' . $tag->link . '" rel="tag">' . $title . '</a>';
+                $tags[$title = $tag->title] = '<a href="' . eat($tag->link) . '" rel="tag">' . $title . '</a>';
             }
         }
 

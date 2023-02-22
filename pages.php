@@ -1,6 +1,6 @@
 <?= self::enter(); ?>
 <?php if ($page->exist): ?>
-  <article class="page" id="page:<?= $page->id; ?>">
+  <article class="page" id="page:<?= eat($page->id); ?>">
     <header>
       <?php if ($title = $page->title): ?>
         <h2>
@@ -17,21 +17,21 @@
     <?php $x_image = isset($state->x->image); ?>
     <?php if ($pages->count): ?>
       <?php foreach ($pages as $page): ?>
-        <article class="page" id="page:<?= $page->id; ?>">
+        <article class="page" id="page:<?= eat($page->id); ?>">
           <header>
             <p>
-              <time datetime="<?= $page->time->format('c'); ?>">
+              <time datetime="<?= eat($page->time->format('c')); ?>">
                 <?= $page->time($date_time_format); ?>
               </time>
             </p>
             <?php if ($title = $page->title): ?>
               <h3>
                 <?php if ($link = $page->link): ?>
-                  <a href="<?= $link; ?>" target="_blank">
+                  <a href="<?= eat($link); ?>" target="_blank">
                     &#x2bb3; <?= $title; ?>
                   </a>
                 <?php else: ?>
-                  <a href="<?= $page->url; ?>">
+                  <a href="<?= eat($page->url); ?>">
                     <?= $title; ?>
                   </a>
                 <?php endif; ?>
@@ -40,7 +40,7 @@
           </header>
           <?php if ($x_image && $image = $page->image(120, 120, 100)): ?>
             <figure>
-              <img alt="" height="120" src="<?= $image; ?>" width="120">
+              <img alt="" height="120" src="<?= eat($image); ?>" width="120">
             </figure>
           <?php endif; ?>
           <div>
@@ -49,11 +49,11 @@
             <?php endif; ?>
             <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
             <p role="group">
-              <a href="<?= $page->url; ?>#next:<?= $page->id; ?>" role="button">
+              <a href="<?= eat($page->url); ?>#next:<?= eat($page->id); ?>" role="button">
                 <?= i('Read More'); ?>
               </a>
               <?php if ($link = $page->link): ?>
-                <a href="<?= $link; ?>" rel="nofollow" role="button" target="_blank">
+                <a href="<?= eat($link); ?>" rel="nofollow" role="button" target="_blank">
                   <?= i('Visit Link'); ?>
                 </a>
               <?php endif; ?>
