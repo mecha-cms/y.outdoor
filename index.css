@@ -480,7 +480,6 @@ input[type='number'] {
 [role='combobox'],
 [role='listbox'],
 select {
-  -moz-padding-start: 1px;
   appearance: none;
   cursor: pointer;
 }
@@ -1061,4 +1060,10 @@ form[name='search'] button {
 
 .page [role='doc-toc'] summary::before {
   display: none;
+}
+
+.page p[role='group'] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
 }
