@@ -1036,7 +1036,7 @@ form[name='search'] button {
 
 .is\:pages .page figure {
   float: left;
-  margin: 0 20px 0 0;
+  margin: 0 15px 15px 0;
 }
 
 .is\:pages .page::after {
