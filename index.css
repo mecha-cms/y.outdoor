@@ -142,7 +142,7 @@ details summary {
 
 details summary::before {
   border-bottom: 4px solid transparent;
-  border-left: 7px solid #666;
+  border-left: 8px solid #666;
   border-right: 0 solid transparent;
   border-top: 4px solid transparent;
   content: "";
@@ -159,7 +159,11 @@ details summary:hover::before {
 }
 
 details[open] summary::before {
-  transform: rotate(90deg);
+  border-bottom: 0 solid transparent;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 8px solid #666;
+  margin-top: -3px;
 }
 
 fieldset {
