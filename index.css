@@ -271,6 +271,10 @@ sup {
   top: -0.25rem;
 }
 
+ol ::marker {
+  color: #899b0d;
+}
+
 ul {
   list-style: disc;
   list-style-image: url('data:image/gif;base64,R0lGODlhCAAMAKUqAJW7HajHR7jXbaTFQJ3AMZ3CMLPTYqDENvj68Pz9+fn786PHP/7+/NXjp6THPv3+/KPGPJW8HsnbjpvAK6HEOJS7HPr89ff675W7H5q/Kdbkq6DBNsjai8rcj/v8+NvntLXPZLTUZavJTqPEPbrYcv///vr89sHWfbzTcbfQaP///////////////////////////////////////////////////////////////////////////////////////yH5BAEAAD8ALAAAAAAIAAwAAAYswJ9wSCwaj0jjaTTgDFGRBQTQERIcJMEhINxQQoaCSCipTDIYzbABSn2SvyAAOw==');
