@@ -759,6 +759,10 @@ textarea {
   user-select: none;
 }
 
+.nav mark {
+  background: rgba(0, 0, 0, 0.125);
+}
+
 .nav span {
   cursor: default;
 }
