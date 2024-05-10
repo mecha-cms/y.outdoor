@@ -49,11 +49,11 @@
             <?php endif; ?>
             <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
             <p role="group">
-              <a href="<?= eat($page->url); ?>#next:<?= eat($page->id); ?>" role="button">
+              <a href="<?= eat($page->url); ?>#next:<?= eat($page->id); ?>">
                 <?= i('Read More'); ?>
               </a>
               <?php if ($link = $page->link): ?>
-                <a href="<?= eat($link); ?>" rel="nofollow" role="button" target="_blank">
+                <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
                   <?= i('Visit Link'); ?>
                 </a>
               <?php endif; ?>
