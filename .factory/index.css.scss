@@ -115,7 +115,6 @@ li {
 %a {
   color: #5a93c9;
   cursor: pointer;
-  text-decoration: none;
   &:focus,
   &:hover {
     color: #88ac0b;
@@ -174,8 +173,6 @@ a {
 }
 
 abbr {
-  border: 0;
-  text-decoration: none;
   &[title] {
     cursor: help;
     &:hover {
@@ -500,7 +497,6 @@ button {
     left: 8px;
     right: 8px;
   }
-  text-decoration: none;
   width: auto;
 }
 
@@ -834,6 +830,7 @@ textarea {
     flex-wrap: wrap;
   }
   a {
+    @extend %label;
     border: {
       left: 1px solid rgba(255, 255, 255, 0.175);
       right: 1px solid rgba(0, 0, 0, 0.125);
@@ -842,7 +839,6 @@ textarea {
     display: block;
     padding: 0 15px;
     text-decoration: none;
-    user-select: none;
     &:focus,
     &:hover {
       background: rgba(0, 0, 0, 0.025);

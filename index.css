@@ -136,7 +136,6 @@ a,
 [role=link] {
   color: #5a93c9;
   cursor: pointer;
-  text-decoration: none;
 }
 a:focus,
 [role=link]:focus,
@@ -191,6 +190,8 @@ textarea {
   width: 12rem;
 }
 
+.nav a,
+.nav [role=link],
 select,
 input[type=checkbox],
 input[type=color],
@@ -227,10 +228,6 @@ u {
   text-decoration: underline;
 }
 
-abbr {
-  border: 0;
-  text-decoration: none;
-}
 abbr[title] {
   cursor: help;
 }
@@ -498,7 +495,6 @@ input[type=submit] {
   max-width: unset;
   padding-left: 8px;
   padding-right: 8px;
-  text-decoration: none;
   width: auto;
 }
 
@@ -810,7 +806,6 @@ textarea {
   display: block;
   padding: 0 15px;
   text-decoration: none;
-  user-select: none;
 }
 .nav a:focus,
 .nav [role=link]:focus,
