@@ -13,8 +13,11 @@
   word-wrap: break-word;
 }
 
-::placeholder {
-  opacity: 0.5;
+::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
 }
 
 :where(address,
@@ -47,8 +50,38 @@
   search,
   section,
   table,
-  ul):where(:not(:last-child)) {
-  margin-bottom: 15px;
+  ul) + :where(address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul) {
+  margin-top: 15px;
 }
 
 li:where(:not(:first-child)) > :where(address,
@@ -81,6 +114,10 @@ li:where(:not(:first-child)) > :where(address,
   section,
   table):where(:first-child) {
   margin-top: 15px;
+}
+
+::placeholder {
+  opacity: 0.5;
 }
 
 :root {
@@ -117,17 +154,59 @@ a[aria-disabled],
   text-decoration: none;
 }
 
+b,
 dt,
+legend,
 strong,
-th,
-b {
+th {
   font-weight: bold;
 }
 
 em,
-var,
-i {
+i,
+var {
   font-style: italic;
+}
+
+button,
+[role=button],
+input[type=button],
+input[type=reset],
+input[type=submit],
+input,
+output,
+select,
+textarea {
+  accent-color: #88ac0b;
+  background: #f7f0e3;
+  border: 1px solid #d8d2c7;
+  border-top-color: #d2ccc1;
+  color: #777;
+  display: inline-block;
+  max-width: 12rem;
+  padding: 3px 5px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 12rem;
+}
+
+select,
+input[type=checkbox],
+input[type=color],
+input[type=file],
+input[type=image],
+input[type=radio],
+input[type=range],
+button,
+[role=button],
+input[type=button],
+input[type=reset],
+input[type=submit],
+label,
+details > summary {
+  cursor: pointer;
+  user-select: none;
 }
 
 del,
@@ -136,9 +215,9 @@ s {
   text-decoration: line-through;
 }
 
+small,
 sub,
-sup,
-small {
+sup {
   font-size: 90%;
 }
 
@@ -200,7 +279,6 @@ details > summary {
   display: block;
   padding-left: 15px;
   position: relative;
-  user-select: none;
 }
 details > summary::before {
   border-bottom: 4px solid transparent;
@@ -244,10 +322,7 @@ figure [role=img] {
   margin-right: auto;
 }
 
-form > p:last-of-type {
-  margin-bottom: 0;
-}
-form > p:not([role=alert]) > label {
+form > p > label {
   border-top: 1px solid transparent;
   padding-top: 3px;
 }
@@ -320,10 +395,7 @@ h6 {
 }
 
 hr {
-  background: none;
-  border: 0;
   border-top: 1px dashed #e5e5e5;
-  color: inherit;
 }
 
 img,
@@ -341,13 +413,7 @@ kbd {
   padding: 2px 3px;
 }
 
-label {
-  cursor: pointer;
-  user-select: none;
-}
-
 legend {
-  font-weight: bold;
   padding: 0 5px;
 }
 
@@ -361,6 +427,7 @@ ol {
   list-style: decimal;
 }
 
+small,
 sub,
 sup {
   position: relative;
@@ -377,12 +444,15 @@ ul {
   list-style-image: url("data:image/gif;base64,R0lGODlhCAAMAKUqAJW7HajHR7jXbaTFQJ3AMZ3CMLPTYqDENvj68Pz9+fn786PHP/7+/NXjp6THPv3+/KPGPJW8HsnbjpvAK6HEOJS7HPr89ff675W7H5q/Kdbkq6DBNsjai8rcj/v8+NvntLXPZLTUZavJTqPEPbrYcv///vr89sHWfbzTcbfQaP///////////////////////////////////////////////////////////////////////////////////////yH5BAEAAD8ALAAAAAAIAAwAAAYswJ9wSCwaj0jjaTTgDFGRBQTQERIcJMEhINxQQoaCSCipTDIYzbABSn2SvyAAOw==");
 }
 
-dd,
+dl {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
 ol,
 ul {
   margin-left: 30px;
 }
-
 ol ol,
 ol ul,
 ul ol,
@@ -418,42 +488,10 @@ button,
 [role=button],
 input[type=button],
 input[type=reset],
-input[type=submit],
-input,
-output,
-select,
-textarea {
-  accent-color: #88ac0b;
-  background: #f7f0e3;
-  border: 1px solid #d8d2c7;
-  border-top-color: #d2ccc1;
-  color: #777;
-  display: inline-block;
-  max-width: 12rem;
-  padding: 3px 5px;
-  position: relative;
-  text-decoration: none;
-  vertical-align: middle;
-  width: 12rem;
-}
-
-::-moz-focus-inner,
-::-moz-focus-inner {
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-}
-
-button,
-[role=button],
-input[type=button],
-input[type=reset],
 input[type=submit] {
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
   border: 0;
   color: #fff;
-  cursor: pointer;
   font-family: var(--font-1);
   font-size: 110%;
   font-weight: bold;
@@ -461,7 +499,6 @@ input[type=submit] {
   padding-left: 8px;
   padding-right: 8px;
   text-decoration: none;
-  user-select: none;
   width: auto;
 }
 
@@ -471,10 +508,9 @@ input[type=file],
 input[type=image],
 input[type=radio],
 input[type=range] {
-  background: none;
+  background: 0 0;
   border: 0;
   box-shadow: none;
-  cursor: pointer;
   height: auto;
   line-height: inherit;
   max-width: unset;
@@ -522,8 +558,8 @@ input[type=radio]:checked {
   background: none;
   border: 0.5em solid #88ac0b;
 }
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
@@ -532,11 +568,6 @@ input:focus,
 select:focus,
 textarea:focus {
   border-color: #b9b4aa #cbc5bb #cbc5bb;
-}
-
-select {
-  appearance: none;
-  cursor: pointer;
 }
 
 table {
@@ -598,7 +629,7 @@ textarea {
 }
 .banner img,
 .banner [role=img] {
-  background: none;
+  background: 0 0;
   border: 0;
   margin: 0;
   padding: 0;
@@ -713,7 +744,6 @@ textarea {
   color: #5b4a29;
   font-family: var(--font-3);
   height: 85px;
-  margin-bottom: 0;
 }
 .header h1 {
   color: #111;
@@ -735,6 +765,7 @@ textarea {
 }
 .header p {
   font-size: 15px;
+  margin: 0;
   padding: 0 18px;
 }
 
@@ -837,9 +868,6 @@ textarea {
   padding-left: 5px;
 }
 
-.page {
-  margin-bottom: 0;
-}
 .page > footer {
   margin: 15px 0 0;
 }
@@ -862,7 +890,7 @@ textarea {
   font-size: 220%;
 }
 .page > header p {
-  margin: 0 0 5px;
+  margin: 0 0 8px;
 }
 .page > header p time {
   color: #899b0d;
@@ -955,7 +983,6 @@ textarea {
 }
 .widget h4 {
   font-size: 160%;
-  margin-bottom: 0;
   margin-left: 5px;
 }
 .widget h4 + * {
@@ -990,7 +1017,6 @@ textarea {
 }
 .widget [role=tree] {
   border-top: 1px solid #ebebeb;
-  margin-bottom: 0;
   padding: 5px;
 }
 .widget [role=tree][open] > summary {
@@ -1009,18 +1035,24 @@ textarea {
 .widget [role=tree] ul {
   margin-top: 5px;
 }
+.widget [role=tree] + [role=tree] {
+  margin-top: 0;
+}
 
 .is\:pages .main > .page > header {
   border-bottom: 1px dashed #e5e5e5;
   display: none;
   padding-bottom: 15px;
 }
+.is\:pages .main > .page > header p {
+  margin-bottom: 0;
+}
 .is\:pages.with\:page-header .main > .page > header {
   display: block;
 }
 .is\:pages.with\:page-header .main > .page > header p {
   font-size: 120%;
-  margin-top: 5px;
+  margin-top: 8px;
 }
 .is\:pages .page figure {
   float: left;

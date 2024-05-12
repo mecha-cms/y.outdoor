@@ -13,8 +13,11 @@
   word-wrap: break-word;
 }
 
-::placeholder {
-  opacity: 0.5;
+::-moz-focus-inner {
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
 }
 
 :where(
@@ -49,8 +52,10 @@
   section,
   table,
   ul
-):where(:not(:last-child)) {
-  margin-bottom: 15px;
+) {
+  & + & {
+    margin-top: 15px;
+  }
 }
 
 li {
@@ -91,6 +96,10 @@ li {
   }
 }
 
+::placeholder {
+  opacity: 0.5;
+}
+
 :root {
   --font-0: Verdana, 'Bitstream Vera Sans', 'DejaVu Sans', Tahoma, Helvetica, Arial, Geneva, sans-serif;
   --font-1: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
@@ -128,6 +137,26 @@ li {
   font-style: italic;
 }
 
+%input {
+  accent-color: #88ac0b;
+  background: #f7f0e3;
+  border: 1px solid #d8d2c7;
+  border-top-color: #d2ccc1;
+  color: #777;
+  display: inline-block;
+  max-width: 12rem;
+  padding: 3px 5px;
+  position: relative;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 12rem;
+}
+
+%label {
+  cursor: pointer;
+  user-select: none;
+}
+
 %s {
   text-decoration: line-through;
 }
@@ -142,26 +171,6 @@ li {
 
 a {
   @extend %a;
-}
-
-b {
-  @extend %b;
-}
-
-i {
-  @extend %i;
-}
-
-s {
-  @extend %s;
-}
-
-small {
-  @extend %small;
-}
-
-u {
-  @extend %u;
 }
 
 abbr {
@@ -183,22 +192,27 @@ video {
   width: 100%;
 }
 
+b,
 dt,
+legend,
 strong,
 th {
   @extend %b;
 }
 
-del {
+del,
+s {
   @extend %s;
 }
 
 em,
+i,
 var {
   @extend %i;
 }
 
-ins {
+ins,
+u {
   @extend %u;
 }
 
@@ -236,11 +250,11 @@ code {
 
 details {
   > summary {
+    @extend %label;
     cursor: pointer;
     display: block;
     padding-left: 15px;
     position: relative;
-    user-select: none;
     &::before {
       border: {
         bottom: 4px solid transparent;
@@ -296,14 +310,9 @@ figure {
 
 form {
   > p {
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-    &:not([role='alert']) {
-      > label {
-        border-top: 1px solid transparent;
-        padding-top: 3px;
-      }
+    > label {
+      border-top: 1px solid transparent;
+      padding-top: 3px;
     }
   }
   &[name='pass'],
@@ -377,10 +386,7 @@ h6 {
 }
 
 hr {
-  background: none;
-  border: 0;
   border-top: 1px dashed #e5e5e5;
-  color: inherit;
 }
 
 img {
@@ -398,12 +404,10 @@ kbd {
 }
 
 label {
-  cursor: pointer;
-  user-select: none;
+  @extend %label;
 }
 
 legend {
-  font-weight: bold;
   padding: 0 5px;
 }
 
@@ -416,6 +420,7 @@ ol {
   list-style: decimal;
 }
 
+small,
 sub,
 sup {
   @extend %small;
@@ -433,14 +438,16 @@ ul {
   list-style-image: url('data:image/gif;base64,R0lGODlhCAAMAKUqAJW7HajHR7jXbaTFQJ3AMZ3CMLPTYqDENvj68Pz9+fn786PHP/7+/NXjp6THPv3+/KPGPJW8HsnbjpvAK6HEOJS7HPr89ff675W7H5q/Kdbkq6DBNsjai8rcj/v8+NvntLXPZLTUZavJTqPEPbrYcv///vr89sHWfbzTcbfQaP///////////////////////////////////////////////////////////////////////////////////////yH5BAEAAD8ALAAAAAAIAAwAAAYswJ9wSCwaj0jjaTTgDFGRBQTQERIcJMEhINxQQoaCSCipTDIYzbABSn2SvyAAOw==');
 }
 
-dd,
-ol,
-ul {
-  margin-left: 30px;
+dl {
+  margin: {
+    left: 15px;
+    right: 15px;
+  }
 }
 
 ol,
 ul {
+  margin-left: 30px;
   & & {
     margin-left: 15px;
   }
@@ -475,33 +482,14 @@ input,
 output,
 select,
 textarea {
-  accent-color: #88ac0b;
-  background: #f7f0e3;
-  border: 1px solid #d8d2c7;
-  border-top-color: #d2ccc1;
-  color: #777;
-  display: inline-block;
-  max-width: 12rem;
-  padding: 3px 5px;
-  position: relative;
-  text-decoration: none;
-  vertical-align: middle;
-  width: 12rem;
-}
-
-::-moz-focus-inner,
-::-moz-focus-inner {
-  border: 0;
-  margin: 0;
-  outline: 0;
-  padding: 0;
+  @extend %input;
 }
 
 button {
+  @extend %label;
   background: #9bb009 linear-gradient(#9bb009, #aabd30) repeat-x 0 0;
   border: 0;
   color: #fff;
-  cursor: pointer;
   font: {
     family: var(--font-1);
     size: 110%;
@@ -513,7 +501,6 @@ button {
     right: 8px;
   }
   text-decoration: none;
-  user-select: none;
   width: auto;
 }
 
@@ -529,10 +516,10 @@ input {
   &[type='image'],
   &[type='radio'],
   &[type='range'] {
-    background: none;
+    @extend %label;
+    background: 0 0;
     border: 0;
     box-shadow: none;
-    cursor: pointer;
     height: auto;
     line-height: inherit;
     max-width: unset;
@@ -586,8 +573,8 @@ input {
       border: 0.5em solid #88ac0b;
     }
   }
-  &::-webkit-outer-spin-button,
-  &::-webkit-inner-spin-button {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
@@ -602,8 +589,7 @@ textarea {
 }
 
 select {
-  appearance: none;
-  cursor: pointer;
+  @extend %label;
 }
 
 table {
@@ -657,8 +643,7 @@ textarea {
   padding: 0;
 }
 
-:disabled,
-[role='button']:not(:any-link) {
+:disabled {
   box-shadow: none;
   cursor: not-allowed;
   opacity: 0.6;
@@ -669,7 +654,7 @@ textarea {
   margin: 0;
   padding: 5px 0;
   img {
-    background: none;
+    background: 0 0;
     border: 0;
     margin: 0;
     padding: 0;
@@ -791,7 +776,6 @@ textarea {
   color: #5b4a29;
   font-family: var(--font-3);
   height: 85px;
-  margin-bottom: 0;
   h1 {
     color: #111;
     font: inherit;
@@ -810,6 +794,7 @@ textarea {
   }
   p {
     font-size: 15px;
+    margin: 0;
     padding: 0 18px; // Magic :(
   }
 }
@@ -915,7 +900,6 @@ textarea {
 }
 
 .page {
-  margin-bottom: 0;
   > footer {
     margin: 15px 0 0;
   }
@@ -936,7 +920,7 @@ textarea {
       font-size: 220%;
     }
     p {
-      margin: 0 0 5px;
+      margin: 0 0 8px;
       time {
         color: #899b0d;
         display: block;
@@ -1043,10 +1027,7 @@ textarea {
   }
   h4 {
     font-size: 160%;
-    margin: {
-      bottom: 0;
-      left: 5px;
-    }
+    margin-left: 5px;
     + * {
       margin-top: 10px;
     }
@@ -1079,7 +1060,6 @@ textarea {
   }
   [role='tree'] {
     border-top: 1px solid #ebebeb;
-    margin-bottom: 0;
     padding: 5px;
     &[open] {
       > summary {
@@ -1099,6 +1079,9 @@ textarea {
     ul {
       margin-top: 5px;
     }
+    + [role='tree'] {
+      margin-top: 0;
+    }
   }
 }
 
@@ -1109,6 +1092,9 @@ textarea {
         border-bottom: 1px dashed #e5e5e5;
         display: none;
         padding-bottom: 15px;
+        p {
+          margin-bottom: 0;
+        }
       }
     }
   }
@@ -1119,7 +1105,7 @@ textarea {
           display: block;
           p {
             font-size: 120%;
-            margin-top: 5px;
+            margin-top: 8px;
           }
         }
       }
@@ -1161,6 +1147,9 @@ textarea {
   &:active {
     color: #fff;
     text-decoration: none;
+  }
+  &:not(:any-link) {
+    @extend :disabled;
   }
 }
 
