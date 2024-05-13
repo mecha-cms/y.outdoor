@@ -649,6 +649,7 @@ textarea {
   background: #f2f0f1;
   border-top: 1px solid #e5e5e5;
   box-shadow: inset 0 1px 0 #fff;
+  margin: 0;
   padding: 5px;
 }
 .footer > div {
@@ -899,8 +900,14 @@ textarea {
   flex-wrap: wrap;
   gap: 1em;
 }
-.page .comments#comments {
-  margin-top: 30px;
+.page .comment + .comment,
+.page .comment .comments {
+  margin-top: 15px;
+}
+.page .comments,
+.page .comments-body,
+.page .comments-footer {
+  margin-top: 15px;
 }
 .page .comments h3 {
   color: #895f30;
@@ -920,6 +927,9 @@ textarea {
 .page .comments textarea + br + small {
   color: #99997d;
   font-size: 100%;
+}
+.page #comments {
+  margin-top: 25px;
 }
 .page [role=doc-endnotes] {
   color: #99997d;
@@ -947,11 +957,11 @@ textarea {
   display: none;
 }
 .page + .page {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 .pager {
-  margin: 30px 0 0;
+  margin: 25px 0 0;
 }
 .pager li,
 .pager ul {
@@ -1051,7 +1061,7 @@ textarea {
 }
 .is\:pages .page figure {
   float: left;
-  margin: 0 15px 0 0;
+  margin-right: 15px;
 }
 .is\:pages .page::after {
   clear: both;
