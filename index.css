@@ -662,6 +662,7 @@ textarea {
 }
 .footer > div + div {
   justify-content: center;
+  margin: 0;
   padding: 15px;
 }
 .footer > div + div a,
