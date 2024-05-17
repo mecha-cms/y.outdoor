@@ -1,6 +1,6 @@
 <?= self::enter(); ?>
 <?php if ($page->exist): ?>
-  <article class="page" id="page:<?= $page->id; ?>">
+  <article class="page" id="page:<?= eat($page->id); ?>">
     <header>
       <?php if ($site->has('page') && $site->has('parent')): ?>
         <p>

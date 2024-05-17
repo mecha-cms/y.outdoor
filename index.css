@@ -216,9 +216,9 @@ s {
   text-decoration: line-through;
 }
 
-small,
 sub,
-sup {
+sup,
+small {
   font-size: 90%;
 }
 
@@ -237,6 +237,7 @@ abbr[title]:hover {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;
@@ -272,7 +273,6 @@ code {
 }
 
 details > summary {
-  cursor: pointer;
   display: block;
   padding-left: 15px;
   position: relative;
@@ -388,14 +388,12 @@ legend {
 mark,
 [role=mark] {
   background: #fff399;
-  color: inherit;
 }
 
 ol {
   list-style: decimal;
 }
 
-small,
 sub,
 sup {
   position: relative;
@@ -437,19 +435,6 @@ pre code {
   border: 1px solid #f4f3ec;
   display: block;
   padding: 10px;
-}
-
-.aside {
-  width: 280px;
-}
-
-.body {
-  background: #fff;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-  margin: 50px auto;
-  padding: 15px;
-  position: relative;
-  width: 900px;
 }
 
 button,
@@ -589,6 +574,16 @@ textarea {
   opacity: 0.6;
 }
 
+[role=button]:focus,
+[role=button]:hover,
+[role=button]:active {
+  color: #fff;
+  text-decoration: none;
+}
+.aside {
+  width: 280px;
+}
+
 .banner {
   background: #f2f0f1;
   margin: 0;
@@ -605,6 +600,15 @@ textarea {
 .banner + h2,
 .header + h2 {
   display: none;
+}
+
+.body {
+  background: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  margin: 50px auto;
+  padding: 15px;
+  position: relative;
+  width: 900px;
 }
 
 .content {
@@ -761,16 +765,6 @@ textarea {
   margin: 0;
   text-transform: uppercase;
 }
-.nav ul,
-.nav li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.nav ul {
-  display: flex;
-  flex-wrap: wrap;
-}
 .nav a,
 .nav [role=link] {
   border-left: 1px solid rgba(255, 255, 255, 0.175);
@@ -790,6 +784,12 @@ textarea {
 .nav [role=link]:active {
   background: rgba(0, 0, 0, 0.045);
 }
+.nav li,
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 .nav mark,
 .nav [role=mark] {
   background: rgba(0, 0, 0, 0.125);
@@ -797,6 +797,10 @@ textarea {
 .nav li:first-child a,
 .nav li:first-child [role=link] {
   border-left-width: 0;
+}
+.nav ul {
+  display: flex;
+  flex-wrap: wrap;
 }
 .nav + h2 {
   display: none;
@@ -992,12 +996,6 @@ textarea {
   display: table;
 }
 
-[role=button]:focus,
-[role=button]:hover,
-[role=button]:active {
-  color: #fff;
-  text-decoration: none;
-}
 [role=alert] {
   background: #ffffd8;
   border: 1px solid rgba(0, 0, 0, 0.125);
