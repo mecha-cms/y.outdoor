@@ -1,0 +1,21 @@
+form {
+  &[name='search'] {
+    button {
+      margin-left: 3px;
+    }
+    input {
+      background: #fff;
+      border-color: #d5d5d5 #e5e5e5 #e5e5e5;
+      flex: 1;
+      max-width: 100%;
+      min-width: 0;
+      &:focus {
+        border-color: #c5c5c5 #d5d5d5 #d5d5d5;
+      }
+    }
+    p {
+      display: flex;
+      margin: 0;
+    }
+  }
+}

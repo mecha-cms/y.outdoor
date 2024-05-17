@@ -312,35 +312,6 @@ form {
       padding-top: 3px;
     }
   }
-  &[name='pass'],
-  &[name='user'] {
-    background: #fff;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
-    margin: {
-      left: -30px;
-      right: -30px;
-    }
-    padding: 15px;
-  }
-  &[name='search'] {
-    button {
-      margin-left: 3px;
-    }
-    input {
-      background: #fff;
-      border-color: #d5d5d5 #e5e5e5 #e5e5e5;
-      flex: 1;
-      max-width: 100%;
-      min-width: 0;
-      &:focus {
-        border-color: #c5c5c5 #d5d5d5 #d5d5d5;
-      }
-    }
-    p {
-      display: flex;
-      margin: 0;
-    }
-  }
 }
 
 h1,
@@ -937,69 +908,12 @@ textarea {
       gap: 1em;
     }
   }
-  .comment + .comment,
-  .comment .comments {
-    margin-top: 15px;
-  }
-  .comments,
-  .comments-body,
-  .comments-footer {
-    margin-top: 15px;
-  }
-  .comments {
-    h3 {
-      color: #895f30;
-      font-size: 220%;
-      letter-spacing: -1px;
-      margin: 0;
-    }
-    .comment-author {
-      color: inherit;
-      font-weight: bold;
-    }
-    .comment-footer,
-    .comment-header,
-    [role='status'],
-    input + br + small,
-    select + br + small,
-    textarea + br + small {
-      color: #99997d;
-      font-size: 100%;
-    }
-  }
-  #comments {
-    margin-top: 25px;
-  }
-  [role='doc-endnotes'] {
-    color: #99997d;
-    margin-top: 15px;
-  }
-  [role='doc-toc'],
   > footer {
     background: #fafae7;
     border: 1px solid #eae7db;
     color: #99997d;
     font-size: 95%;
     padding: 5px 10px;
-  }
-  [role='doc-toc'] {
-    border-style: dashed;
-    li {
-      &::after,
-      &::before {
-        border-color: #eae7db;
-      }
-      &:last-child {
-        &::after {
-          background: #fafae7;
-        }
-      }
-    }
-    summary {
-      &::before {
-        display: none;
-      }
-    }
   }
   + .page {
     margin-top: 25px;
@@ -1131,22 +1045,6 @@ textarea {
   }
 }
 
-[role='alert'] {
-  background: #ffffd8;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  font-size: 95%;
-  padding: 5px 10px;
-  &[aria-live='assertive'] {
-    background: #ffd8d8;
-  }
-  &[aria-live='off'] {
-    background: #d8d8ff;
-  }
-  &[aria-live='polite'] {
-    background: #d8ebd8;
-  }
-}
-
 [role='button'] {
   @extend button;
   &:focus,
@@ -1179,3 +1077,11 @@ textarea {
 [role='mark'] {
   @extend mark;
 }
+
+@import './_/x/alert';
+@import './_/x/comment';
+@import './_/x/markdown';
+@import './_/x/pass';
+@import './_/x/search';
+@import './_/x/t-o-c';
+@import './_/x/user';
