@@ -1,0 +1,35 @@
+@mixin comment {
+  .comment + .comment,
+  .comment .comments {
+    margin-top: 15px;
+  }
+  .comments,
+  .comments-body,
+  .comments-footer {
+    margin-top: 15px;
+  }
+  .comments {
+    h3 {
+      color: #895f30;
+      font-size: 220%;
+      letter-spacing: -1px;
+      margin: 0;
+    }
+    .comment-author {
+      color: inherit;
+      font-weight: bold;
+    }
+    .comment-footer,
+    .comment-header,
+    [role='status'],
+    input + br + small,
+    select + br + small,
+    textarea + br + small {
+      color: #99997d;
+      font-size: 100%;
+    }
+  }
+  #comments {
+    margin-top: 25px;
+  }
+}

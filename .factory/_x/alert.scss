@@ -1,0 +1,17 @@
+@mixin alert {
+  [role='alert'] {
+    background: #ffffd8;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    font-size: 95%;
+    padding: 5px 10px;
+    &[aria-live='assertive'] {
+      background: #ffd8d8;
+    }
+    &[aria-live='off'] {
+      background: #d8d8ff;
+    }
+    &[aria-live='polite'] {
+      background: #d8ebd8;
+    }
+  }
+}
