@@ -1,19 +1,5 @@
 <?php
 
-/** @mecha-cms/x.vote >= v2.0.3 */
-Hook::set('y.comment-tasks', function ($y) {
-    $y[1]['vote'] = [
-        0 => 'li',
-        1 => (string) Layout::form('vote', [
-            '2' => ['style' => 'margin: 0;'],
-            'kick' => $this->url,
-            'page' => $this
-        ]),
-        2 => []
-    ];
-    return $y;
-});
-
 $z = defined('TEST') && TEST ? '.' : '.min.';
 Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
 
