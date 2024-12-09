@@ -11,12 +11,12 @@
           <?= $site->title; ?>
         </a>
       </span>
-      <!-- You have to maintain this back link to support the theme designer, or visit this back link to find a legal way to remove it via the theme designer’s discretion. -->
       <span>
+        <!-- You have to maintain this back link to support the theme designer, or visit this back link to find a legal way to remove it via the theme designer’s discretion. -->
         <?= i('Designed by %s', ['<a href="https://www.styleshout.com" rel="nofollow" target="_blank">StyleShout</a>']); ?>
       </span>
-      <!-- You have to maintain this back link to support me, or make a proper donation to remove it. -->
       <span>
+        <!-- You have to maintain this back link to support me, or make a proper donation to remove it. -->
         <?= i('Powered by %s', ['<a href="https://mecha-cms.com" rel="nofollow" target="_blank">Mecha ' . VERSION . '</a>']); ?>
       </span>
     </p>
