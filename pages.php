@@ -45,10 +45,7 @@
             </figure>
           <?php endif; ?>
           <div>
-            <?php if (!$excerpt = $page->excerpt): ?>
-              <?php $excerpt = '<p>' . To::description($page->content, 250) . '</p>'; ?>
-            <?php endif; ?>
-            <?= preg_replace('/<a(\s[^>]*?)?>|<\/a>/', "", $excerpt); ?>
+            <?= $page->excerpt ?? '<p>' . To::description($page->description ?? $page->content, 250) . '</p>'; ?>
             <p role="group">
               <a href="<?= eat($page->url); ?>#next:<?= eat($page->id); ?>">
                 <?= i('Read More'); ?>
@@ -63,7 +60,7 @@
         </article>
       <?php endforeach; ?>
     <?php else: ?>
-      <?php if ($site->has('part')): ?>
+      <?php if ($site->part > 1): ?>
         <p role="status">
           <?= i('No more %s to show.', 'pages'); ?>
         </p>

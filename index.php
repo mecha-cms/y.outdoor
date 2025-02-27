@@ -32,17 +32,17 @@ function page__content($content) {
     return \strtr($content, ["\f" => '<hr id="next:' . $this->id . '" role="doc-pagebreak">']);
 }
 
-function route__archive($content, $path, $query) {
-    \extract(\lot(), \EXTR_SKIP);
+function route__archive() {
+    \extract(\lot());
     if ($state->is('error')) {
         return;
     }
-    if (!$name = (\From::query($query)['name'] ?? 0)) {
+    if (!isset($archive)) {
         return;
     }
-    $archive = new \Time(\substr_replace('1970-01-01-00-00-00', $name, 0, \strlen($name)));
-    $format = (false === \strpos($name, '-') ? "" : '%B ') . '%Y';
-    if ($search = ($state->{'[x]'}->search->query ?? 0)) {
+    $t = \State::get('[x].query.archive') ?? "";
+    $format = (false === \strpos($t, '-') ? "" : '%B ') . '%Y';
+    if ($search = \State::get('[x].query.search')) {
         \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '<b>' . $search . '</b>']);
     } else {
         \Alert::info('Showing %s published in %s.', ['posts', '<b>' . $archive->i($format) . '</b>']);
@@ -54,7 +54,7 @@ function route__search() {
     if ($state->is('error')) {
         return;
     }
-    if (!$search = ($state->{'[x]'}->search->query ?? 0)) {
+    if (!$search = \State::get('[x].query.search')) {
         return;
     }
     if (!$state->is('archives') && !$state->is('tags')) {
@@ -62,7 +62,7 @@ function route__search() {
     }
 }
 
-function route__tag() {
+function route__tags() {
     \extract(\lot());
     if ($state->is('error')) {
         return;
@@ -70,10 +70,12 @@ function route__tag() {
     if (!isset($tag)) {
         return;
     }
-    if ($search = ($state->{'[x]'}->search->query ?? 0)) {
+    if ($search = \State::get('[x].query.search')) {
         \Alert::info('Showing %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '<b>' . $search . '</b>']);
-    } else {
+    } else if (\State::get('[x].query.tag')) {
         \Alert::info('Showing %s tagged in %s.', ['posts', '<b>' . $tag->title . '</b>']);
+    } else {
+        \Alert::info('Showing all %s.', ['tags']);
     }
 }
 
@@ -88,16 +90,12 @@ function y__alert($y) {
 if (isset($state->x->alert)) {
     \Hook::set('route.archive', __NAMESPACE__ . "\\route__archive", 100.1);
     \Hook::set('route.search', __NAMESPACE__ . "\\route__search", 100.1);
-    \Hook::set('route.tag', __NAMESPACE__ . "\\route__tag", 100.1);
+    \Hook::set('route.tags', __NAMESPACE__ . "\\route__tags", 100.1);
     \Hook::set('y.alert', __NAMESPACE__ . "\\y__alert");
 }
 
 if (isset($state->x->excerpt)) {
     \Hook::set('page.content', __NAMESPACE__ . "\\page__content");
-}
-
-if (isset($state->x->search)) {
-    \State::set('[x].search.query', \trim(\strip_tags($_GET[$state->x->search->key ?? 'query'] ?? "")));
 }
 
 \Asset::set(__DIR__ . D . 'index' . (\defined("\\TEST") && \TEST ? '.' : '.min.') . 'css', 20);
