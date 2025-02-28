@@ -1,11 +1,9 @@
 <?php namespace y\outdoor;
 
-function links(string $folder) {
-    \extract(\lot(), \EXTR_SKIP);
-    $r = [];
-    $route_current = $url->path . '/';
+\lot('links', new \Anemone(\fire(function ($r) use ($state) {
+    $route_current = $this->path . '/';
     $route_index = '/' . \trim($state->route ?? 'index', '/');
-    foreach (\g($folder, 'page') as $k => $v) {
+    foreach (\g(\LOT . \D . 'page', 'page') as $k => $v) {
         $v = new \Page($k);
         // Exclude home page
         if ($route_index === ($route = $v->route)) {
@@ -17,9 +15,7 @@ function links(string $folder) {
     }
     \ksort($r);
     return \array_values($r);
-}
-
-\lot('links', new \Anemone(links(\LOT . \D . 'page')));
+}, [[]], $url)));
 
 function page__content($content) {
     if (null === $content) {
@@ -43,7 +39,7 @@ function route__archive() {
     $t = \State::get('[x].query.archive') ?? "";
     $format = (false === \strpos($t, '-') ? "" : '%B ') . '%Y';
     if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '<b>' . $search . '</b>']);
+        \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '&#x201c;' . $search . '&#x201d;']);
     } else {
         \Alert::info('Showing %s published in %s.', ['posts', '<b>' . $archive->i($format) . '</b>']);
     }
@@ -58,11 +54,11 @@ function route__search() {
         return;
     }
     if (!$state->is('archives') && !$state->is('tags')) {
-        \Alert::info('Showing %s matched with query %s.', ['posts', '<b>' . $search . '</b>']);
+        \Alert::info('Showing %s matched with query %s.', ['posts', '&#x201c;' . $search . '&#x201d;']);
     }
 }
 
-function route__tags() {
+function route__tag() {
     \extract(\lot());
     if ($state->is('error')) {
         return;
@@ -71,11 +67,15 @@ function route__tags() {
         return;
     }
     if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '<b>' . $search . '</b>']);
+        \Alert::info('Showing %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '&#x201c;' . $search . '&#x201d;']);
     } else if (\State::get('[x].query.tag')) {
         \Alert::info('Showing %s tagged in %s.', ['posts', '<b>' . $tag->title . '</b>']);
     } else {
-        \Alert::info('Showing all %s.', ['tags']);
+        if (isset($page) && null !== $page->path) {
+            \Alert::info('Showing all %s in %s.', ['tags', '<b>' . $page->title . '</b>']);
+        } else {
+            \Alert::info('Showing all %s.', ['tags']);
+        }
     }
 }
 
@@ -90,7 +90,7 @@ function y__alert($y) {
 if (isset($state->x->alert)) {
     \Hook::set('route.archive', __NAMESPACE__ . "\\route__archive", 100.1);
     \Hook::set('route.search', __NAMESPACE__ . "\\route__search", 100.1);
-    \Hook::set('route.tags', __NAMESPACE__ . "\\route__tags", 100.1);
+    \Hook::set('route.tag', __NAMESPACE__ . "\\route__tag", 100.1);
     \Hook::set('y.alert', __NAMESPACE__ . "\\y__alert");
 }
 
