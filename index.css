@@ -971,26 +971,26 @@ textarea {
   margin-top: 0;
 }
 
-.is\:pages .main > .page > header {
+.is-pages .main > .page > header {
   border-bottom: 1px dashed #e5e5e5;
   display: none;
   padding-bottom: 15px;
 }
-.is\:pages .main > .page > header p {
+.is-pages .main > .page > header p {
   margin-bottom: 0;
 }
-.is\:pages.with\:page-header .main > .page > header {
+.is-pages.with-page-header .main > .page > header {
   display: block;
 }
-.is\:pages.with\:page-header .main > .page > header p {
+.is-pages.with-page-header .main > .page > header p {
   font-size: 120%;
   margin-top: 8px;
 }
-.is\:pages .page figure {
+.is-pages .page > figure {
   float: left;
   margin-right: 15px;
 }
-.is\:pages .page::after {
+.is-pages .page::after {
   clear: both;
   content: "";
   display: table;

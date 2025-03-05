@@ -1051,7 +1051,7 @@ textarea {
   }
 }
 
-.is\:pages {
+.is-pages {
   .main {
     > .page {
       > header {
@@ -1064,7 +1064,7 @@ textarea {
       }
     }
   }
-  &.with\:page-header {
+  &.with-page-header {
     .main {
       > .page {
         > header {
@@ -1078,7 +1078,7 @@ textarea {
     }
   }
   .page {
-    figure {
+    > figure {
       float: left;
       margin-right: 15px;
     }
