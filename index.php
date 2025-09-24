@@ -2,11 +2,11 @@
 
 \lot('links', new \Anemone(\fire(function ($r) use ($state) {
     $route_current = $this->path . '/';
-    $route_index = '/' . \trim($state->route ?? 'index', '/');
+    $route_r = '/' . \trim($state->route ?? 'index', '/');
     foreach (\g(\LOT . \D . 'page', 'page') as $k => $v) {
         $v = new \Page($k);
         // Exclude home page
-        if ($route_index === ($route = $v->route)) {
+        if ($route_r === ($route = $v->route)) {
             continue;
         }
         // Add current state
@@ -87,6 +87,8 @@ function y__alert($y) {
     return $y;
 }
 
+\Asset::set(__DIR__ . D . 'index' . (\defined("\\TEST") && \TEST ? '.' : '.min.') . 'css', 20);
+
 if (isset($state->x->alert)) {
     \Hook::set('route.archive', __NAMESPACE__ . "\\route__archive", 100.1);
     \Hook::set('route.search', __NAMESPACE__ . "\\route__search", 100.1);
@@ -97,8 +99,6 @@ if (isset($state->x->alert)) {
 if (isset($state->x->excerpt)) {
     \Hook::set('page.content', __NAMESPACE__ . "\\page__content");
 }
-
-\Asset::set(__DIR__ . D . 'index' . (\defined("\\TEST") && \TEST ? '.' : '.min.') . 'css', 20);
 
 $states = [
     'route-blog' => '/article',
