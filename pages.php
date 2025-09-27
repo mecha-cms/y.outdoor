@@ -1,18 +1,20 @@
 <?= self::enter(); ?>
 <?php if ($page->exist): ?>
   <article class="page" id="page:<?= eat($page->id); ?>">
-    <header>
-      <?php if ($title = $page->title): ?>
-        <h2>
-          <?= $title; ?>
-        </h2>
-      <?php endif; ?>
-      <?php if ($description = $page->description): ?>
-        <p>
-          <?= $description; ?>
-        </p>
-      <?php endif; ?>
-    </header>
+    <?php if ($site->with('page-header')): ?>
+      <header>
+        <?php if ($title = $page->title): ?>
+          <h2>
+            <?= $title; ?>
+          </h2>
+        <?php endif; ?>
+        <?php if ($description = $page->description): ?>
+          <p>
+            <?= $description; ?>
+          </p>
+        <?php endif; ?>
+      </header>
+    <?php endif; ?>
     <?php $date_time_format = $state->y->outdoor->page->timeFormat ?? '%F %T'; ?>
     <?php $x_image = isset($state->x->image); ?>
     <?php if ($pages->count): ?>

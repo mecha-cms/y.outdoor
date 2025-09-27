@@ -1057,23 +1057,11 @@ textarea {
     > .page {
       > header {
         border-bottom: 1px dashed #e5e5e5;
-        display: none;
         padding-bottom: 15px;
         p {
+          font-size: 120%;
           margin-bottom: 0;
-        }
-      }
-    }
-  }
-  &.with-page-header {
-    .main {
-      > .page {
-        > header {
-          display: block;
-          p {
-            font-size: 120%;
-            margin-top: 8px;
-          }
+          margin-top: 8px;
         }
       }
     }
