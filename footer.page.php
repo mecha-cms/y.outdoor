@@ -26,7 +26,7 @@
 
         if ($tags_data = $page->tags) {
             foreach ($tags_data as $tag) {
-                $tags[$title = $tag->title] = '<a href="' . eat($tag->link) . '" rel="tag">' . $title . '</a>';
+                $tags[$title = $tag->title] = '<a href="' . eat($tag->url) . '" rel="tag">' . $title . '</a>';
             }
         }
 
