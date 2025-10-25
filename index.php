@@ -38,10 +38,34 @@ function route__archive() {
     }
     $t = \State::get('[x].query.archive') ?? "";
     $format = (false === \strpos($t, '-') ? "" : '%B ') . '%Y';
-    if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '&#x201c;' . $search . '&#x201d;']);
+    if ($q = \State::get('[x].query.search')) {
+        \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '&#x201c;' . $q . '&#x201d;']);
     } else {
         \Alert::info('Showing %s published in %s.', ['posts', '<b>' . $archive->i($format) . '</b>']);
+    }
+}
+
+function route__author() {
+    \extract(\lot());
+    if (!$site->has('part') || $site->is('error') || !isset($author)) {
+        return;
+    }
+    if ($q = \State::get('[x].query.search')) {
+        \Alert::info('Showing all %s written by %s and matched with query %s.', ['posts', '<b>' . $author->title . '</b>', '&#x201c;' . $q . '&#x201d;']);
+    } else {
+        if ($q = \State::get('[x].query.author')) {
+            if ($page instanceof \Author) {
+                \Alert::info('Showing all %s written by %s.', ['posts', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s of %s written by %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $author->title . '</b>']);
+            }
+        } else {
+            if ($page->path) {
+                \Alert::info('Showing all %s of %s.', ['authors', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s.', ['authors']);
+            }
+        }
     }
 }
 
@@ -50,31 +74,34 @@ function route__search() {
     if ($state->is('error')) {
         return;
     }
-    if (!$search = \State::get('[x].query.search')) {
+    if (!$q = \State::get('[x].query.search')) {
         return;
     }
     if (!$state->is('archives') && !$state->is('tags')) {
-        \Alert::info('Showing %s matched with query %s.', ['posts', '&#x201c;' . $search . '&#x201d;']);
+        \Alert::info('Showing %s matched with query %s.', ['posts', '&#x201c;' . $q . '&#x201d;']);
     }
 }
 
 function route__tag() {
     \extract(\lot());
-    if ($state->is('error')) {
+    if (!$site->has('part') || $site->is('error') || !isset($tag)) {
         return;
     }
-    if (!isset($tag)) {
-        return;
-    }
-    if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '&#x201c;' . $search . '&#x201d;']);
-    } else if (\State::get('[x].query.tag')) {
-        \Alert::info('Showing %s tagged in %s.', ['posts', '<b>' . $tag->title . '</b>']);
+    if ($q = \State::get('[x].query.search')) {
+        \Alert::info('Showing all %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '&#x201c;' . $q . '&#x201d;']);
     } else {
-        if (isset($page) && null !== $page->path) {
-            \Alert::info('Showing all %s in %s.', ['tags', '<b>' . $page->title . '</b>']);
+        if ($q = \State::get('[x].query.tag')) {
+            if ($page instanceof \Tag) {
+                \Alert::info('Showing all %s tagged in %s.', ['posts', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s of %s tagged in %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $tag->title . '</b>']);
+            }
         } else {
-            \Alert::info('Showing all %s.', ['tags']);
+            if ($page->path) {
+                \Alert::info('Showing all %s of %s.', ['tags', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s.', ['tags']);
+            }
         }
     }
 }
@@ -91,6 +118,7 @@ function y__alert($y) {
 
 if (isset($state->x->alert)) {
     \Hook::set('route.archive', __NAMESPACE__ . "\\route__archive", 100.1);
+    \Hook::set('route.author', __NAMESPACE__ . "\\route__author", 100.1);
     \Hook::set('route.search', __NAMESPACE__ . "\\route__search", 100.1);
     \Hook::set('route.tag', __NAMESPACE__ . "\\route__tag", 100.1);
     \Hook::set('y.alert', __NAMESPACE__ . "\\y__alert");
