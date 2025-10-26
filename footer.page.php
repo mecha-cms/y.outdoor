@@ -22,17 +22,15 @@
 
         echo '<br>';
 
-        $tags = [];
+        $r = [];
 
-        if ($tags_data = $page->tags) {
-            foreach ($tags_data as $tag) {
-                $tags[$title = $tag->title] = '<a href="' . eat($tag->url) . '" rel="tag">' . $title . '</a>';
+        if ($tags = $page->tags) {
+            foreach ($tags->sort([1, 'title']) as $tag) {
+                $r[] = '<a href="' . eat($tag->url) . '" rel="tag">' . $tag->title . '</a>';
             }
         }
 
-        ksort($tags);
-
-        echo i('Tag' . (1 === ($count = count($tags)) ? "" : 's')) . ': ' . ($count ? implode(', ', $tags) : '<em>' . i('Untagged') . '</em>');
+        echo i('Tag' . (1 === ($count = count($r)) ? "" : 's')) . ': ' . ($count ? implode(', ', $r) : '<em>' . i('Untagged') . '</em>');
 
     }
 
