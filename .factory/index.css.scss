@@ -916,7 +916,12 @@ textarea {
 
 .page {
   > footer {
+    background: #fafae7;
+    border: 1px solid #eae7db;
+    color: #99997d;
+    font-size: 95%;
     margin: 20px 0 0;
+    padding: 5px 10px;
   }
   > header {
     h2,
@@ -953,13 +958,6 @@ textarea {
       flex-wrap: wrap;
       gap: 1em;
     }
-  }
-  > footer {
-    background: #fafae7;
-    border: 1px solid #eae7db;
-    color: #99997d;
-    font-size: 95%;
-    padding: 5px 10px;
   }
   + .page {
     margin-top: 25px;
