@@ -12,34 +12,18 @@ if (isset($state->x->archive)) {
         $folder . '.archive',
         $folder . '.page'
     ], 1)) {
-        $p = new Page($file);
-        $deep = $p->deep ?? 0;
+        $deep = (new Page($file))->deep ?? 0;
     }
     foreach (g($folder, 'page', $deep) as $k => $v) {
-        $p = new Page($k);
-        $v = $p->time;
-        if ($v) {
-            $v = explode('-', $v);
+        if ($v = (new Page($k))->time) {
+            $v = explode('-', (string) $v);
             $archives[$v[0]][$v[1]][] = 1;
         }
     }
-    $dates = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December'
-    ];
-    if ($site->is('archives')) {
+    $dates = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    if ($site->is('archives') && isset($archive)) {
         $current = $archive->format('Y-m');
-    } else if ($site->is('page')) {
+    } else if ($site->is('page') && isset($page)) {
         $current = $page->time->format('Y-m');
     }
     krsort($archives);
@@ -50,7 +34,7 @@ if (isset($state->x->archive)) {
         }
         $content .= '<details' . (($open = $k === explode('-', $current)[0]) ? ' open' : "") . ' role="tree">';
         $content .= '<summary aria-level="1" role="treeitem">';
-        $content .= '<a' . ($open ? ' aria-current="page"' : "") . ' href="' . eat($url . $route_blog . $route_archive . '/' . $k . '/1') . '">';
+        $content .= '<a' . ($open ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '/1')) . '">';
         $content .= $k . ' <span aria-label="' . eat(i('%d archive' . (1 === ($i = count($v)) ? "" : 's'), [$i])) . '" role="status">' . $i . '</span>';
         $content .= '</a>';
         $content .= '</summary>';
@@ -59,7 +43,7 @@ if (isset($state->x->archive)) {
             $content .= '<ul role="group">';
             foreach ($v as $kk => $vv) {
                 $content .= '<li aria-level="2" role="treeitem">';
-                $content .= '<a' . ($k . '-' . $kk === $current ? ' aria-current="page"' : "") . ' href="' . eat($url . $route_blog . $route_archive . '/' . $k . '-' . $kk . '/1') . '">';
+                $content .= '<a' . ($k . '-' . $kk === $current ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '-' . $kk . '/1')) . '">';
                 $content .= $k . ' ' . i($dates[((int) $kk) - 1]) . ' <span aria-label="' . eat(i('%d post' . (1 === ($ii = count($vv)) ? "" : 's'), [$ii])) . '" role="status">' . $ii . '</span>';
                 $content .= '</a>';
                 $content .= '</li>';

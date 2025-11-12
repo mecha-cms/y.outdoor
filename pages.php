@@ -61,7 +61,7 @@
         </article>
       <?php endforeach; ?>
     <?php else: ?>
-      <?php if ($site->part > 1): ?>
+      <?php if ($site->has('prev')): ?>
         <p role="status">
           <?= i('No more %s to show.', 'pages'); ?>
         </p>

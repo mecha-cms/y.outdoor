@@ -1,32 +1,24 @@
 <?php
 
 $content = "";
+$current = $current ?? $page->current ?? $url->current;
+$target = $target ?? "";
 
-if (!isset($current)) {
-    $current = $url->current;
-}
-
-if (!isset($target)) {
-    $target = "";
-}
-
-if (!empty($lot['lot'])) {
-    $content .= '<ul>';
-    foreach ((array) $lot['lot'] as $k => $v) {
+if (!empty($lot['links'])) {
+    foreach ((array) $lot['links'] as $k => $v) {
         $content .= '<li>';
-        if (false !== strpos($k, '://')) {
-            $content .= '<a' . ($k === $current ? ' aria-current="page"' : "") . ' href="' . eat($k) . '"' . ($target ? ' target="' . $target . '"' : "") . '>';
-            $content .= $v;
-            $content .= '</a>';
-        } else {
-            $content .= $v;
-        }
+        $content .= '<a' . ($k === $current ? ' aria-current="page"' : "") . ' href="' . eat($k) . '"' . ($target ? ' target="' . $target . '"' : "") . '>';
+        $content .= $v;
+        $content .= '</a>';
         $content .= '</li>';
     }
-    $content .= '</ul>';
+} else if (!empty($lot['list'])) {
+    foreach ((array) $lot['list'] as $k => $v) {
+        $content .= '<li>' . $v . '</li>';
+    }
 }
 
 echo self::widget([
-    'content' => $content,
+    'content' => $content ? '<ul>' . $content . '</ul>' : "",
     'title' => $title ?? ""
 ]);

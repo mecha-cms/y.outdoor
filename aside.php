@@ -6,14 +6,14 @@
     <?= self::widget('page/recent'); ?>
   <?php endif; ?>
   <?= self::widget('list', [
-      'title' => i('Social Links'),
-      'lot' => [
+      'links' => [
           'https://facebook.com/ta.tau.taufik' => 'Facebook',
           'https://github.com/taufik-nurrohman' => 'GitHub',
           'https://instagram.com/ta.tau.taufik' => 'Instagram',
           'https://open.spotify.com/user/21ar3ejto7p7p3ybiq5obhrpq' => 'Spotify',
           'https://t.me/taufik_nurrohman' => 'Telegram',
           'https://twitter.com/ta_tau_taufik' => 'Twitter'
-      ]
+      ],
+      'title' => i('Social Links')
   ]); ?>
 </aside>

@@ -7,15 +7,12 @@ if (isset($state->x->tag)) {
         $folder . '.archive',
         $folder . '.page'
     ], 1)) {
-        $page = new Page($file);
-        $deep = $page->deep ?? 0;
+        $deep = (new Page($file))->deep ?? 0;
     }
     $tags = [];
     $tags_all = [];
-    foreach (g($folder, 'page', $deep) as $k => $v) {
-        $page = new Page($k);
-        $v = (array) ($page->kind ?? []);
-        $v && ($tags_all = array_merge($tags_all, $v));
+    foreach (Pages::from($folder, 'page', $deep) as $v) {
+        $tags_all = array_merge($tags_all, (array) $v->kind);
     }
     foreach (array_count_values($tags_all) as $k => $v) {
         if ($name = To::tag($k)) {
@@ -28,7 +25,7 @@ if (isset($state->x->tag)) {
     asort($tags);
     echo $tags ? self::widget('list', [
         'current' => lot('tag')->url ?? null,
-        'lot' => $tags,
+        'links' => $tags,
         'title' => $title ?? i('Tags')
     ]) : self::widget([
         'content' => '<p role="status">' . i('No %s yet.', ['tags']) . '</p>',
