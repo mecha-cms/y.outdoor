@@ -20,7 +20,6 @@ if (isset($state->x->archive)) {
             $archives[$v[0]][$v[1]][] = 1;
         }
     }
-    $dates = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     if ($site->is('archives') && isset($archive)) {
         $current = $archive->format('Y-m');
     } else if ($site->is('page') && isset($page)) {
@@ -44,7 +43,7 @@ if (isset($state->x->archive)) {
             foreach ($v as $kk => $vv) {
                 $content .= '<li aria-level="2" role="treeitem">';
                 $content .= '<a' . ($k . '-' . $kk === $current ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '-' . $kk . '/1')) . '">';
-                $content .= $k . ' ' . i($dates[((int) $kk) - 1]) . ' <span aria-label="' . eat(i('%d post' . (1 === ($ii = count($vv)) ? "" : 's'), [$ii])) . '" role="status">' . $ii . '</span>';
+                $content .= $k . ' ' . i(date('F', mktime(0, 0, 0, $kk, 1))) . ' <span aria-label="' . eat(i('%d post' . (1 === ($ii = count($vv)) ? "" : 's'), [$ii])) . '" role="status">' . $ii . '</span>';
                 $content .= '</a>';
                 $content .= '</li>';
             }
