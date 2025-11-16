@@ -233,8 +233,13 @@ blockquote {
   }
   padding: 5px 10px 5px 45px;
   blockquote {
+    background-image: none;
     font-size: 100%;
-    margin-left: 1rem;
+    margin: {
+      left: 0;
+      right: 0;
+    }
+    padding-left: 10px;
   }
 }
 

@@ -258,8 +258,11 @@ blockquote {
   padding: 5px 10px 5px 45px;
 }
 blockquote blockquote {
+  background-image: none;
   font-size: 100%;
-  margin-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 10px;
 }
 
 caption,
