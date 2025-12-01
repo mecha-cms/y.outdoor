@@ -18,13 +18,13 @@ if (isset($state->x->tag)) {
         if ($name = To::tag($k)) {
             if (is_file($f = LOT . D . 'tag' . D . $name . '.page')) {
                 $tag = new Tag($f, ['parent' => $file ?: null]);
-                $list[] = '<a' . (0 === strpos($current, ($k = $tag->url) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '" rel="tag">' . $tag->title . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">(' . $v . ')</span>';
+                $list[$t = $tag->title] = '<a' . (0 === strpos($current, ($k = $tag->url) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '" rel="tag">' . $t . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">(' . $v . ')</span>';
             }
         }
     }
-    sort($list);
+    ksort($list);
     echo $list ? self::widget('list', [
-        'list' => $list,
+        'list' => array_values($list),
         'title' => $title ?? i('Tags')
     ]) : self::widget([
         'content' => '<p role="status">' . i('No %s yet.', ['tags']) . '</p>',
