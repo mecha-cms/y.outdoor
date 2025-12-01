@@ -984,17 +984,6 @@ textarea {
 }
 
 .widget {
-  a {
-    [role='status'] {
-      color: #999;
-      &::after {
-        content: ')';
-      }
-      &::before {
-        content: '(';
-      }
-    }
-  }
   h4 {
     font-size: 160%;
     margin-left: 5px;
@@ -1027,6 +1016,9 @@ textarea {
     [aria-current] {
       color: inherit;
     }
+  }
+  [role='status'] {
+    color: #999;
   }
   [role='tree'] {
     border-top: 1px solid #ebebeb;

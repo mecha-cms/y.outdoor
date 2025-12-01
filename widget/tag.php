@@ -9,23 +9,22 @@ if (isset($state->x->tag)) {
     ], 1)) {
         $deep = (new Page($file))->deep ?? 0;
     }
-    $tags = [];
-    $tags_all = [];
+    $a = $list = [];
     foreach (Pages::from($folder, 'page', $deep) as $v) {
-        $tags_all = array_merge($tags_all, (array) $v->kind);
+        $a = array_merge($a, (array) $v->kind);
     }
-    foreach (array_count_values($tags_all) as $k => $v) {
+    $current = (lot('tag')->url ?? "") . '/';
+    foreach (array_count_values($a) as $k => $v) {
         if ($name = To::tag($k)) {
             if (is_file($f = LOT . D . 'tag' . D . $name . '.page')) {
                 $tag = new Tag($f, ['parent' => $file ?: null]);
-                $tags[$tag->url] = $tag->title . ' <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">' . $v . '</span>';
+                $list[] = '<a' . (0 === strpos($current, ($k = $tag->url) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '" rel="tag">' . $tag->title . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">(' . $v . ')</span>';
             }
         }
     }
-    asort($tags);
-    echo $tags ? self::widget('list', [
-        'current' => lot('tag')->url ?? null,
-        'links' => $tags,
+    sort($list);
+    echo $list ? self::widget('list', [
+        'list' => $list,
         'title' => $title ?? i('Tags')
     ]) : self::widget([
         'content' => '<p role="status">' . i('No %s yet.', ['tags']) . '</p>',

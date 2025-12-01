@@ -903,18 +903,6 @@ textarea {
   justify-content: space-between;
 }
 
-.widget a [role=status],
-.widget [role=link] [role=status] {
-  color: #999;
-}
-.widget a [role=status]::after,
-.widget [role=link] [role=status]::after {
-  content: ")";
-}
-.widget a [role=status]::before,
-.widget [role=link] [role=status]::before {
-  content: "(";
-}
 .widget h4 {
   font-size: 160%;
   margin-left: 5px;
@@ -948,6 +936,9 @@ textarea {
 }
 .widget ul [aria-current] {
   color: inherit;
+}
+.widget [role=status] {
+  color: #999;
 }
 .widget [role=tree] {
   border-top: 1px solid #ebebeb;

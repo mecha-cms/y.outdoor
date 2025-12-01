@@ -33,18 +33,16 @@ if (isset($state->x->archive)) {
         }
         $content .= '<details' . (($open = $k === explode('-', $current)[0]) ? ' open' : "") . ' role="tree">';
         $content .= '<summary aria-level="1" role="treeitem">';
-        $content .= '<a' . ($open ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '/1')) . '">';
-        $content .= $k . ' <span aria-label="' . eat(i('%d archive' . (1 === ($i = count($v)) ? "" : 's'), [$i])) . '" role="status">' . $i . '</span>';
-        $content .= '</a>';
+        $content .= '<a' . ($open ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '/1')) . '">' . $k . '</a>';
+        $content .= ' <span aria-label="' . eat(i('%d archive' . (1 === ($i = count($v)) ? "" : 's'), [$i])) . '" role="status">(' . $i . ')</span>';
         $content .= '</summary>';
         if (is_array($v)) {
             krsort($v);
             $content .= '<ul role="group">';
             foreach ($v as $kk => $vv) {
                 $content .= '<li aria-level="2" role="treeitem">';
-                $content .= '<a' . ($k . '-' . $kk === $current ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '-' . $kk . '/1')) . '">';
-                $content .= $k . ' ' . i(date('F', mktime(0, 0, 0, $kk, 1))) . ' <span aria-label="' . eat(i('%d post' . (1 === ($ii = count($vv)) ? "" : 's'), [$ii])) . '" role="status">' . $ii . '</span>';
-                $content .= '</a>';
+                $content .= '<a' . ($k . '-' . $kk === $current ? ' aria-current="page"' : "") . ' href="' . eat(long($route_blog . $route_archive . '/' . $k . '-' . $kk . '/1')) . '">' . $k . ' ' . i(date('F', mktime(0, 0, 0, $kk, 1))) . '</a>';
+                $content .= ' <span aria-label="' . eat(i('%d post' . (1 === ($ii = count($vv)) ? "" : 's'), [$ii])) . '" role="status">(' . $ii . ')</span>';
                 $content .= '</li>';
             }
             $content .= '</ul>';
