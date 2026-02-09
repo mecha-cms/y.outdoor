@@ -1,9 +1,0 @@
----
-surah: 17
-title: الإسراء (Al-Israa)
-description: It means “The Night Journey” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 111
-sort: [ 1, ayah ]
-...

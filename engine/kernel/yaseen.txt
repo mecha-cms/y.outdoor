@@ -1,9 +1,0 @@
----
-surah: 36
-title: يس (Yaseen)
-description: It means “Yaseen” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 83
-sort: [ 1, ayah ]
-...

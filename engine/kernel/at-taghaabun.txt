@@ -1,9 +1,0 @@
----
-surah: 64
-title: التغابن (At-Taghaabun)
-description: It means “Mutual Disillusion” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 18
-sort: [ 1, ayah ]
-...

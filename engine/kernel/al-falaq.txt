@@ -1,9 +1,0 @@
----
-surah: 113
-title: الفلق (Al-Falaq)
-description: It means “The Dawn” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 5
-sort: [ 1, ayah ]
-...

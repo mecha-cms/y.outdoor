@@ -1,9 +1,0 @@
----
-surah: 15
-title: الحجر (Al-Hijr)
-description: It means “The Rock” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 99
-sort: [ 1, ayah ]
-...

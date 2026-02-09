@@ -1,9 +1,0 @@
----
-surah: 23
-title: المؤمنون (Al-Muminoon)
-description: It means “The Believers” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 118
-sort: [ 1, ayah ]
-...

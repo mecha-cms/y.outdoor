@@ -1,9 +1,0 @@
----
-surah: 7
-title: الأعراف (Al-A’raaf)
-description: It means “The Heights” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 206
-sort: [ 1, ayah ]
-...

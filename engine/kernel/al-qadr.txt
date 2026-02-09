@@ -1,9 +1,0 @@
----
-surah: 97
-title: القدر (Al-Qadr)
-description: It means “The Power, Fate” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 5
-sort: [ 1, ayah ]
-...

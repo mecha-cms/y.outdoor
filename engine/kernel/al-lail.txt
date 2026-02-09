@@ -1,9 +1,0 @@
----
-surah: 92
-title: الليل (Al-Lail)
-description: It means “The Night” in English.
-author: '@taufik-nurrohman'
-type: Markdown
-chunk: 21
-sort: [ 1, ayah ]
-...
