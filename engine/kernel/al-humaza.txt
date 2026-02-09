@@ -1,0 +1,9 @@
+---
+surah: 104
+title: الهمزة (Al-Humaza)
+description: It means “The Traducer” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 9
+sort: [ 1, ayah ]
+...

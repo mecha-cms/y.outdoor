@@ -1,0 +1,9 @@
+---
+surah: 102
+title: التكاثر (At-Takaathur)
+description: It means “Competition” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 8
+sort: [ 1, ayah ]
+...

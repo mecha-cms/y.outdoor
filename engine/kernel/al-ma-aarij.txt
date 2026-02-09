@@ -1,0 +1,9 @@
+---
+surah: 70
+title: المعارج (Al-Ma’aarij)
+description: It means “The Ascending Stairways” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 44
+sort: [ 1, ayah ]
+...

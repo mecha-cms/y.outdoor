@@ -8,13 +8,10 @@ if (isset($state->x->archive)) {
     $route_archive = $state->x->archive->route ?? '/archive';
     $route_blog = $route ?? $state->routeBlog ?? '/article';
     $folder = LOT . D . 'page' . $route_blog;
-    if ($file = exist([
-        $folder . '.archive',
-        $folder . '.page'
-    ], 1)) {
+    if ($file = exist(dirname($folder) . D . "{',}" . basename($folder) . '.{' . ($x = x\page\x()) . '}', 1)) {
         $deep = (new Page($file))->deep ?? 0;
     }
-    foreach (g($folder, 'page', $deep) as $k => $v) {
+    foreach (g($folder, $x, $deep) as $k => $v) {
         if ($v = (new Page($k))->time) {
             $v = explode('-', (string) $v);
             $archives[$v[0]][$v[1]][] = 1;

@@ -1,0 +1,9 @@
+---
+surah: 37
+title: الصافات (As-Saaffaat)
+description: It means “Those drawn up in Ranks” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 182
+sort: [ 1, ayah ]
+...

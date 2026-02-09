@@ -1,0 +1,9 @@
+---
+surah: 82
+title: الإنفطار (Al-Infitaar)
+description: It means “The Cleaving” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 19
+sort: [ 1, ayah ]
+...

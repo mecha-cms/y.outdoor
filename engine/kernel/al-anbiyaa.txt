@@ -1,0 +1,9 @@
+---
+surah: 21
+title: الأنبياء (Al-Anbiyaa)
+description: It means “The Prophets” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 112
+sort: [ 1, ayah ]
+...

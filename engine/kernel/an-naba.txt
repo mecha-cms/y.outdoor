@@ -1,0 +1,9 @@
+---
+surah: 78
+title: النبإ (An-Naba)
+description: It means “The Announcement” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 40
+sort: [ 1, ayah ]
+...

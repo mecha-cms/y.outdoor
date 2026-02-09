@@ -1,0 +1,9 @@
+---
+surah: 49
+title: الحجرات (Al-Hujuraat)
+description: It means “The Inner Apartments” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 18
+sort: [ 1, ayah ]
+...

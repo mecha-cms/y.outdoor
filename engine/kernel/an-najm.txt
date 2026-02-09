@@ -1,0 +1,9 @@
+---
+surah: 53
+title: النجم (An-Najm)
+description: It means “The Star” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 62
+sort: [ 1, ayah ]
+...

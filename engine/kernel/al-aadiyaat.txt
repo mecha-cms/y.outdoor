@@ -1,0 +1,9 @@
+---
+surah: 100
+title: العاديات (Al-Aadiyaat)
+description: It means “The Chargers” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 11
+sort: [ 1, ayah ]
+...

@@ -1,0 +1,9 @@
+---
+surah: 56
+title: الواقعة (Al-Waaqia)
+description: It means “The Inevitable” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 96
+sort: [ 1, ayah ]
+...

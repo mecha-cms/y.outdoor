@@ -1,0 +1,9 @@
+---
+surah: 99
+title: الزلزلة (Az-Zalzala)
+description: It means “The Earthquake” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 8
+sort: [ 1, ayah ]
+...

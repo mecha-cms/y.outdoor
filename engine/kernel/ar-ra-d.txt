@@ -1,0 +1,9 @@
+---
+surah: 13
+title: الرعد (Ar-Ra’d)
+description: It means “The Thunder” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 43
+sort: [ 1, ayah ]
+...

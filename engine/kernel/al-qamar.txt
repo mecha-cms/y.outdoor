@@ -1,0 +1,9 @@
+---
+surah: 54
+title: القمر (Al-Qamar)
+description: It means “The Moon” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 55
+sort: [ 1, ayah ]
+...

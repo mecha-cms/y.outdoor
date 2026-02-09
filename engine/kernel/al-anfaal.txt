@@ -1,0 +1,9 @@
+---
+surah: 8
+title: الأنفال (Al-Anfaal)
+description: It means “The Spoils of War” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 75
+sort: [ 1, ayah ]
+...

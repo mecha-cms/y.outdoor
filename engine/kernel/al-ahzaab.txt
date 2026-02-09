@@ -1,0 +1,9 @@
+---
+surah: 33
+title: الأحزاب (Al-Ahzaab)
+description: It means “The Clans” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 73
+sort: [ 1, ayah ]
+...

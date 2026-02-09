@@ -1,0 +1,9 @@
+---
+surah: 27
+title: النمل (An-Naml)
+description: It means “The Ant” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 93
+sort: [ 1, ayah ]
+...

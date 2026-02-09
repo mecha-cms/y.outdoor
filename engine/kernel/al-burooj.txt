@@ -1,0 +1,9 @@
+---
+surah: 85
+title: البروج (Al-Burooj)
+description: It means “The Constellations” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 22
+sort: [ 1, ayah ]
+...

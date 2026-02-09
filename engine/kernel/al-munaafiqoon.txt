@@ -1,0 +1,9 @@
+---
+surah: 63
+title: المنافقون (Al-Munaafiqoon)
+description: It means “The Hypocrites” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 11
+sort: [ 1, ayah ]
+...

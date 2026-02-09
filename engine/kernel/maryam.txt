@@ -1,0 +1,9 @@
+---
+surah: 19
+title: مريم (Maryam)
+description: It means “Mary” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 98
+sort: [ 1, ayah ]
+...

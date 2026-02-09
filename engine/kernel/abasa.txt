@@ -1,0 +1,9 @@
+---
+surah: 80
+title: عبس (Abasa)
+description: It means “He frowned” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 42
+sort: [ 1, ayah ]
+...

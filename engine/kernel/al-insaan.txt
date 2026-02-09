@@ -1,0 +1,9 @@
+---
+surah: 76
+title: الانسان (Al-Insaan)
+description: It means “Man” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 31
+sort: [ 1, ayah ]
+...

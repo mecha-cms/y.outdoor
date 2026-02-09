@@ -2,15 +2,12 @@
 
 $deep = 0;
 $folder = LOT . D . 'page' . ($route ?? $state->routeBlog ?? '/article');
-if ($file = exist([
-    $folder . '.archive',
-    $folder . '.page'
-], 1)) {
+if ($file = exist(dirname($folder) . D . "{',}" . basename($folder) . '.{' . ($x = x\page\x()) . '}', 1)) {
     $deep = (new Page($file))->deep ?? 0;
 }
 
 $list = [];
-$pages = Pages::from($folder, 'page', $deep)->sort([$sort[0] ?? -1, $sort[1] ?? 'time']);
+$pages = Pages::from($folder, $x, $deep)->sort([$sort[0] ?? -1, $sort[1] ?? 'time']);
 
 if (!empty($shake)) {
     $pages = $pages->shake();

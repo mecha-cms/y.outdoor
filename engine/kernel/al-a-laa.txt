@@ -1,0 +1,9 @@
+---
+surah: 87
+title: الأعلى (Al-A’laa)
+description: It means “The Most High” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 19
+sort: [ 1, ayah ]
+...

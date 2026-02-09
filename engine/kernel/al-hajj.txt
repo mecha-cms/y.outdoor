@@ -1,0 +1,9 @@
+---
+surah: 22
+title: الحج (Al-Hajj)
+description: It means “The Pilgrimage” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 78
+sort: [ 1, ayah ]
+...

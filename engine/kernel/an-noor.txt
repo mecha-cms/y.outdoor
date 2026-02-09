@@ -1,0 +1,9 @@
+---
+surah: 24
+title: النور (An-Noor)
+description: It means “The Light” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 64
+sort: [ 1, ayah ]
+...

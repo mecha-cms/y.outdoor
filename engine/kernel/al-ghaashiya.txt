@@ -1,0 +1,9 @@
+---
+surah: 88
+title: الغاشية (Al-Ghaashiya)
+description: It means “The Overwhelming” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 26
+sort: [ 1, ayah ]
+...

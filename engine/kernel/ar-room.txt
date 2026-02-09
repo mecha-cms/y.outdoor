@@ -1,0 +1,9 @@
+---
+surah: 30
+title: الروم (Ar-Room)
+description: It means “The Romans” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 60
+sort: [ 1, ayah ]
+...

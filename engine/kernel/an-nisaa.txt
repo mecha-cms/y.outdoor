@@ -1,0 +1,9 @@
+---
+surah: 4
+title: النساء (An-Nisaa)
+description: It means “The Women” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 176
+sort: [ 1, ayah ]
+...

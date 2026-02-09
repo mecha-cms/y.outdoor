@@ -1,0 +1,9 @@
+---
+surah: 94
+title: الشرح (Ash-Sharh)
+description: It means “The Consolation” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 8
+sort: [ 1, ayah ]
+...

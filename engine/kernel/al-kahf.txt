@@ -1,0 +1,9 @@
+---
+surah: 18
+title: الكهف (Al-Kahf)
+description: It means “The Cave” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 110
+sort: [ 1, ayah ]
+...

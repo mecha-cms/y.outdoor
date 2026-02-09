@@ -1,0 +1,9 @@
+---
+surah: 60
+title: الممتحنة (Al-Mumtahana)
+description: It means “She that is to be examined” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 13
+sort: [ 1, ayah ]
+...

@@ -16,7 +16,7 @@
       </header>
     <?php endif; ?>
     <?php $date_time_format = $state->y->outdoor->page->timeFormat ?? '%F %T'; ?>
-    <?php $x_image = isset($state->x->image); ?>
+    <?php $with_image = isset($state->x->image); ?>
     <?php if ($pages->count): ?>
       <?php foreach ($pages as $page): ?>
         <article class="page" id="page:<?= eat($page->id); ?>">
@@ -40,13 +40,13 @@
               </h3>
             <?php endif; ?>
           </header>
-          <?php if ($x_image && $image = $page->image(120, 120, 100)): ?>
+          <?php if ($with_image && !($excerpt = $page->excerpt) && ($image = $page->image(120, 120, 100))): ?>
             <figure>
               <img alt="" height="120" src="<?= eat($image); ?>" width="120">
             </figure>
           <?php endif; ?>
           <div>
-            <?= $page->excerpt ?? '<p>' . To::description($page->description ?? $page->content, 250) . '</p>'; ?>
+            <?= $excerpt ?? '<p>' . To::description($page->description ?? $page->content, 250) . '</p>'; ?>
             <p role="group">
               <a href="<?= eat($page->url); ?>#next:<?= eat($page->id); ?>">
                 <?= i('Read More'); ?>

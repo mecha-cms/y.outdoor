@@ -1,0 +1,9 @@
+---
+surah: 68
+title: القلم (Al-Qalam)
+description: It means “The Pen” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 52
+sort: [ 1, ayah ]
+...

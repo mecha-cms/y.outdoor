@@ -1,0 +1,9 @@
+---
+surah: 110
+title: النصر (An-Nasr)
+description: It means “Divine Support” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 3
+sort: [ 1, ayah ]
+...

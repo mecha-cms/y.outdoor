@@ -1,0 +1,9 @@
+---
+surah: 114
+title: الناس (An-Naas)
+description: It means “Mankind” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 6
+sort: [ 1, ayah ]
+...

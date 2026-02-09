@@ -1,0 +1,9 @@
+---
+surah: 57
+title: الحديد (Al-Hadid)
+description: It means “The Iron” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 29
+sort: [ 1, ayah ]
+...

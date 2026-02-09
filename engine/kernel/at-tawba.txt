@@ -1,0 +1,9 @@
+---
+surah: 9
+title: التوبة (At-Tawba)
+description: It means “The Repentance” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 129
+sort: [ 1, ayah ]
+...

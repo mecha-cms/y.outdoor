@@ -1,0 +1,9 @@
+---
+surah: 43
+title: الزخرف (Az-Zukhruf)
+description: It means “Ornaments of gold” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 89
+sort: [ 1, ayah ]
+...

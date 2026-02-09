@@ -1,0 +1,9 @@
+---
+surah: 45
+title: الجاثية (Al-Jaathiya)
+description: It means “Crouching” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 37
+sort: [ 1, ayah ]
+...

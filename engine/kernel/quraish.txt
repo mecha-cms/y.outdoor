@@ -1,0 +1,9 @@
+---
+surah: 106
+title: قريش (Quraish)
+description: It means “Quraysh” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 4
+sort: [ 1, ayah ]
+...

@@ -1,0 +1,9 @@
+---
+surah: 11
+title: هود (Hud)
+description: It means “Hud” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 123
+sort: [ 1, ayah ]
+...

@@ -1,0 +1,9 @@
+---
+surah: 55
+title: الرحمن (Ar-Rahmaan)
+description: It means “The Beneficent” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 78
+sort: [ 1, ayah ]
+...

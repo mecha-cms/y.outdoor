@@ -1,0 +1,9 @@
+---
+surah: 58
+title: المجادلة (Al-Mujaadila)
+description: It means “The Pleading Woman” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 22
+sort: [ 1, ayah ]
+...

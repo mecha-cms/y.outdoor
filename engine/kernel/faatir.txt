@@ -1,0 +1,9 @@
+---
+surah: 35
+title: فاطر (Faatir)
+description: It means “The Originator” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 45
+sort: [ 1, ayah ]
+...

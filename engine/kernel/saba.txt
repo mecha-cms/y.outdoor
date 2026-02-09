@@ -1,0 +1,9 @@
+---
+surah: 34
+title: سبإ (Saba)
+description: It means “Sheba” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 54
+sort: [ 1, ayah ]
+...

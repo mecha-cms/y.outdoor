@@ -1,0 +1,9 @@
+---
+surah: 20
+title: طه (Taa-Haa)
+description: It means “Taa-Haa” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 135
+sort: [ 1, ayah ]
+...

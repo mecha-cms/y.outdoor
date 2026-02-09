@@ -1,0 +1,9 @@
+---
+surah: 46
+title: الأحقاف (Al-Ahqaf)
+description: It means “The Dunes” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 35
+sort: [ 1, ayah ]
+...

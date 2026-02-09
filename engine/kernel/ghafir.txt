@@ -1,0 +1,9 @@
+---
+surah: 40
+title: غافر (Ghafir)
+description: It means “The Forgiver” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 85
+sort: [ 1, ayah ]
+...

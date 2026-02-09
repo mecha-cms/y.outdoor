@@ -1,0 +1,9 @@
+---
+surah: 42
+title: الشورى (Ash-Shura)
+description: It means “Consultation” in English.
+author: '@taufik-nurrohman'
+type: Markdown
+chunk: 53
+sort: [ 1, ayah ]
+...

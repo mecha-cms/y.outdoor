@@ -3,7 +3,7 @@
 \lot('links', new \Anemone(\fire(function ($r) use ($state) {
     $route_current = $this->path . '/';
     $route_r = '/' . \trim($state->route ?? 'index', '/');
-    foreach (\g(\LOT . \D . 'page', 'page') as $k => $v) {
+    foreach (\g(\LOT . \D . 'page', \x\page\x()) as $k => $v) {
         $v = new \Page($k);
         // Exclude home page
         if ($route_r === ($route = $v->route)) {
@@ -123,8 +123,8 @@ if (isset($state->x->excerpt)) {
 
 $states = [
     'route-blog' => '/article',
-    'x.comment.page.type' => isset($state->x->comment) ? 'Markdown' : null,
-    'x.page.page.type' => isset($state->x->page) ? 'Markdown' : null
+    'x.comment.lot.type' => isset($state->x->comment) ? 'Markdown' : null,
+    'x.page.lot.type' => isset($state->x->page) ? 'Markdown' : null
 ];
 
 foreach ($states as $k => $v) {
