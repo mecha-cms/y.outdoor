@@ -10,12 +10,12 @@ if (isset($state->x->tag)) {
     foreach (Pages::from($folder, $x, $deep) as $v) {
         $a = array_merge($a, (array) $v->kind);
     }
-    $current = (lot('tag')->url ?? "") . '/';
+    $current = (lot('tag')->link ?? "") . '/';
     foreach (array_count_values($a) as $k => $v) {
         if ($name = To::tag($k)) {
             if ($f = exist(LOT . D . 'tag' . D . $name . '.{' . $x . '}', 1)) {
                 $tag = new Tag($f, ['parent' => $file ?: null]);
-                $list[$t = $tag->title] = '<a' . (0 === strpos($current, ($k = $tag->url) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '" rel="tag">' . $t . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">(' . $v . ')</span>';
+                $list[$t = $tag->title] = '<a' . (0 === strpos($current, ($k = $tag->link) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '" rel="tag">' . $t . '</a> <span aria-label="' . eat(i('%d post' . (1 === $v ? "" : 's'), [$v])) . '" role="status">(' . $v . ')</span>';
             }
         }
     }

@@ -6,8 +6,8 @@ images:
 - /lot/y/outdoor/index.png
 - /lot/y/outdoor/index/1.png
 author: Taufik Nurrohman
-link: https://www.styleshout.com/legacy-templates
 type: Markdown
+links: [https://www.styleshout.com/legacy-templates]
 version: 2.1.0
 ...
 

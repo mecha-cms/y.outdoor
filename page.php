@@ -2,7 +2,7 @@
 <?php if ($page->exist): ?>
   <article class="page" id="page:<?= eat($page->id); ?>">
     <header>
-      <?php if ($site->has('page') && $site->has('parent')): ?>
+      <?php if ($site->has('parent')): ?>
         <p>
           <time datetime="<?= eat($page->time->format('c')); ?>">
             <?= $page->time($state->y->outdoor->page->timeFormat ?? '%F %T'); ?>
@@ -23,9 +23,9 @@
         <?= i('No %s.', 'content'); ?>
       </p>
       <?php endif; ?>
-      <?php if ($link = $page->link): ?>
+      <?php if ($links = (array) ($page->links ?? [])): ?>
         <p role="group">
-          <a href="<?= eat($link); ?>" rel="nofollow" role="button" target="_blank">
+          <a href="<?= eat(reset($links)); ?>" rel="nofollow" role="button" target="_blank">
             <?= i('Visit Link'); ?>
           </a>
         </p>

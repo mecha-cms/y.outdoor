@@ -9,7 +9,7 @@
           <?= i('Home'); ?>
         </a>
       <?php else: ?>
-        <a href="<?= eat($url); ?>">
+        <a href="<?= eat($link->home); ?>">
           <?= i('Home'); ?>
         </a>
       <?php endif; ?>
@@ -21,7 +21,8 @@
             <?= $link->title; ?>
           </a>
         <?php else: ?>
-          <a href="<?= eat($link->link ?: ($link->url . (q($link->children) ? '/1' : ""))); ?>">
+          <?php $links = (array) ($link->links ?? []); ?>
+          <a href="<?= eat($links ? reset($links) : ($link->link . (q($link->children) ? '/1' : ""))); ?>">
             <?= $link->title; ?>
           </a>
         <?php endif; ?>

@@ -13,9 +13,9 @@ if (!empty($shake)) {
     $pages = $pages->shake();
 }
 
-$current = (lot('page')->url ?? "") . '/';
+$current = (lot('page')->link ?? "") . '/';
 foreach ($pages->chunk($take ?? 5, 0) as $page) {
-    $list[] = '<a' . (0 === strpos($current, ($k = $page->url) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '">' . $page->title . '</a>';
+    $list[] = '<a' . (0 === strpos($current, ($k = $page->link) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '">' . $page->title . '</a>';
 }
 
 echo $list ? self::widget('list', [

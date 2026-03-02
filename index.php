@@ -15,7 +15,7 @@
     }
     \ksort($r);
     return \array_values($r);
-}, [[]], $url)));
+}, [[]], $link)));
 
 function page__content($content) {
     if (null === $content) {

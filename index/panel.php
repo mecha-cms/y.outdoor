@@ -5,7 +5,7 @@ if ('POST' === $_SERVER['REQUEST_METHOD'] && '.state' === $_['path'] && empty($_
     $_POST['state']['y']['outdoor']['page']['header'] = false;
 }
 
-Hook::set('_', function ($_) use ($state, $url) {
+Hook::set('_', function ($_) use ($link, $state) {
     if ('.state' === $_['path']) {
         $banners = [0 => 'None'];
         foreach (g(LOT . D . 'y' . D . 'outdoor' . D . 'banner', 'jpg') as $k => $v) {
@@ -26,8 +26,8 @@ Hook::set('_', function ($_) use ($state, $url) {
         }
         $lot = [];
         foreach (Pages::from(LOT . D . 'page', 'archive,page')->sort([1, 'title']) as $v) {
-            $lot[strtr($v->url, [
-                $url . '/' => '/'
+            $lot[strtr($v->link, [
+                $link . '/' => '/'
             ])] = $v->title;
         }
         $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields'] = [
@@ -36,7 +36,7 @@ Hook::set('_', function ($_) use ($state, $url) {
         ];
         $banner = $state->y->outdoor->banner ?? 0;
         $banner_file = __DIR__ . D . '..' . D . 'banner' . D . $banner . '.jpg';
-        $banner_link = is_file($banner_file) ? To::URL($banner_file) : null;
+        $banner_link = is_file($banner_file) ? To::link($banner_file) : null;
         $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['banner'] = [
             'description' => $banner_link ? 'If the image below looks broken, the image file may no longer exist.' : null,
             'field-exit' => $banner_link ? '<p><img alt="' . i('Banner') . '" src="' . $banner_link . '?v=' . filemtime($banner_file) . '" style="display: block;"></p>' : null,

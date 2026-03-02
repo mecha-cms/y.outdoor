@@ -5,7 +5,8 @@
     $author = $page->author;
 
     if (isset($state->x->user) && $author instanceof User) {
-        $author = '<a href="' . eat($author->link ?? $author->url) . '" rel="author" target="_blank">' . $author . '</a>';
+        $author_links = (array) ($author->links ?? []);
+        $author = '<a href="' . eat($author_links ? reset($author_links) : $author->link) . '" rel="author" target="_blank">' . $author . '</a>';
     }
 
     if (!$author) {
@@ -26,7 +27,7 @@
 
         if ($tags = $page->tags) {
             foreach ($tags->sort([1, 'title']) as $tag) {
-                $r[] = '<a href="' . eat($tag->url) . '" rel="tag">' . $tag->title . '</a>';
+                $r[] = '<a href="' . eat($tag->link) . '" rel="tag">' . $tag->title . '</a>';
             }
         }
 

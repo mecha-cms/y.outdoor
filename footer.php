@@ -7,7 +7,7 @@
   <div>
     <p>
       <span>
-        &#x00a9; <?= $date->year; ?> <a href="<?= eat($url); ?>">
+        &#x00a9; <?= $date->year; ?> <a href="<?= eat($link->home); ?>">
           <?= $site->title; ?>
         </a>
       </span>
