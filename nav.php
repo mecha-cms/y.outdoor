@@ -21,8 +21,7 @@
             <?= $link->title; ?>
           </a>
         <?php else: ?>
-          <?php $links = (array) ($link->links ?? []); ?>
-          <a href="<?= eat($links ? reset($links) : ($link->link . (q($link->children) ? '/1' : ""))); ?>">
+          <a href="<?= eat(first($link->links ?? []) ?? ($link->link . (q($link->children) ? '/1' : ""))); ?>">
             <?= $link->title; ?>
           </a>
         <?php endif; ?>

@@ -14,7 +14,7 @@ if (!empty($shake)) {
 }
 
 $current = (lot('page')->link ?? "") . '/';
-foreach ($pages->chunk($take ?? 5, 0) as $page) {
+foreach ($pages->limit($limit ?? 5) as $page) {
     $list[] = '<a' . (0 === strpos($current, ($k = $page->link) . '/') ? ' aria-current="true"' : "") . ' href="' . $k . '">' . $page->title . '</a>';
 }
 

@@ -3,12 +3,12 @@ title: Outdoor
 description: A classic fixed-width layout with an open nature theme.
 image: /lot/y/outdoor/index.png
 images:
-- /lot/y/outdoor/index.png
-- /lot/y/outdoor/index/1.png
+  - /lot/y/outdoor/index.png
+  - /lot/y/outdoor/index/1.png
 author: Taufik Nurrohman
 type: Markdown
 links: [https://www.styleshout.com/legacy-templates]
-version: 2.1.0
+version: 3.0.0
 ...
 
 A classic template designed by [StyleShout][1]. The first time I found it on the [BTemplates][2] website around 2009

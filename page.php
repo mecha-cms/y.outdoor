@@ -23,9 +23,9 @@
         <?= i('No %s.', 'content'); ?>
       </p>
       <?php endif; ?>
-      <?php if ($links = (array) ($page->links ?? [])): ?>
+      <?php if ($links = $page->links): ?>
         <p role="group">
-          <a href="<?= eat(reset($links)); ?>" rel="nofollow" role="button" target="_blank">
+          <a href="<?= eat(first($links)); ?>" rel="nofollow" role="button" target="_blank">
             <?= i('Visit Link'); ?>
           </a>
         </p>

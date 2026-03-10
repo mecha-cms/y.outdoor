@@ -25,9 +25,8 @@ if (isset($state->x->user, $user)) {
     }
 }
 
-asort($metas);
-
 if ($metas) {
+    asort($metas);
     echo '<h2>' . i('Links') . '</h2>';
     echo '<ul>';
     foreach ($metas as $k => $v) {

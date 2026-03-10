@@ -5,8 +5,7 @@
     $author = $page->author;
 
     if (isset($state->x->user) && $author instanceof User) {
-        $author_links = (array) ($author->links ?? []);
-        $author = '<a href="' . eat($author_links ? reset($author_links) : $author->link) . '" rel="author" target="_blank">' . $author . '</a>';
+        $author = '<a href="' . eat(first($author->links ?? []) ?? $author->link) . '" rel="author" target="_blank">' . $author . '</a>';
     }
 
     if (!$author) {
