@@ -3,7 +3,7 @@
 $metas = [];
 
 if (isset($state->x->feed)) {
-    $metas[$link->base(($state->routeBlog ?? '/article') . '/feed.xml')] = 'RSS';
+    $metas[$link->base(($state->routeLog ?? '/article') . '/feed.xml')] = 'RSS';
 }
 
 if (isset($state->x->sitemap)) {
