@@ -135,11 +135,7 @@ li {
   font-weight: bold;
 }
 
-%i {
-  font-style: italic;
-}
-
-%input {
+%entry {
   accent-color: #88ac0b;
   background: #f7f0e3;
   border: 1px solid #d8d2c7;
@@ -152,6 +148,10 @@ li {
   text-decoration: none;
   vertical-align: middle;
   width: 12rem;
+}
+
+%i {
+  font-style: italic;
 }
 
 %label {
@@ -453,7 +453,7 @@ input,
 output,
 select,
 textarea {
-  @extend %input;
+  @extend %entry;
 }
 
 button {

@@ -25,9 +25,9 @@ Hook::set('_', function ($_) use ($link, $state) {
             $formats[$format] = $time($format);
         }
         $lot = [];
-        foreach (Pages::from(LOT . D . 'page', 'archive,page')->sort([1, 'title']) as $v) {
+        foreach (Pages::from(LOT . D . 'page', x\page\x())->sort([1, 'title']) as $v) {
             $lot[strtr($v->link, [
-                $link . '/' => '/'
+                $link->base . '/' => '/'
             ])] = $v->title;
         }
         $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields'] = [
@@ -68,7 +68,7 @@ Hook::set('_', function ($_) use ($link, $state) {
                 'header' => !empty($state->y->outdoor->page->header) ? true : null
             ]
         ];
-        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['route-blog'] = [
+        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['route-log'] = [
             'description' => 'Choose default page for the blog route.',
             'lot' => $lot,
             'name' => 'state[route-log]',

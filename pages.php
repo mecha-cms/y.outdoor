@@ -28,8 +28,8 @@
             </p>
             <?php if ($title = $page->title): ?>
               <h3>
-                <?php if ($links = $page->links): ?>
-                  <a href="<?= eat(first($links)); ?>" target="_blank">
+                <?php if ($link = first($page->links ?? [])): ?>
+                  <a href="<?= eat($link); ?>" target="_blank">
                     &#x27a0; <?= $title; ?>
                   </a>
                 <?php else: ?>
@@ -51,8 +51,8 @@
               <a href="<?= eat($page->link); ?>#next:<?= eat($page->id); ?>">
                 <?= i('Read More'); ?>
               </a>
-              <?php if ($links = $page->links): ?>
-                <a href="<?= eat(first($links)); ?>" rel="nofollow" target="_blank">
+              <?php if ($link = first($page->links ?? [])): ?>
+                <a href="<?= eat($link); ?>" rel="nofollow" target="_blank">
                   <?= i('Visit Link'); ?>
                 </a>
               <?php endif; ?>

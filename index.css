@@ -162,12 +162,6 @@ th {
   font-weight: bold;
 }
 
-em,
-i,
-var {
-  font-style: italic;
-}
-
 button,
 [role=button],
 input[type=button],
@@ -189,6 +183,12 @@ textarea {
   text-decoration: none;
   vertical-align: middle;
   width: 12rem;
+}
+
+em,
+i,
+var {
+  font-style: italic;
 }
 
 .nav a,
