@@ -677,7 +677,7 @@ textarea {
 
 .body {
   background: #fff;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px rgb(0 0 0 / 0.5);
   margin: 50px auto;
   padding: 15px;
   position: relative;
@@ -844,8 +844,8 @@ textarea {
   a {
     @extend %label;
     border: {
-      left: 1px solid rgba(255, 255, 255, 0.175);
-      right: 1px solid rgba(0, 0, 0, 0.125);
+      left: 1px solid rgb(255 255 255 / 0.175);
+      right: 1px solid rgb(0 0 0 / 0.125);
     }
     color: inherit;
     display: block;
@@ -853,10 +853,18 @@ textarea {
     text-decoration: none;
     &:focus,
     &:hover {
-      background: rgba(0, 0, 0, 0.025);
+      background: rgb(0 0 0 / 0.025);
+      border: {
+        left-color: rgb(255 255 255 / 0.135);
+        right-color: rgb(0 0 0 / 0.145);
+      }
     }
     &:active {
-      background: rgba(0, 0, 0, 0.045);
+      background: rgb(0 0 0 / 0.045);
+      border: {
+        left-color: rgb(255 255 255 / 0.115);
+        right-color: rgb(0 0 0 / 0.125);
+      }
     }
   }
   li,
@@ -866,7 +874,7 @@ textarea {
     padding: 0;
   }
   mark {
-    background: rgba(0, 0, 0, 0.125);
+    background: rgb(0 0 0 / 0.125);
   }
   li {
     &:first-child {

@@ -783,10 +783,14 @@ textarea {
 .nav a:hover,
 .nav [role=link]:hover {
   background: rgba(0, 0, 0, 0.025);
+  border-left-color: rgba(255, 255, 255, 0.135);
+  border-right-color: rgba(0, 0, 0, 0.145);
 }
 .nav a:active,
 .nav [role=link]:active {
   background: rgba(0, 0, 0, 0.045);
+  border-left-color: rgba(255, 255, 255, 0.115);
+  border-right-color: rgba(0, 0, 0, 0.125);
 }
 .nav li,
 .nav ul {
