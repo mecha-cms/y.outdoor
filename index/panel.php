@@ -68,14 +68,14 @@ Hook::set('_', function ($_) use ($link, $state) {
                 'header' => !empty($state->y->outdoor->page->header) ? true : null
             ]
         ];
-        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['route-log'] = [
+        $_['lot']['desk']['lot']['form']['lot'][1]['lot']['tabs']['lot']['blog']['lot']['fields']['lot']['sub-log'] = [
             'description' => 'Choose default page for the blog route.',
             'lot' => $lot,
-            'name' => 'state[route-log]',
+            'name' => 'state[sub-log]',
             'stack' => 130,
             'title' => 'Route',
             'type' => 'option',
-            'value' => $state->routeLog
+            'value' => $state->subLog
         ];
     }
     return $_;
