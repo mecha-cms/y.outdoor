@@ -162,7 +162,7 @@ if (isset($state->x->excerpt)) {
 }
 
 $states = [
-    'route-log' => '/article',
+    'sub-log' => '/article',
     'x.comment.lot.type' => isset($state->x->comment) ? 'Markdown' : null,
     'x.page.lot.type' => isset($state->x->page) ? 'Markdown' : null
 ];
