@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class>
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=1024" name="viewport">
+    <?php if ($s = w($page->description ?? $site->description ?? "")) { ?>
+      <meta content="<?= $s; ?>" name="description">
+    <?php } ?>
+    <meta content="<?= eat($page->author); ?>" name="author">
+    <title>
+      <?= w($t->reverse()); ?>
+    </title>
+    <link href="<?= eat($link->base('/favicon.ico')); ?>" rel="icon">
+    <link href="<?= eat($link->current(false, false)); ?>" rel="canonical">
+  </head>
+  <body>
+    <div class="body">
+      <header class="header">
+        <h1>
+          <?php if ($site->is('home')) { ?>
+            <a aria-current="page">
+              <?= $site->title; ?>
+            </a>
+          <?php } else { ?>
+            <a href="<?= eat($link->home); ?>">
+              <?= $site->title; ?>
+            </a>
+          <?php } ?>
+        </h1>
+        <p>
+          <?= $site->description; ?>
+        </p>
+      </header>
+      <?php if ($banner = Asset::link(__DIR__ . D .  'banner' . D . $state->y->outdoor->banner . '.jpg')) { ?>
+        <figure class="banner">
+          <img alt="<?= eat(i('Photo')); ?>" height="206" src="<?= eat($banner); ?>" width="870">
+        </figure>
+      <?php } ?>
+      <h2>
+        <?= i('Navigation'); ?>
+      </h2>
+      <nav class="nav">
+        <ul>
+          <li>
+            <?php if ($site->is('home')) { ?>
+              <a aria-current="page">
+                <?= i('Home'); ?>
+              </a>
+            <?php } else { ?>
+              <a href="<?= eat($link->home); ?>">
+                <?= i('Home'); ?>
+              </a>
+            <?php } ?>
+          </li>
+          <?php foreach ($data[0] as $o) { ?>
+            <li>
+              <?php if ($o->current) { ?>
+                <a aria-current="page">
+                  <?= $o->title; ?>
+                </a>
+              <?php } else { ?>
+                <a href="<?= eat(first($o->links ?? []) ?? ($o->link . (q($o->children) ? '/1' : ""))); ?>">
+                  <?= $o->title; ?>
+                </a>
+              <?php } ?>
+            </li>
+          <?php } ?>
+        </ul>
+      </nav>
+      <?php if (q($data[2])) { ?>
+        <h2>
+          <?= i('Links'); ?>
+        </h2>
+        <ul>
+          <?php foreach ($data[2] as $o) { ?>
+            <li>
+              <a href="<?= eat($o->link); ?>">
+                <?= $o->title; ?>
+              </a>
+            </li>
+          <?php } ?>
+        </ul>
+      <?php } ?>
+      <div class="content">
+        <main class="main">
+          <?= self::alert(); ?>
+          <?php if ($site->is('page')) { ?>
+            <?php if ($page->exist) { ?>
+              <article class="page" id="page:<?= eat($page->id); ?>">
+                <header>
+                  <?php if ($site->has('parent')) { ?>
+                    <p>
+                      <time datetime="<?= eat($page->time->format('c')); ?>">
+                        <?= $page->time($state->y->outdoor->page->timeFormat ?? '%F %T'); ?>
+                      </time>
+                    </p>
+                  <?php } ?>
+                  <?php if ($s = $page->title) { ?>
+                    <h2>
+                      <?= $s; ?>
+                    </h2>
+                  <?php } ?>
+                </header>
+                <div>
+                  <?php if ($s = $page->content) { ?>
+                    <?= $s; ?>
+                  <?php } else { ?>
+                    <p role="status">
+                      <?= i('No %s.', 'content'); ?>
+                    </p>
+                  <?php } ?>
+                  <?php if ($s = first($page->links ?? [])) { ?>
+                    <p role="group">
+                      <a href="<?= eat($s); ?>" rel="nofollow" role="button" target="_blank">
+                        <?= i('Visit Link'); ?>
+                      </a>
+                    </p>
+                  <?php } ?>
+                </div>
+                <?php if ($site->has('parent')) { ?>
+                  <footer>
+                    <p>
+                      <?php
+
+                      $author = $page->author;
+
+                      if (isset($state->x->user) && $author instanceof User) {
+                          $author = '<a href="' . eat(first($author->links ?? []) ?? $author->link) . '" rel="author" target="_blank">' . $author . '</a>';
+                      }
+
+                      if (!$author) {
+                          $author = '<em>' . i('Anonymous') . '</em>';
+                      }
+
+                      $time = '<time datetime="' . eat($page->time->format('c')) . '">' . $page->time('%I:%M %p') . '</time>';
+
+                      ?>
+                      <?= i('Posted by %s at %s', [$author, $time]); ?>
+                      <?php
+
+                      if (isset($state->x->tag)) {
+
+                          echo '<br>';
+
+                          $r = [];
+
+                          if ($tags = $page->tags) {
+                              foreach ($tags->sort([1, 'title']) as $tag) {
+                                  $r[] = '<a href="' . eat($tag->link) . '" rel="tag">' . $tag->title . '</a>';
+                              }
+                          }
+
+                          echo i('Tag' . (1 === ($count = count($r)) ? "" : 's')) . ': ' . ($count ? implode(', ', $r) : '<em>' . i('Untagged') . '</em>');
+
+                      }
+
+                      ?>
+                    </p>
+                  </footer>
+                  <?php if (isset($state->x->comment)) { ?>
+                    <?= self::comments(); ?>
+                  <?php } ?>
+                <?php } ?>
+              </article>
+            <?php } else { ?>
+              <article class="page">
+                <header>
+                  <h2>
+                    <?= i('Error'); ?>
+                  </h2>
+                </header>
+                <div>
+                  <p role="status">
+                    <?= i('%s does not exist.', 'Page'); ?>
+                  </p>
+                </div>
+              </article>
+            <?php } ?>
+          <?php } else if ($site->is('pages')) { ?>
+            <?php if ($page->exist) { ?>
+              <article class="page" id="page:<?= eat($page->id); ?>">
+                <?php if ($site->with('page-header')) { ?>
+                  <header>
+                    <?php if ($s = $page->title) { ?>
+                      <h2>
+                        <?= $s; ?>
+                      </h2>
+                    <?php } ?>
+                    <?php if ($s = $page->description) { ?>
+                      <p>
+                        <?= $s; ?>
+                      </p>
+                    <?php } ?>
+                  </header>
+                <?php } ?>
+                <?php $date_time_format = $state->y->outdoor->page->timeFormat ?? '%F %T'; ?>
+                <?php $with_image = isset($state->x->image); ?>
+                <?php if ($pages->count) { ?>
+                  <?php foreach ($pages as $page) { ?>
+                    <article class="page" id="page:<?= eat($page->id); ?>">
+                      <header>
+                        <p>
+                          <time datetime="<?= eat($page->time->format('c')); ?>">
+                            <?= $page->time($date_time_format); ?>
+                          </time>
+                        </p>
+                        <?php if ($s = $page->title) { ?>
+                          <h3>
+                            <?php if ($ss = first($page->links ?? [])) { ?>
+                              <a href="<?= eat($ss); ?>" target="_blank">
+                                &#x27a0; <?= $s; ?>
+                              </a>
+                            <?php } else { ?>
+                              <a href="<?= eat($page->link . (q($page->children) ? '/1' : "")); ?>">
+                                <?= $s; ?>
+                              </a>
+                            <?php } ?>
+                          </h3>
+                        <?php } ?>
+                      </header>
+                      <?php if ($with_image && !($s = $page->excerpt) && ($ss = $page->image(120, 120, 100))) { ?>
+                        <figure>
+                          <img alt="" height="120" src="<?= eat($ss); ?>" width="120">
+                        </figure>
+                      <?php } ?>
+                      <div>
+                        <?= $s ?? '<p>' . To::description($page->description ?? $page->content, 250) . '</p>'; ?>
+                        <p role="group">
+                          <a href="<?= eat($page->link); ?>#next:<?= eat($page->id); ?>">
+                            <?= i('Read More'); ?>
+                          </a>
+                          <?php if ($s = first($page->links ?? [])) { ?>
+                            <a href="<?= eat($s); ?>" rel="nofollow" target="_blank">
+                              <?= i('Visit Link'); ?>
+                            </a>
+                          <?php } ?>
+                        </p>
+                      </div>
+                    </article>
+                  <?php } ?>
+                <?php } else { ?>
+                  <?php if ($site->has('prev')) { ?>
+                    <p role="status">
+                      <?= i('No more %s to show.', 'pages'); ?>
+                    </p>
+                  <?php } else { ?>
+                    <p role="status">
+                      <?= i('No %s yet.', 'pages'); ?>
+                    </p>
+                  <?php } ?>
+                <?php } ?>
+                <nav class="pager">
+                  <ul>
+                    <li>
+                      <?php if ($o = $pager->prev) { ?>
+                        <a href="<?= eat($o->link); ?>" rel="prev" title="<?= eat($o->description); ?>">
+                          <?= i('Newer %s', 'Posts'); ?>
+                        </a>
+                      <?php } ?>
+                    </li>
+                    <li>
+                      <?php if ($o = $page->parent) { ?>
+                        <a href="<?= eat($o->link . (q($o->children) ? '/1' : "")); ?>" title="<?= eat(w($o->description)); ?>">
+                          <?= $o->title ?? i('Parent'); ?>
+                        </a>
+                      <?php } else { ?>
+                        <?php if (!$site->is('home')) { ?>
+                          <a href="<?= eat($link->home); ?>">
+                            <?= i('Home'); ?>
+                          </a>
+                        <?php } ?>
+                      <?php } ?>
+                    </li>
+                    <li>
+                      <?php if ($o = $pager->next) { ?>
+                        <a href="<?= eat($o->link); ?>" rel="next" title="<?= eat($o->description); ?>">
+                          <?= i('Older %s', 'Posts'); ?>
+                        </a>
+                      <?php } ?>
+                    </li>
+                  </ul>
+                </nav>
+              </article>
+            <?php } else { ?>
+              <article class="page">
+                <header>
+                  <h2>
+                    <?= i('Error'); ?>
+                  </h2>
+                </header>
+                <div>
+                  <p role="status">
+                    <?= i('%s does not exist.', 'Page'); ?>
+                  </p>
+                </div>
+              </article>
+            <?php } ?>
+          <?php } ?>
+        </main>
+        <?= self::part('aside'); ?>
+      </div>
+      <footer class="footer">
+        <div>
+          <?= self::part('aside/column-1'); ?>
+          <?= self::part('aside/column-2'); ?>
+          <?= self::part('aside/column-3'); ?>
+        </div>
+        <div>
+          <p>
+            <span>
+              &#x00a9; <?= $date->year; ?> <a href="<?= eat($link->home); ?>">
+                <?= $site->title; ?>
+              </a>
+            </span>
+            <span>
+              <!-- You have to maintain this back link to support the theme designer, or visit this back link to find a legal way to remove it via the theme designer’s discretion. -->
+              <?= i('Designed by %s', ['<a href="https://www.styleshout.com" rel="nofollow" target="_blank">StyleShout</a>']); ?>
+            </span>
+            <span>
+              <!-- You have to maintain this back link to support me, or make a proper donation to remove it. -->
+              <?= i('Powered by %s', ['<a href="https://mecha-cms.com" rel="nofollow" target="_blank">Mecha ' . VERSION . '</a>']); ?>
+            </span>
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
