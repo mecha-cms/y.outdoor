@@ -172,5 +172,5 @@ foreach ($states as $k => $v) {
 }
 
 if (!empty($state->y->outdoor->page->header)) {
-    \State::set('with.page-header', true);
+    \State::set('with.page-header', true); // For style(s)
 }
